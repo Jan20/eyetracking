@@ -1,0 +1,44 @@
+<ng-include src="'views/main/sidebar/sidebar.html'"></ng-include>
+
+        <!-- <h1 class='sideheader'>To Do List</h1> -->
+
+        <table class='table' ng-repeat='todo in todos track by $index'>
+            <tr>
+                <td class='col-md-1 col-sm-1 col-xs-1'>{{todo.id}}</td>
+                <td class='col-md-5 col-sm-5 col-xs-5'>{{todo.text}}</td>
+                <td class='col-md-3 col-sm-3 col-xs-3'>{{todo.done}}</td>                {{todo.id}}
+                <td class='col-md-3 col-sm-3 col-xs-3'> 
+                    <button class='btn btn-default' ng-click='deleteTodo(todo.id)'>Delete</button>
+                    <button class='btn btn-default' ng-click='completeTodo(todo)'>Complete</button>
+                </td>    
+            </tr>
+        </table>
+
+        <div class="well">
+            
+        </div>
+        <div role="tabpanel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#home" aria-controls="home" role="tab" data-toggle="tab">home</a>
+                </li>
+                <li role="presentation">
+                    <a href="#tab" aria-controls="tab" role="tab" data-toggle="tab">tab</a>
+                </li>
+            </ul>
+        
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">...</div>
+                <div role="tabpanel" class="tab-pane" id="tab">...</div>
+            </div>
+        </div>
+        bs        </div>
+        <div class='col-md-8 col-sm-8 col-xs-8'>
+            <input class='form-control' type='text' ng-model='formTodoText'>
+		</div>
+        
+        <div class='col-md-4 col-sm-4 col-xs-4'>
+    		<button class='btn btn-default' ng-click='addTodo()'>Submit</button>
+		</div>

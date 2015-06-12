@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="css/mainStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="views/main/navbar/navbar.css"/>
+    <link rel="stylesheet" type="text/css" href="views/main/sidebar/sidebar.css"/>
+    
+	<!-- CSS for Views -->
+    <link rel="stylesheet" type="text/css" href="views/quotes/viewQuotes/viewQuotes.css"/>
+    <link rel="stylesheet" type="text/css" href="views/quotes/createQuotes/createQuotes.css"/>
+
+
+</head>
+
+<body ng-app='myApp'>
+
+<div ng-include src="'views/main/navbar/navbar.html'"></div>	
+
+<div ng-view></div>
+
+
+
+<!-- Bootstrap JavaScript -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src='bower_components/angular-route/angular-route.js'></script>
+
+<!-- Angular Controller -->
+<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/router.js"></script>
+<script src="js/todosController.js"></script>
+
+<script src="views/quotes/quotesController.js"></script>
+<script src="views/quotes/createQuotes/createQuotes.js" type="text/javascript" charset="utf-8" async defer></script>
+<!-- Additional JavaScript -->
+
+
+</body>
+</html>
+
+
+
+

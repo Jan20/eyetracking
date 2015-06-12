@@ -1,0 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+
+  	
+    	*{
+    		font-family: 'Open Sans';
+    	}
+
+
+        body{
+            background-image: url(../img/test.jpg);
+        }
+

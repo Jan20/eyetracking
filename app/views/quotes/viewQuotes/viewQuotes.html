@@ -1,0 +1,20 @@
+<ng-include src="'views/main/sidebar/sidebar.html'"></ng-include>
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3 quoteCreateCard">
+    <div class="row quoteCreateCardInner">
+       	<div class="row">
+       		<h1 class='viewQuoteCardH3 col-md-11'>Quote Nr. {{current.id}}</h1>
+
+		<button type="button" class="btn btn-default col-md-1" id='deleteQuotesButton' ng-click='deleteQuote()'><span class='glyphicon glyphicon-remove'></span></button>
+		<button type="button" class="btn btn-default col-md-1" id='deleteQuotesButton' ng-click='deleteQuote()'><span class='glyphicon glyphicon-edit'></span></button>
+		
+	
+       	</div>
+
+		<h1 class='viewQuoteCardH1'>{{current.text}}</h1>
+		<h1 class='viewQuoteCardH2'>{{current.author}}</h1>
+
+
+
+    </div>
+</div>
+</div>
