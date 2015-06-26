@@ -52,7 +52,7 @@ mainApp.controller("mainController", ['$scope', function($scope) {
 		visitedSecondTime: false,
 		choosedSecondTime: false
    },
-      
+
    {
    		id: 6,
    		image: '',
@@ -62,7 +62,7 @@ mainApp.controller("mainController", ['$scope', function($scope) {
 		visitedSecondTime: false,
 		choosedSecondTime: false
    },
-      
+
    {
    		id: 7,
    		image: '',
@@ -72,7 +72,7 @@ mainApp.controller("mainController", ['$scope', function($scope) {
 		visitedSecondTime: false,
 		choosedSecondTime: false
    },
-      
+
    {
    		id: 8,
    		image: '',
@@ -82,7 +82,7 @@ mainApp.controller("mainController", ['$scope', function($scope) {
 		visitedSecondTime: false,
 		choosedSecondTime: false
    },
-      
+
    {
    		id: 9,
    		image: '',

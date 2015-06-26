@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,26 +16,28 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
+
     <body ng-app="mainApp" ng-controller="mainController">
         <div ng-include src="'templates/navbar.html'"></div>
-        <div class="container">
-            <a type="button" class="btn btn-default" ng-href='#/step/1'>button</a>
-            <ng-view>
-            
-    </div>
-</div>
-</body>
-<!-- jQuery -->
-<script type="text/javascript" src='bower_components/jQuery/dist/jQuery.js'></script>
-<!-- Bootstrap JavaScript -->
-<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src='bower_components/angular/angular.js'></script>
-<script type="text/javascript" src='bower_components/angular-route/angular-route.js'></script>
-<!-- jQuery -->
-<!--<script type="text/javascript" src='bower_components/jquery/dist/jquery.js'></script>-->
-<!--<script type="text/javascript" src='bower_components/bootstrap/jquery.js'></script>-->
-<!-- Bootstrap JavaScript -->
-<script type="text/javascript" src="main/mainApp.js"></script>
-<script type="text/javascript" src="main/mainController.js"></script>
+            <div class="container">
+                <a type="button" class="btn btn-default" ng-href='#/step/1'>button</a>
+                <ng-view>
+            </div>
+        </div>
+    </body>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src='bower_components/jQuery/dist/jQuery.js'></script>
+    <!-- Bootstrap JavaScript -->
+    <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='bower_components/angular/angular.js'></script>
+    <script type="text/javascript" src='bower_components/angular-route/angular-route.js'></script>
+    <!-- jQuery -->
+    <!--<script type="text/javascript" src='bower_components/jquery/dist/jquery.js'></script>-->
+    <!--<script type="text/javascript" src='bower_components/bootstrap/jquery.js'></script>-->
+    <!-- Bootstrap JavaScript -->
+    <script type="text/javascript" src="main/mainApp.js"></script>
+    <script type="text/javascript" src="main/mainController.js"></script>
+
 </html>
