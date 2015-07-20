@@ -1,0 +1,26 @@
+<div class='iwm-intro-area-view2 col-md-6'>
+Sie haben folgende Hotels in die engere Auswahl genommen. Sie können nun erneut die einzelnen Hotelseiten auf hotels.com aufrufen, wenn Sie auf die Hotels klicken. Anschließend schließen Sie gegebenenfalls die einzelnen Hotelseiten von hotels.com und kehren Sie zu dieser Übersicht zurück.  Bitte treffen Sie in Ruhe eine Hotelwahl für Ihren Urlaub.
+</div>
+<div class='col-md-12'>
+    <div ng-repeat='product in hotels' ng-if='product.choosedIn3 == true'>
+        <a href="{{product.url}}" target="_blank" ng-click='setVisitedIn6(product.id)'>
+        <div class="col-md-5" ng-if='product.id%2 == 0'>
+            <img class='col-md-12 img-hotel-with-Link' src='{{product.image}}'>
+        </div>        
+        <div class="col-md-5 col-md-offset-1" ng-if='product.id%2 == 1'>
+            <img class='col-md-12 img-hotel-with-Link' src='{{product.image}}'>
+        </div>
+        </a>
+    </div>
+</div>
+
+<a ng-href='#/7b' class='iwm-intro-area-view2 col-md-6 btn btn-default'>
+<div class='col-md-10'>
+    <p class='link-description'>Klicken Sie bitte hier um Ihre engere Auswahl zu treffen.</p>
+</div>
+<div col-md-2>
+    <span class='fa fa-angle-right'></span>
+</div>
+</a>
+
+

@@ -1,0 +1,23 @@
+<div class='iwm-intro-area-view2 col-md-6'>
+<strong>Bitte entscheiden Sie vorerst, welche der 8 Hotels</strong> Sie in die <strong>engere Auswahl</strong> nehmen wollen (mehrere Möglichkeiten erlaubt). Danach stehen Ihnen nochmals alle Hotelinformationen zur Verfügung. 
+</div>
+<div class='col-md-12'>
+    <div ng-repeat='product in hotels'>
+        <a href="{{product.url}}" target="_blank" ng-click='setVisitedIn2(product.id)'>
+        <div class="col-md-5" ng-if='product.id%2 == 0'>
+            <img class='col-md-12 img-hotel-with-Link' src='{{product.image}}'>
+        </div>        
+        <div class="col-md-5 col-md-offset-1" ng-if='product.id%2 == 1'>
+            <img class='col-md-12 img-hotel-with-Link' src='{{product.image}}'>
+        </div>
+        </a>
+    </div>
+</div>
+<a ng-href='#/3b' class='iwm-intro-area-view2 col-md-6 btn btn-default'>
+    <div class='col-md-10'>
+        <p class='link-description'>Klicken Sie unten auf den roten Pfeil, wenn Sie Ihre engere Auswahl getroffen haben.</p>
+    </div>
+    <div col-md-2>
+        <span class='fa fa-angle-right'></span>
+    </div>
+</a>
