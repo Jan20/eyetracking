@@ -14,7 +14,7 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
         image: 'app/modules/core/assets/hotels/Designhotel Elephant Prague.JPG',
         url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=8&hotel-id=309570&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
         visitedIn2: false,
-        choosedIn3: false,
+        choosedIn3: true,
         visitedIn6: false,
         choosedIn7: false
     }, {
