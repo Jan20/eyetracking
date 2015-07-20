@@ -1,21 +1,21 @@
 eyetrackingApp.controller("coreController", ['$scope', function($scope) {
     // View 1
-    $scope.userNumber = 12;
+    $scope.userNumber = null;
     $scope.products = [{
         id: 1,
         image: 'app/modules/core/assets/cameras/Canon IXUS 170 Digitalkamera.jpg',
         url: 'http://www.amazon.de/Canon-Digitalkamera-Megapixel-Bildstabilisator-LCD-Display/dp/B00RYV9R20/ref=sr_1_1?&s=photo&ie=UTF8&qid=1436878022&sr=1-1&keywords=digitalkamera',
-        visitedIn2: true,
-        choosedIn3: true,
-        visitedIn6: true,
-        choosedIn7: true
+        visitedIn2: false,
+        choosedIn3: false,
+        visitedIn6: false,
+        choosedIn7: false
     }, {
         id: 2,
         image: 'app/modules/core/assets/cameras/Canon PowerShot A2500 Digitalkamera.jpg',
         url: 'http://www.amazon.de/Canon-PowerShot-Digitalkamera-Megapixel-bildstabilisiert/dp/B00B7J6I8G/ref=sr_1_12?s=photo&ie=UTF8&qid=1437142496&sr=1-12&keywords=Digitalkamera',
-        visitedIn2: true,
-        choosedIn3: true,
-        visitedIn6: true,
+        visitedIn2: false,
+        choosedIn3: false,
+        visitedIn6: false,
         choosedIn7: false
     }, {
         id: 3,

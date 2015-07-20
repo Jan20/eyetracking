@@ -1,21 +1,21 @@
 eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
     // View 1
-    $scope.userNumber = 12;
+    $scope.userNumber = null;
     $scope.hotels = [{
         id: 9,
         image: 'app/modules/core/assets/hotels/Boutique Hotel Seven Days.JPG',
         url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=4&hotel-id=208050&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
-        visitedIn2: true,
-        choosedIn3: true,
-        visitedIn6: true,
-        choosedIn7: true
+        visitedIn2: false,
+        choosedIn3: false,
+        visitedIn6: false,
+        choosedIn7: false
     }, {
         id: 10,
         image: 'app/modules/core/assets/hotels/Designhotel Elephant Prague.JPG',
         url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=8&hotel-id=309570&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
-        visitedIn2: true,
-        choosedIn3: true,
-        visitedIn6: true,
+        visitedIn2: false,
+        choosedIn3: false,
+        visitedIn6: false,
         choosedIn7: false
     }, {
         id: 11,

@@ -5,7 +5,7 @@ eyetrackingApp.controller('timerController', ['$scope', function($scope) {
     
     $scope.startTimer = function() {
     
-        $scope.timerDuration = 2;
+        $scope.timerDuration = 5;
         $scope.currentMinute = 1;
         $scope.currentSecond = 30;
     
