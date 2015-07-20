@@ -4,7 +4,7 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
     $scope.hotels = [{
         id: 9,
         image: 'app/modules/core/assets/hotels/Boutique Hotel Seven Days.JPG',
-        url: 'http://www.amazon.de/Hisense-LTDN40D36SEU-LED-Backlight-Fernseher-Full-HD/dp/B00IZFWD5C/ref=sr_1_5?s=home-theater&ie=UTF8&qid=1424252862&sr=1-5',
+        url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=4&hotel-id=208050&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
         visitedIn2: true,
         choosedIn3: true,
         visitedIn6: true,
@@ -12,7 +12,7 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
     }, {
         id: 10,
         image: 'app/modules/core/assets/hotels/Designhotel Elephant Prague.JPG',
-        url: 'http://www.amazon.de/LG-42LB5500-LED-Backlight-Fernseher-100Hz-schwarz/dp/B00J7K1YIG/ref=sr_1_3?s=home-theater&ie=UTF8&qid=1424252862&sr=1-3',
+        url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=8&hotel-id=309570&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
         visitedIn2: true,
         choosedIn3: true,
         visitedIn6: true,
@@ -20,7 +20,7 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
     }, {
         id: 11,
         image: 'app/modules/core/assets/hotels/Grand Majestic Plaza.JPG',
-        url: 'http://www.amazon.de/Philips-40PFK4509-12-LED-Backlight-Fernseher-schwarz/dp/B00JMFCCC8/ref=sr_1_13?s=home-theater&ie=UTF8&qid=1424258647&sr=1-13',
+        url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=6&hotel-id=325392&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
@@ -28,7 +28,7 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
     }, {
         id: 12,
         image: 'app/modules/core/assets/hotels/Grandior Hotel Prague.JPG',
-        url: 'http://www.amazon.de/Samsung-UE40H5090-LED-Backlight-Fernseher-100Hz-schwarz/dp/B00MFWTTT4/ref=sr_1_2?s=home-theater&ie=UTF8&qid=1424252862&sr=1-2',
+        url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=3&hotel-id=447952&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
@@ -36,7 +36,7 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
     }, {
         id: 13,
         image: 'app/modules/core/assets/hotels/Hilton Prague.JPG',
-        url: 'http://www.amazon.de/Sony-KDL-40W605-LED-Backlight-Fernseher-Motionflow-schwarz/dp/B00I3WQKUG/ref=sr_1_9?s=home-theater&ie=UTF8&qid=1424252862&sr=1-9',
+        url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=5&hotel-id=110101&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
@@ -44,7 +44,7 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
     }, {
         id: 14,
         image: 'app/modules/core/assets/hotels/Hotel Certovka.JPG',
-        url: 'http://www.amazon.de/TCL-L40E3005F-LED-Backlight-Fernseher-Hotelmodus-schwarz/dp/B00IMCXX98/ref=sr_1_16?s=home-theater&ie=UTF8&qid=1424252862&sr=1-16',
+        url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=13&hotel-id=492486&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
@@ -52,7 +52,7 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
     }, {
         id: 15,
         image: 'app/modules/core/assets/hotels/Hotel Perla.JPG',
-        url: 'http://www.amazon.de/Telefunken-D40F275I3C-LED-Backlight-Fernseher-schwarz/dp/B00S6H90CI/ref=sr_1_19?s=home-theater&ie=UTF8&qid=1424341004&sr=1-19',
+        url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=10&hotel-id=253315&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
@@ -60,7 +60,7 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
     }, {
         id: 16,
         image: 'app/modules/core/assets/hotels/Hotel UNIC Prague.JPG',
-        url: 'http://www.amazon.de/Thomson-40FU3255-LED-Backlight-Fernseher-Full-HD-Hotelmodus/dp/B00EST1WMY/ref=sr_1_30?s=home-theater&ie=UTF8&qid=1424258432&sr=1-30',
+        url: 'http://de.hotels.com/hotel/details.html?q-room-0-adults=1&MGT=2&SYE=3&q-room-0-children=0&tab=description&YGF=14&ZSX=0&q-localised-check-out=20.03.2016&q-localised-check-in=18.03.2016&JHR=2&pa=2&hotel-id=467546&FPQ=2&WOD=5&WOE=7&ZSX=1&SYE=3&MGT=2&YGF=14&WOD=5&WOE=7&JHR=2&FPQ=2',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,

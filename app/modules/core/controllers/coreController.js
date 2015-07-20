@@ -3,64 +3,64 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
     $scope.userNumber = 12;
     $scope.products = [{
         id: 1,
-        image: 'app/modules/core/assets/experiment/Hisense LTDN40D36SEU 102 cm.png',
-        url: 'http://www.amazon.de/Hisense-LTDN40D36SEU-LED-Backlight-Fernseher-Full-HD/dp/B00IZFWD5C/ref=sr_1_5?s=home-theater&ie=UTF8&qid=1424252862&sr=1-5',
+        image: 'app/modules/core/assets/cameras/Canon IXUS 170 Digitalkamera.jpg',
+        url: 'http://www.amazon.de/Canon-Digitalkamera-Megapixel-Bildstabilisator-LCD-Display/dp/B00RYV9R20/ref=sr_1_1?&s=photo&ie=UTF8&qid=1436878022&sr=1-1&keywords=digitalkamera',
         visitedIn2: true,
         choosedIn3: true,
         visitedIn6: true,
         choosedIn7: true
     }, {
         id: 2,
-        image: 'app/modules/core/assets/experiment/LG 42LB5500 106 cm.png',
-        url: 'http://www.amazon.de/LG-42LB5500-LED-Backlight-Fernseher-100Hz-schwarz/dp/B00J7K1YIG/ref=sr_1_3?s=home-theater&ie=UTF8&qid=1424252862&sr=1-3',
+        image: 'app/modules/core/assets/cameras/Canon PowerShot A2500 Digitalkamera.jpg',
+        url: 'http://www.amazon.de/Canon-PowerShot-Digitalkamera-Megapixel-bildstabilisiert/dp/B00B7J6I8G/ref=sr_1_12?s=photo&ie=UTF8&qid=1437142496&sr=1-12&keywords=Digitalkamera',
         visitedIn2: true,
         choosedIn3: true,
         visitedIn6: true,
         choosedIn7: false
     }, {
         id: 3,
-        image: 'app/modules/core/assets/experiment/Philips 40PFK4509 12 102 cm.png',
-        url: 'http://www.amazon.de/Philips-40PFK4509-12-LED-Backlight-Fernseher-schwarz/dp/B00JMFCCC8/ref=sr_1_13?s=home-theater&ie=UTF8&qid=1424258647&sr=1-13',
+        image: 'app/modules/core/assets/cameras/Fujifilm FinePix T500 Digitalkamera.jpg',
+        url: 'http://www.amazon.de/Fujifilm-FinePix-Digitalkamera-Megapixel-bildstabilisiert/dp/B00BBZTHS4/ref=sr_1_42?&s=photo&ie=UTF8&qid=1436878131&sr=1-42&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
         choosedIn7: false
     }, {
         id: 4,
-        image: 'app/modules/core/assets/experiment/Samsung UE40H5090 101 cm.png',
-        url: 'http://www.amazon.de/Samsung-UE40H5090-LED-Backlight-Fernseher-100Hz-schwarz/dp/B00MFWTTT4/ref=sr_1_2?s=home-theater&ie=UTF8&qid=1424252862&sr=1-2',
+        image: 'app/modules/core/assets/cameras/Nikon Coolpix S3700.jpg',
+        url: 'http://www.amazon.de/Nikon-Coolpix-Digitalkamera-Megapixel-Panorama-Assistent/dp/B00S85LULM/ref=sr_1_14?&s=photo&ie=UTF8&qid=1436878022&sr=1-14&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
         choosedIn7: false
     }, {
         id: 5,
-        image: 'app/modules/core/assets/experiment/Sony BRAVIA KDL-40W605 102 cm.png',
-        url: 'http://www.amazon.de/Sony-KDL-40W605-LED-Backlight-Fernseher-Motionflow-schwarz/dp/B00I3WQKUG/ref=sr_1_9?s=home-theater&ie=UTF8&qid=1424252862&sr=1-9',
+        image: 'app/modules/core/assets/cameras/Olympus SZ-14 Digitalkamera.jpg',
+        url: 'http://www.amazon.de/Olympus-Digitalkamera-Megapixel-24-fach-bildstabilisiert/dp/B006Q9J40Q/ref=sr_1_49?s=photo&ie=UTF8&qid=1437143145&sr=1-49&keywords=Digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
         choosedIn7: false
     }, {
         id: 6,
-        image: 'app/modules/core/assets/experiment/TCL L40E3005F 102 cm.png',
-        url: 'http://www.amazon.de/TCL-L40E3005F-LED-Backlight-Fernseher-Hotelmodus-schwarz/dp/B00IMCXX98/ref=sr_1_16?s=home-theater&ie=UTF8&qid=1424252862&sr=1-16',
+        image: 'app/modules/core/assets/cameras/Panasonic DMC-FT25EG-A Lumix Digitalkamera.jpg',
+        url: 'http://www.amazon.de/Panasonic-DMC-FT25EG--Digitalkamera-LCD-Display-wasserdicht/dp/B00BB3GHXY/ref=sr_1_3?s=photo&ie=UTF8&qid=1437142262&sr=1-3&keywords=Panasonic+DMC-FT25EG-A+Lumix',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
         choosedIn7: false
     }, {
         id: 7,
-        image: 'app/modules/core/assets/experiment/Telefunken D40F275I3C 102 cm.png',
-        url: 'http://www.amazon.de/Telefunken-D40F275I3C-LED-Backlight-Fernseher-schwarz/dp/B00S6H90CI/ref=sr_1_19?s=home-theater&ie=UTF8&qid=1424341004&sr=1-19',
+        image: 'app/modules/core/assets/cameras/Samsung WB350F Smart-Digitalkamera.jpg',
+        url: 'http://www.amazon.de/Samsung-Smart-Digitalkamera-Megapixel-21-fach-Touchscreen/dp/B00I058XQA/ref=sr_1_8?s=photo&ie=UTF8&qid=1437142496&sr=1-8&keywords=Digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
         choosedIn7: false
     }, {
         id: 8,
-        image: 'app/modules/core/assets/experiment/Thomson 40FU3255 G 102 cm.png',
-        url: 'http://www.amazon.de/Thomson-40FU3255-LED-Backlight-Fernseher-Full-HD-Hotelmodus/dp/B00EST1WMY/ref=sr_1_30?s=home-theater&ie=UTF8&qid=1424258432&sr=1-30',
+        image: 'app/modules/core/assets/cameras/Sony DSC-WX220 Digitalkamera.jpg',
+        url: 'http://www.amazon.de/Sony-DSC-WX220-Digitalkamera-Megapixel-LCD-Display/dp/B00I9X2GYS/ref=sr_1_9?&s=photo&ie=UTF8&qid=1436878022&sr=1-9&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn6: false,
