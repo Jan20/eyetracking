@@ -6,7 +6,7 @@ eyetrackingApp.controller("indexController", ['$scope', function($scope) {
     // };
 
     $scope.selectExperiment = function(){
-        $scope.selectedExperiment = 0.75;
+        $scope.selectedExperiment = 0.25;
     }
 
 }]);
