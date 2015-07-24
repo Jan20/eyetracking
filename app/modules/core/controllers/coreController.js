@@ -3,7 +3,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
     $scope.userNumber = null;
     $scope.products = [{
         id: 1,
-        image: 'app/modules/core/assets/cameras/Canon IXUS 170 Digitalkamera.jpg',
+        image: 'app/modules/core/assets/cameras/Canon_IXUS_170_Digitalkamera.jpg',
         url: 'http://www.amazon.de/Canon-Digitalkamera-Megapixel-Bildstabilisator-LCD-Display/dp/B00RYV9R20/ref=sr_1_1?&s=photo&ie=UTF8&qid=1436878022&sr=1-1&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -11,7 +11,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
         choosedIn7: false
     }, {
         id: 2,
-        image: 'app/modules/core/assets/cameras/Canon PowerShot A2500 Digitalkamera.jpg',
+        image: 'app/modules/core/assets/cameras/Canon_PowerShot_A2500_Digitalkamera.jpg',
         url: 'http://www.amazon.de/Canon-PowerShot-Digitalkamera-Megapixel-bildstabilisiert/dp/B00B7J6I8G/ref=sr_1_12?s=photo&ie=UTF8&qid=1437142496&sr=1-12&keywords=Digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -19,7 +19,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
         choosedIn7: false
     }, {
         id: 3,
-        image: 'app/modules/core/assets/cameras/Fujifilm FinePix T500 Digitalkamera.jpg',
+        image: 'app/modules/core/assets/cameras/Fujifilm_FinePix_T500_Digitalkamera.jpg',
         url: 'http://www.amazon.de/Fujifilm-FinePix-Digitalkamera-Megapixel-bildstabilisiert/dp/B00BBZTHS4/ref=sr_1_42?&s=photo&ie=UTF8&qid=1436878131&sr=1-42&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -27,7 +27,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
         choosedIn7: false
     }, {
         id: 4,
-        image: 'app/modules/core/assets/cameras/Nikon Coolpix S3700.jpg',
+        image: 'app/modules/core/assets/cameras/Nikon_Coolpix_S3700.jpg',
         url: 'http://www.amazon.de/Nikon-Coolpix-Digitalkamera-Megapixel-Panorama-Assistent/dp/B00S85LULM/ref=sr_1_14?&s=photo&ie=UTF8&qid=1436878022&sr=1-14&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -35,7 +35,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
         choosedIn7: false
     }, {
         id: 5,
-        image: 'app/modules/core/assets/cameras/Olympus SZ-14 Digitalkamera.jpg',
+        image: 'app/modules/core/assets/cameras/Olympus_SZ-14_Digitalkamera.jpg',
         url: 'http://www.amazon.de/Olympus-Digitalkamera-Megapixel-24-fach-bildstabilisiert/dp/B006Q9J40Q/ref=sr_1_49?s=photo&ie=UTF8&qid=1437143145&sr=1-49&keywords=Digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -43,7 +43,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
         choosedIn7: false
     }, {
         id: 6,
-        image: 'app/modules/core/assets/cameras/Panasonic DMC-FT25EG-A Lumix Digitalkamera.jpg',
+        image: 'app/modules/core/assets/cameras/Panasonic_DMC-FT25EG-A_Lumix_Digitalkamera.jpg',
         url: 'http://www.amazon.de/Panasonic-DMC-FT25EG--Digitalkamera-LCD-Display-wasserdicht/dp/B00BB3GHXY/ref=sr_1_3?s=photo&ie=UTF8&qid=1437142262&sr=1-3&keywords=Panasonic+DMC-FT25EG-A+Lumix',
         visitedIn2: false,
         choosedIn3: false,
@@ -51,7 +51,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
         choosedIn7: false
     }, {
         id: 7,
-        image: 'app/modules/core/assets/cameras/Samsung WB350F Smart-Digitalkamera.jpg',
+        image: 'app/modules/core/assets/cameras/Samsung_WB350F_Smart-Digitalkamera.jpg',
         url: 'http://www.amazon.de/Samsung-Smart-Digitalkamera-Megapixel-21-fach-Touchscreen/dp/B00I058XQA/ref=sr_1_8?s=photo&ie=UTF8&qid=1437142496&sr=1-8&keywords=Digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -59,7 +59,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
         choosedIn7: false
     }, {
         id: 8,
-        image: 'app/modules/core/assets/cameras/Sony DSC-WX220 Digitalkamera.jpg',
+        image: 'app/modules/core/assets/cameras/Sony_DSC-WX220_Digitalkamera.jpg',
         url: 'http://www.amazon.de/Sony-DSC-WX220-Digitalkamera-Megapixel-LCD-Display/dp/B00I9X2GYS/ref=sr_1_9?&s=photo&ie=UTF8&qid=1436878022&sr=1-9&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
