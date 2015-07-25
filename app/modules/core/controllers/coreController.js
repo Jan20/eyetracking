@@ -153,15 +153,14 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         $scope.startTimer();
 
         setTimeout(function() {
-            setNewImage();
             $scope.blockToken = false;
+        setNewImage();
 
         }, 5000);
     };
 
     var setNewImage = function() {
         $scope.$apply(function() {
-            console.log('awsome');
             $scope.QuizImageCount -= 1;
             $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
             $scope.answer1 = false;
