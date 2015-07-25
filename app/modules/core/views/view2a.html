@@ -1,8 +1,8 @@
-<div class='iwm-intro-area-view2 col-md-6'>
-Sie möchten zunächst eine engere Auswahl treffen, bevor Sie sich final für eine Kompaktdigitalkamera entscheiden. Schauen Sie sich die Produkte in Ruhe an. Wenn Sie auf die Bilder der jeweiligen Kompaktdigitalkameras klicken, gelangen Sie auf die Produktseiten auf Amazon. Danach schließen Sie gegebenenfalls die einzelnen Produktseiten von Amazon und kehren Sie zu dieser Übersicht zurück.
+<div class='iwm-intro-area-view2 col-md-10 col-md-offset-2'>
+Sie möchten zunächst eine engere Auswahl treffen. Schauen Sie sich die Produkte in Ruhe an. Wenn Sie auf die Bilder der jeweiligen Kompaktdigitalkameras klicken, gelangen Sie auf die Produktseiten auf amazon.de. Nachdem Sie Ihre engere Auswahl getroffen haben, stehen Ihnen nochmals alle Informationen zur Verfügung. 
 </div>
 <div class='col-md-12'>
-    <div ng-repeat='product in products'>
+    <div ng-repeat="product in products | orderBy:'randomValue'">
         <a href="{{product.url}}"  target="_blank" ng-click='setVisitedIn2(product.id)'>
         <div class="col-md-3">
             <img class='col-md-12 img-camera-with-Link' src='{{product.image}}'>

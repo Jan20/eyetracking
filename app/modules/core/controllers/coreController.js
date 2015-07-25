@@ -1,71 +1,95 @@
-eyetrackingApp.controller("coreController", ['$scope', function($scope) {
+eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) {
     // View 1
     $scope.userNumber = null;
+
+
     $scope.products = [{
         id: 1,
-        image: 'app/modules/core/assets/cameras/Canon_IXUS_170_Digitalkamera.jpg',
+        image: 'app/modules/core/assets/cameras/Canon_IXUS_170.jpg',
         url: 'http://www.amazon.de/Canon-Digitalkamera-Megapixel-Bildstabilisator-LCD-Display/dp/B00RYV9R20/ref=sr_1_1?&s=photo&ie=UTF8&qid=1436878022&sr=1-1&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
-        visitedIn6: false,
-        choosedIn7: false
+        visitedIn5: false,
+        choosedIn6: false,
+        randomValue: null
     }, {
         id: 2,
-        image: 'app/modules/core/assets/cameras/Canon_PowerShot_A2500_Digitalkamera.jpg',
-        url: 'http://www.amazon.de/Canon-PowerShot-Digitalkamera-Megapixel-bildstabilisiert/dp/B00B7J6I8G/ref=sr_1_12?s=photo&ie=UTF8&qid=1437142496&sr=1-12&keywords=Digitalkamera',
-        visitedIn2: false,
-        choosedIn3: false,
-        visitedIn6: false,
-        choosedIn7: false
-    }, {
-        id: 3,
-        image: 'app/modules/core/assets/cameras/Fujifilm_FinePix_T500_Digitalkamera.jpg',
+        image: 'app/modules/core/assets/cameras/Fujifilm_FinePix_T500.jpg',
         url: 'http://www.amazon.de/Fujifilm-FinePix-Digitalkamera-Megapixel-bildstabilisiert/dp/B00BBZTHS4/ref=sr_1_42?&s=photo&ie=UTF8&qid=1436878131&sr=1-42&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
-        visitedIn6: false,
-        choosedIn7: false
+        visitedIn5: false,
+        choosedIn6: false,
+        randomValue: 0.5245
+
     }, {
-        id: 4,
+        id: 3,
         image: 'app/modules/core/assets/cameras/Nikon_Coolpix_S3700.jpg',
         url: 'http://www.amazon.de/Nikon-Coolpix-Digitalkamera-Megapixel-Panorama-Assistent/dp/B00S85LULM/ref=sr_1_14?&s=photo&ie=UTF8&qid=1436878022&sr=1-14&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
-        visitedIn6: false,
-        choosedIn7: false
+        visitedIn5: false,
+        choosedIn6: false,
+        randomValue: 0.32345
+
     }, {
-        id: 5,
-        image: 'app/modules/core/assets/cameras/Olympus_SZ-14_Digitalkamera.jpg',
+        id: 4,
+        image: 'app/modules/core/assets/cameras/Olympus_SZ-14.jpg',
         url: 'http://www.amazon.de/Olympus-Digitalkamera-Megapixel-24-fach-bildstabilisiert/dp/B006Q9J40Q/ref=sr_1_49?s=photo&ie=UTF8&qid=1437143145&sr=1-49&keywords=Digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
-        visitedIn6: false,
-        choosedIn7: false
+        visitedIn5: false,
+        choosedIn6: false,
+        randomValue: 0.73456
+
     }, {
-        id: 6,
-        image: 'app/modules/core/assets/cameras/Panasonic_DMC-FT25EG-A_Lumix_Digitalkamera.jpg',
-        url: 'http://www.amazon.de/Panasonic-DMC-FT25EG--Digitalkamera-LCD-Display-wasserdicht/dp/B00BB3GHXY/ref=sr_1_3?s=photo&ie=UTF8&qid=1437142262&sr=1-3&keywords=Panasonic+DMC-FT25EG-A+Lumix',
+        id: 5,
+        image: 'app/modules/core/assets/cameras/Panasonic_DMC-TZ56EG-W.jpg',
+        url: 'http://www.amazon.de/Panasonic-DMC-TZ56EG-W-Travellerzoom-Kompaktkamera-LCD-Display/dp/B00I3BTGT4/ref=sr_1_2?s=photo&ie=UTF8&qid=1437829309&sr=1-2&keywords=panasonic',
         visitedIn2: false,
         choosedIn3: false,
-        visitedIn6: false,
-        choosedIn7: false
+        visitedIn5: false,
+        choosedIn6: false,
+        randomValue: 0.44567
+
     }, {
-        id: 7,
-        image: 'app/modules/core/assets/cameras/Samsung_WB350F_Smart-Digitalkamera.jpg',
+        id: 6,
+        image: 'app/modules/core/assets/cameras/Samsung_WB350F.jpg',
         url: 'http://www.amazon.de/Samsung-Smart-Digitalkamera-Megapixel-21-fach-Touchscreen/dp/B00I058XQA/ref=sr_1_8?s=photo&ie=UTF8&qid=1437142496&sr=1-8&keywords=Digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
-        visitedIn6: false,
-        choosedIn7: false
+        visitedIn5: false,
+        choosedIn6: false,
+        randomValue: 0.21234
+
+    }, {
+        id: 7,
+        image: 'app/modules/core/assets/cameras/Sony_DSC-W830.jpg',
+        url: 'http://www.amazon.de/Sony-Digitalkamera-LC-Display-Weitwinkelobjektiv-SteadyShot/dp/B00HH8A5RQ/ref=sr_1_2?s=photo&ie=UTF8&qid=1437830150&sr=1-2&keywords=sony+digitalkamera',
+        visitedIn2: false,
+        choosedIn3: false,
+        visitedIn5: false,
+        choosedIn6: false,
+        randomValue: 0.8423
+
     }, {
         id: 8,
-        image: 'app/modules/core/assets/cameras/Sony_DSC-WX220_Digitalkamera.jpg',
+        image: 'app/modules/core/assets/cameras/Sony_DSC-WX220.jpg',
         url: 'http://www.amazon.de/Sony-DSC-WX220-Digitalkamera-Megapixel-LCD-Display/dp/B00I9X2GYS/ref=sr_1_9?&s=photo&ie=UTF8&qid=1436878022&sr=1-9&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
-        visitedIn6: false,
-        choosedIn7: false
+        visitedIn5: false,
+        choosedIn6: false,
+        randomValue: 0.952346
+
     }];
+
+    $scope.setRandomOrder = function() {
+        for (var i = $scope.products.length - 1; i >= 0; i--) {
+            $scope.products[i].randomValue = Math.random();
+        };
+    };
+
     // Functions of View 1
     $scope.saveUserNumber = function(userNumber) {
         $scope.userNumber = userNumber;
@@ -73,192 +97,128 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
     // Functionality in View 2
     $scope.setVisitedIn2 = function(id) {
         for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if($scope.products[i].id == id){
+            if ($scope.products[i].id == id) {
                 $scope.products[i].visitedIn2 = true;
             }
         }
     };
-
+    $scope.countChoosedIn3 = 0;
+    
     // Functionality in View 3
     $scope.setChoosedIn3 = function(id) {
         if ($scope.products[id - 1].choosedIn3 == false) {
             $scope.products[id - 1].choosedIn3 = true;
+            $scope.countChoosedIn3 += 1;
         } else {
             $scope.products[id - 1].choosedIn3 = false;
+            $scope.countChoosedIn3 -= 1;
         }
     };
-    // Count in View 3, used in View 6 and 7
-    $scope.countChoosedIn3 = function() {
-        $scope.choosedIn3Count = 0;
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].choosedIn3 == true) {
-                $scope.choosedIn3Count += 1;
-            }
-        }
-    };
+
     // Test in View 4
-    $scope.questions = [{
-        id: 1,
-        answer: 'Armin Droste-Hülshoff',
-        category: 1,
-        isChecked: false
-    }, {
-        id: 2,
-        answer: 'Nachwächter',
-        category: 1,
-        isChecked: false
-    }, {
-        id: 3,
-        answer: 'Kiepenkerl',
-        category: 1,
-        isChecked: false
-    }, {
-        id: 4,
-        answer: 'Ludgeriturm',
-        category: 2,
-        isChecked: false
-    }, {
-        id: 5,
-        answer: 'Zwinger',
-        category: 2,
-        isChecked: false
-    }, {
-        id: 6,
-        answer: 'Kerker',
-        category: 2,
-        isChecked: false
-    }, {
-        id: 7,
-        answer: 'Druckerei Krimphove',
-        category: 3,
-        isChecked: false
-    }, {
-        id: 8,
-        answer: 'Stadtmuseum',
-        category: 3,
-        isChecked: false
-    }, {
-        id: 9,
-        answer: 'Altes Kino ',
-        category: 3,
-        isChecked: false
-    }, {
-        id: 10,
-        answer: 'Burg Hülshoff',
-        category: 4,
-        isChecked: false
-    }, {
-        id: 11,
-        answer: 'Wasserburg Anholt',
-        category: 4,
-        isChecked: false
-    }, {
-        id: 12,
-        answer: 'Haus Bisping',
-        category: 4,
-        isChecked: false
-    }, {
-        id: 13,
-        answer: 'Stadtpalais Johann Conrad von Schlaun',
-        category: 5,
-        isChecked: false
-    }, {
-        id: 14,
-        answer: 'Erbdrostenhof',
-        category: 5,
-        isChecked: false
-    }, {
-        id: 15,
-        answer: 'Schloss St. Clemens',
-        category: 5,
-        isChecked: false
-    }, {
-        id: 16,
-        answer: 'Buddenturm',
-        category: 6,
-        isChecked: false
-    }, {
-        id: 17,
-        answer: 'Wasserturm',
-        category: 6,
-        isChecked: false
-    }, {
-        id: 18,
-        answer: 'Mauerturm',
-        category: 6,
-        isChecked: false
-    }, {
-        id: 19,
-        answer: 'St. Josefskirche',
-        category: 7,
-        isChecked: false
-    }, {
-        id: 20,
-        answer: 'Überwasserkirche',
-        category: 7,
-        isChecked: false
-    }, {
-        id: 21,
-        answer: 'St. Ludgeri-Kirche',
-        category: 7,
-        isChecked: false
-    }, {
-        id: 22,
-        answer: 'Aabrücke',
-        category: 8,
-        isChecked: false
-    }, {
-        id: 23,
-        answer: 'Torminbrücke',
-        category: 8,
-        isChecked: false
-    }, {
-        id: 24,
-        answer: 'Sentruper Brücke',
-        category: 8,
-        isChecked: false
-    }];
-    $scope.setIsChecked = function(id) {
-        if ($scope.questions[id - 1].isChecked == false) {
-            for (var i = $scope.questions.length - 1; i >= 0; i--) {
-                if ($scope.questions[i].category == $scope.questions[id - 1].category) {
-                    $scope.questions[i].isChecked = false;
-                }
-            };
-            $scope.questions[id - 1].isChecked = true;
-        } else {
-            $scope.questions[id - 1].isChecked = false;
+    $scope.quizImages = [
+        'app/modules/core/assets/quiz/question1.jpg',
+        'app/modules/core/assets/quiz/question2.jpg',
+        'app/modules/core/assets/quiz/question3.jpg',
+        'app/modules/core/assets/quiz/question4.jpg',
+        'app/modules/core/assets/quiz/question5.jpg',
+        'app/modules/core/assets/quiz/question6.jpg',
+        'app/modules/core/assets/quiz/question7.jpg',
+        'app/modules/core/assets/quiz/question8.jpg',
+        'app/modules/core/assets/quiz/question9.jpg',
+        'app/modules/core/assets/quiz/question10.jpg',
+        'app/modules/core/assets/quiz/question11.jpg',
+        'app/modules/core/assets/quiz/question12.jpg'
+    ];
+
+    $scope.QuizImageCount = $scope.quizImages.length - 1;
+    $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
+
+    $scope.answer1 = false;
+    $scope.answer2 = false;
+
+    $scope.blockToken = false;
+
+    $scope.startDelay = function(answer) {
+        $scope.blockToken = true;
+        if (answer == 'answer1') {
+            $scope.answer1 = true;
+            $scope.answer2 = false;
         }
+
+        if (answer == 'answer2') {
+            $scope.answer1 = false;
+            $scope.answer2 = true;
+        }
+        $scope.startTimer();
+
+        setTimeout(function() {
+            setNewImage();
+            $scope.blockToken = false;
+
+        }, 5000);
+    };
+
+    var setNewImage = function() {
+        $scope.$apply(function() {
+            console.log('awsome');
+            $scope.QuizImageCount -= 1;
+            $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
+            $scope.answer1 = false;
+            $scope.answer2 = false;
+        })
+    };
+
+    $scope.startTimer = function() {
+
+        $scope.timerDuration = 5;
+        $scope.currentSecond = 5;
+
+        var current = moment.duration($scope.timerDuration * 1000, 'milliseconds');
+
+        setInterval(function() {
+            setCurrentTime();
+        }, 1000);
+
+        var setCurrentTime = function() {
+            $scope.$apply(function() {
+
+                if (current == 0) {
+                    return null;
+                }
+
+                current = moment.duration(current - 1000, 'milliseconds');
+                $scope.currentSecond = current.get('seconds');
+
+            })
+        };
     };
 
     // Functionality in View 6
-    $scope.setVisitedIn6 = function(id) {
+    $scope.setVisitedIn5 = function(id) {
         for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if($scope.products[i].id == id){
-                $scope.products[i].visitedIn6 = true;
+            if ($scope.products[i].id == id) {
+                $scope.products[i].visitedIn5 = true;
             }
         }
     };
-
     // Functionality in View 7
-    $scope.setChoosedIn7 = function(id) {
-        if ($scope.products[id - 1].choosedIn7 == false) {
+    $scope.setChoosedIn6 = function(id) {
+        if ($scope.products[id - 1].choosedIn6 == false) {
             for (var i = $scope.products.length - 1; i >= 0; i--) {
-                $scope.products[i].choosedIn7 = false;
+                $scope.products[i].choosedIn6 = false;
             };
-            $scope.products[id - 1].choosedIn7 = true;
+            $scope.products[id - 1].choosedIn6 = true;
         } else {
-            $scope.products[id - 1].choosedIn7 = false;
+            $scope.products[id - 1].choosedIn6 = false;
         }
     };
-    
-
     // Save Results in View 8
     $scope.createObject = function() {
         var visitedIn2Array = [];
         var choosedIn3Array = [];
-        var visitedIn6Array = [];
-        var choosedIn7Array = [];
+        var visitedIn5Array = [];
+        var choosedIn6Array = [];
         for (var i = $scope.products.length - 1; i >= 0; i--) {
             if ($scope.products[i].visitedIn2 == true) {
                 visitedIn2Array.push($scope.products[i].id);
@@ -270,56 +230,43 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope) {
             }
         };
         for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].visitedIn6 == true) {
-                visitedIn6Array.push($scope.products[i].id);
+            if ($scope.products[i].visitedIn5 == true) {
+                visitedIn5Array.push($scope.products[i].id);
             }
         };
         for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].choosedIn7 == true) {
-                choosedIn7Array.push($scope.products[i].id);
+            if ($scope.products[i].choosedIn6 == true) {
+                choosedIn6Array.push($scope.products[i].id);
             }
         };
         var newDataSet = {
             ExperimentNr: $scope.userNumber,
             visitedIn2: visitedIn2Array,
             choosedIn3: choosedIn3Array,
-            visitedIn6: visitedIn6Array,
-            choosedIn7: choosedIn7Array
+            visitedIn5: visitedIn5Array,
+            choosedIn6: choosedIn6Array
         }
-        console.log('Test: '+localStorage.getItem('eyetrackingData'));
-
+        console.log('Test: ' + localStorage.getItem('eyetrackingData'));
         console.log(newDataSet);
         var eyetrackingData = [];
-
-        if(localStorage.getItem('eyetrackingData') != undefined){
+        if (localStorage.getItem('eyetrackingData') != undefined) {
             var eyetrackingData = localStorage.getItem('eyetrackingData');
             var eyetrackingData = JSON.parse(eyetrackingData);
-        }else{
+        } else {
             localStorage.setItem('eyetrackingData', eyetrackingData);
         }
-
-
         eyetrackingData.push(newDataSet);
         eyetrackingData = JSON.stringify(eyetrackingData);
-
         localStorage.setItem('eyetrackingData', eyetrackingData);
-
     };
-
-    $scope.showResults = function(){
+    $scope.showResults = function() {
         var eyetrackingData = localStorage.getItem('eyetrackingData');
         $scope.eyetrackingData = JSON.parse(eyetrackingData);
-
     }
-    $scope.csvHeader = ['experimentNr', 'visitedIn2', 'choosedIn3', 'visitedIn6', 'choosedIn7'];
-
-    var data = [["Minsk",100000], ["Riga",200000]];
+    $scope.csvHeader = ['experimentNr', 'visitedIn2', 'choosedIn3', 'visitedIn5', 'choosedIn6'];
 
     $scope.export = function exportData() {
-        alasql("SELECT * INTO CSV('eyetracking.csv',{headers:true}) FROM ?",[$scope.eyetrackingData]);
-    //alasql('SELECT * INTO CSV("test.csv". {headers:true}) FROM ?',[data]);
+        alasql("SELECT * INTO CSV('eyetracking.csv',{headers:true}) FROM ?", [$scope.eyetrackingData]);
+        //alasql('SELECT * INTO CSV("test.csv". {headers:true}) FROM ?',[data]);
     }
-
-
-
 }]);

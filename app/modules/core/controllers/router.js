@@ -20,7 +20,6 @@ eyetrackingApp.config(function ($routeProvider) {
 
 	$routeProvider.when('/4a',{
 		templateUrl: 'app/modules/core/views/view4a.html',
-		controller: 'timerController'
 	});	
 
 	$routeProvider.when('/5a',{

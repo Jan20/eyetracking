@@ -1,203 +1,64 @@
 <div class='iwm-intro-area-view2 col-md-6'>
-Nun möchten wir kurz testen, wie gut Sie sich in Münster und Umgebung auskennen. Im Folgenden werden Sie einige Sehenswürdigkeiten sehen und nach der Bezeichnung gefragt. Sie haben pro Sehenswürdigkeit drei Antwortmöglichkeiten. Lassen Sie sich Zeit beim Antworten. Nach eineinhalb Minuten werden Sie automatisch weitergeleitet.
+Wir führen derzeit eine andere Studie durch. Dabei geht es um die Bekanntheit von Sehenswürdigkeiten in Münster. Bitte geben Sie an, ob Sie die angezeigten Sehenswürdigkeiten namentlich kennen. 
 </div>
-<div class='col-md-6 col-md-offset-3 iwm-quiz-area'>
-    <div class='col-md-5 '>
-        <img src='app/modules/core/assets/quiz/question1.jpg' class='iwm-quiz-image'>
-    </div>
-    <div class='col-md-7'>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[0].id)' ng-if='questions[0].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[0].id)' ng-if='questions[0].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[0].answer}}</h5>
+<div class='col-md-6 col-md-offset-3'>
+        <img src={{currentQuizImage}} class='iwm-quiz-image col-md-8 col-md-offset-2'>
+    <div class='col-md-12 col-md-offset-2 btn-group'>
+        <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-click='startDelay("answer1")' ng-if='blockToken == false'>
+            <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer1 == false'></span>
+            <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer1 == true'></span>
+            <h5 class='col-md-12'>Kenne ich</h5>
         </div>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[1].id)' ng-if='questions[1].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[1].id)' ng-if='questions[1].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[1].answer}}</h5>
+        <div class='btn btn-lg btn-default col-md-6' ng-click='startDelay("answer2")' ng-if='blockToken == false'>
+            <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer2 == false'></span>
+            <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer2 == true'></span>
+            <h5 class="col-md-12">Kenne ich nicht</h5>
+        </div>        
+        <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-if='blockToken == true'>
+            <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer1 == false'></span>
+            <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer1 == true'></span>
+            <h5 class='col-md-12'>Kenne ich</h5>
         </div>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[2].id)' ng-if='questions[2].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[2].id)' ng-if='questions[2].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[2].answer}}</h5>
-        </div>
-    </div>
-</div>
-
-<div class='col-md-6 col-md-offset-3 iwm-quiz-area'>
-    <div class='col-md-5 '>
-        <img src='app/modules/core/assets/quiz/question2.jpg' class='iwm-quiz-image'>
-    </div>
-    <div class='col-md-7'>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[3].id)' ng-if='questions[3].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[3].id)' ng-if='questions[3].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[3].answer}}</h5>
-        </div>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[4].id)' ng-if='questions[4].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[4].id)' ng-if='questions[4].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[4].answer}}</h5>
-        </div>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[5].id)' ng-if='questions[5].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[5].id)' ng-if='questions[5].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[5].answer}}</h5>
+        <div class='btn btn-lg btn-default col-md-6' ng-if='blockToken == true'>
+            <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer2 == false'></span>
+            <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer2 == true'></span>
+            <h5 class="col-md-12">Kenne ich nicht</h5>
         </div>
     </div>
 </div>
 
-<div class='col-md-6 col-md-offset-3 iwm-quiz-area'>
-    <div class='col-md-5 '>        
-    <img src='app/modules/core/assets/quiz/question3.png' class='iwm-quiz-image'>
-    </div>
-    <div class='col-md-7'>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[6].id)' ng-if='questions[6].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[6].id)' ng-if='questions[6].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[6].answer}}</h5>
-        </div>
-        <div class='    col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[7].id)' ng-if='questions[7].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[7].id)' ng-if='questions[7].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[7].answer}}</h5>
-        </div>
-        <div class='    col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[8].id)' ng-if='questions[8].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[8].id)' ng-if='questions[8].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[8].answer}}</h5>
-        </div>
-    </div>
-</div>
-
-<div class='col-md-6 col-md-offset-3 iwm-quiz-area'>
-    <div class='col-md-5'>
-        <img src='app/modules/core/assets/quiz/question4.jpg' class='iwm-quiz-image'>
-    </div>
-    <div class='col-md-7'>
-        <div class='col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[9].id)' ng-if='questions[9].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[9].id)' ng-if='questions[9].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[9].answer}}</h5>
-        </div>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[10].id)' ng-if='questions[10].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[10].id)' ng-if='questions[10].isChecked == true'></span>
-            <h5 class='col-md-10    '>{{questions[10].answer}}</h5>
-        </div>
-        <div class='col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[11].id)' ng-if='questions[11].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[11].id)' ng-if='questions[11].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[11].answer}}</h5>
-        </div>
-    </div>
-</div>
-
-<div class='col-md-6 col-md-offset-3 iwm-quiz-area'>
-    <div class='col-md-5'>
-        <img src='app/modules/core/assets/quiz/question5.jpg' class='iwm-quiz-image'>
-    </div>
-    <div class='col-md-7'>
-        <div class='col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[12].id)' ng-if='questions[12].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[12].id)' ng-if='questions[12].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[12].answer}}</h5>
-        </div>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[13].id)' ng-if='questions[13].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[13].id)' ng-if='questions[13].isChecked == true'></span>
-            <h5 class='col-md-10    '>{{questions[13].answer}}</h5>
-        </div>
-        <div class='col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[14].id)' ng-if='questions[14].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[14].id)' ng-if='questions[14].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[14].answer}}</h5>
-        </div>
-    </div>
-</div>
-
-<div class='col-md-6 col-md-offset-3 iwm-quiz-area'>
-    <div class='col-md-5'>
-        <img src='app/modules/core/assets/quiz/question6.jpg' class='iwm-quiz-image'>
-    </div>
-    <div class='col-md-7'>
-        <div class='col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[15].id)' ng-if='questions[15].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[15].id)' ng-if='questions[15].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[15].answer}}</h5>
-        </div>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[16].id)' ng-if='questions[16].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[16].id)' ng-if='questions[16].isChecked == true'></span>
-            <h5 class='col-md-10    '>{{questions[16].answer}}</h5>
-        </div>
-        <div class='col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[17].id)' ng-if='questions[17].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[17].id)' ng-if='questions[17].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[17].answer}}</h5>
-        </div>
-    </div>
-</div>
-
-<div class='col-md-6 col-md-offset-3 iwm-quiz-area'>
-    <div class='col-md-5'>
-        <img src='app/modules/core/assets/quiz/question7.jpg' class='iwm-quiz-image'>
-    </div>
-    <div class='col-md-7'>
-        <div class='col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[18].id)' ng-if='questions[18].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[18].id)' ng-if='questions[18].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[18].answer}}</h5>
-        </div>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[19].id)' ng-if='questions[19].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[19].id)' ng-if='questions[19].isChecked == true'></span>
-            <h5 class='col-md-10    '>{{questions[19].answer}}</h5>
-        </div>
-        <div class='col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[20].id)' ng-if='questions[20].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[20].id)' ng-if='questions[20].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[20].answer}}</h5>
-        </div>
-    </div>
-</div>
-<div class='col-md-6 col-md-offset-3 iwm-quiz-area'>
-    <div class='col-md-5'>
-        <img src='app/modules/core/assets/quiz/question8.jpg' class='iwm-quiz-image'>
-    </div>
-    <div class='col-md-7'>
-        <div class='col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[21].id)' ng-if='questions[21].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[21].id)' ng-if='questions[21].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[21].answer}}</h5>
-        </div>
-        <div class='col-md-12 iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[22].id)' ng-if='questions[22].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[22].id)' ng-if='questions[22].isChecked == true'></span>
-            <h5 class='col-md-10    '>{{questions[22].answer}}</h5>
-        </div>
-        <div class='col-md-12  iwm-quiz'>
-            <span class='fa fa-square-o col-md-2' ng-click='setIsChecked(questions[23].id)' ng-if='questions[23].isChecked == false'></span>
-            <span class='fa fa-check-square-o col-md-2' ng-click='setIsChecked(questions[23].id)' ng-if='questions[23].isChecked == true'></span>
-            <h5 class='col-md-10'>{{questions[23].answer}}</h5>
-        </div>
-    </div>
-</div>
-
-
-
-
-<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='currentMinute > 0 || currentSecond > 0'>
-<div class='col-md-10'>
-    <p class='link-description'>Sie haben noch <b>{{currentMinute}}:{{currentSecond}}</b> Minuten Zeit.</p>
+<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='currentSecond > 0 && QuizImageCount > 0'>
+<div class='col-md-11'>
+    <p class='link-description-view4'>Nächstes Bild wird Ihnen in {{currentSecond}} Sekunden gezeigt.</p>
 </div>
 <div col-md-2>
-    <span class='fa fa-angle-right'></span>
+    <!-- <span class='fa fa-angle-right'></span> -->
 </div>
 </a>
-<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='currentMinute == 0 && currentSecond == 0'  ng-href='#/5a' ng-click='countChoosedIn3()'>
-<div class='col-md-10'>
-    <p class='link-description'>Sie haben noch <b>{{currentMinute}}:{{currentSecond}}</b> Minuten Zeit.</p>
+
+<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='currentSecond == null && QuizImageCount > 0'>
+<div class='col-md-11'>
+    <p class='link-description-view4'>Bitte entscheiden Sie, ob sie das Bauwerk auf dem Bild kennen.</p>
+</div>
+<div col-md-2>
+    <!-- <span class='fa fa-angle-right'></span> -->
+</div>
+</a>
+
+<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='currentSecond == 0 && QuizImageCount > 0'>
+<div class='col-md-11'>
+    <p class='link-description-view4'>Bitte entscheiden Sie, ob sie das Bauwerk auf dem Bild kennen.</p>
+</div>
+<div col-md-2>
+    <!-- <span class='fa fa-angle-right'></span> -->
+</div>
+</a>
+
+<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='QuizImageCount <= 0'  ng-href='#/5a'>
+<div class='col-md-11'>
+    <p class='link-description-view4 col-md-12'>Vielen Dank, dass Sie an unserer kurzen Studie über<br>
+     Münsteraner Sehenswürdigkeiten teilgenommen haben. 
+    Bitte fahren Sie nun fort.</p>
 </div>
 <div col-md-2>
     <span class='fa fa-angle-right'></span>

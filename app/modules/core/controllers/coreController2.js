@@ -259,8 +259,8 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
     $scope.createObject = function() {
         var visitedIn2Array = [];
         var choosedIn3Array = [];
-        var visitedIn6Array = [];
-        var choosedIn7Array = [];
+        var visitedIn5Array = [];
+        var choosedIn6Array = [];
         for (var i = $scope.hotels.length - 1; i >= 0; i--) {
             if ($scope.hotels[i].visitedIn2 == true) {
                 visitedIn2Array.push($scope.hotels[i].id);
@@ -272,21 +272,21 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
             }
         };
         for (var i = $scope.hotels.length - 1; i >= 0; i--) {
-            if ($scope.hotels[i].visitedIn6 == true) {
-                visitedIn6Array.push($scope.hotels[i].id);
+            if ($scope.hotels[i].visitedIn5 == true) {
+                visitedIn5Array.push($scope.hotels[i].id);
             }
         };
         for (var i = $scope.hotels.length - 1; i >= 0; i--) {
-            if ($scope.hotels[i].choosedIn7 == true) {
-                choosedIn7Array.push($scope.hotels[i].id);
+            if ($scope.hotels[i].choosedIn6 == true) {
+                choosedIn6Array.push($scope.hotels[i].id);
             }
         };
         var newDataSet = {
             ExperimentNr: $scope.userNumber,
             visitedIn2: visitedIn2Array,
             choosedIn3: choosedIn3Array,
-            visitedIn6: visitedIn6Array,
-            choosedIn7: choosedIn7Array
+            visitedIn6: visitedIn5Array,
+            choosedIn7: choosedIn6Array
         }
         console.log('Test: '+localStorage.getItem('eyetrackingData'));
 
@@ -313,9 +313,7 @@ eyetrackingApp.controller("coreController2", ['$scope', function($scope) {
         $scope.eyetrackingData = JSON.parse(eyetrackingData);
 
     }
-    $scope.csvHeader = ['experimentNr', 'visitedIn2', 'choosedIn3', 'visitedIn6', 'choosedIn7'];
-
-    var data = [["Minsk",100000], ["Riga",200000]];
+    $scope.csvHeader = ['experimentNr', 'visitedIn2', 'choosedIn3', 'visitedIn5', 'choosedIn6'];
 
     $scope.export = function exportData() {
         alasql("SELECT * INTO CSV('eyetracking.csv',{headers:true}) FROM ?",[$scope.eyetrackingData]);

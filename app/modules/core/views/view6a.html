@@ -1,53 +1,20 @@
 <div class='iwm-intro-area-view2 col-md-6'>
-    Welche Kamera würden Sie in Ihre engere Auswahl nehmen? Durch einen Klick auf ein Angebot werden Sie weiter zu Amazon geleitet.
-</div>
+Bitte schließen Sie zunächst die einzelnen Tabs der Produktseiten von amazon.de und kehren Sie zu dieser Übersicht zurück.
+Welche dieser Kompaktdigitalkameras würden Sie am ehesten kaufen? Bitte markieren Sie die ausgewählte Kompaktdigitalkamera, indem Sie auf das Produkt klicken.</div>
 <div class='col-md-12'>
-<!--     <div ng-repeat='product in products' ng-if='product.choosedIn3 == true && choosedIn3Count == 1'>
-        <a href="{{product.url}}" target="_blank">
-        <div class="col-md-4 col-md-offset-4">
-            <img class='col-md-12 iwm-img' src='{{product.image}}'>
+
+
+    <div ng-repeat="product in products | orderBy:'randomValue'" ng-if='product.choosedIn3 == true'>
+        <div ng-click='setChoosedIn6(product.id)'>
+            <div class="col-md-3">
+                <img ng-if='product.choosedIn6 == false' class='col-md-12 img-camera' src='{{product.image}}'>
+            <img ng-if='product.choosedIn6 == true' class='col-md-12 img-camera-choosed' src='{{product.image}}'>        </div>
         </div>
-        </a>
-    </div>
-    <div ng-repeat='product in products' ng-if='product.choosedIn3 == true && choosedIn3Count == 2'>
-        <a href="{{product.url}}" target="_blank">
-        <div class="col-md-offset-3">
-            <div class="col-md-4">
-                <img class='col-md-12 iwm-img' src='{{product.image}}'>
-            </div>
-        </div>
-        </a>
-    </div>
-    <div ng-repeat='product in products' ng-if='product.choosedIn3 == true && choosedIn3Count == 3'>
-        <a href="{{product.url}}" target="_blank">
-        <div class="col-md-offset-1">
-            <div class="col-md-4">
-                <img class='col-md-12 iwm-img' src='{{product.image}}'>
-            </div>
-        </div>
-        </a>
-    </div>
-    <div ng-repeat='product in products' ng-if='product.choosedIn3 == true && choosedIn3Count > 3'>
-        <a href="{{product.url}}" target="_blank">
-        <div class="col-md-3">
-            <img class='col-md-12 iwm-img' src='{{product.image}}'>
-        </div>
-        </a>
-    </div>
-</div> -->
-    <div ng-repeat='product in products' ng-if='product.choosedIn3 == true'>
-        <a href="{{product.url}}" target="_blank" ng-click='setVisitedIn6(product.id)'>
-        <div class="col-md-3">
-            <img class='col-md-12 img-camera-with-Link' src='{{product.image}}'>
-        </div>
-        </a>
     </div>
 </div>
-
-
-<a ng-href='#/7a' class='iwm-intro-area-view2 col-md-6 btn btn-default'>
+<a ng-href='#/7a' class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-click='createObject()'>
 <div class='col-md-10'>
-    <p class='link-description'>Klicken Sie bitte hier um Ihre engere Auswahl zu treffen.</p>
+    <p class='link-description'>Nachdem Sie Ihre Kaufentscheidung getroffen haben, klicken Sie bitte hier.</p>
 </div>
 <div col-md-2>
     <span class='fa fa-angle-right'></span>
