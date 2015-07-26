@@ -1,7 +1,7 @@
 <div class='iwm-intro-area-view2 col-md-6'>
 Wir führen derzeit eine andere Studie durch. Dabei geht es um die Bekanntheit von Sehenswürdigkeiten in Münster. Bitte geben Sie an, ob Sie die angezeigten Sehenswürdigkeiten <strong>namentlich kennen</strong>.</div>
 <div class='col-md-6 col-md-offset-3' ng-init='startTimer()'>
-        <img src={{currentQuizImage}} class='iwm-quiz-image col-md-8 col-md-offset-2'>
+        <img src={{currentQuizImage}} class='iwm-quiz-image col-md-8 col-md-offset-2' ng-if='QuizImageCount >= 0'>
     <div class='col-md-12 col-md-offset-2 btn-group'>
         <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-click='startDelay("answer1")' ng-if='currentSecond == 0 && blockToken == false && QuizImageCount >= 0'>
             <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer1 == false'></span>
@@ -26,7 +26,7 @@ Wir führen derzeit eine andere Studie durch. Dabei geht es um die Bekanntheit v
     </div>
 </div>
 
-<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='QuizImageCount <= -1'  ng-href='#/5a'>
+<a class='iwm-bottom-area-view4 col-md-6 btn btn-default' ng-if='QuizImageCount <= -1'  ng-href='#/5a'>
 <div class='col-md-10 col-md-offset-1'>
     <p class='link-description-view4 col-md-12'>Vielen Dank, dass Sie an unserer kurzen Studie über <br>
      Münsteraner Sehenswürdigkeiten teilgenommen haben.</p>

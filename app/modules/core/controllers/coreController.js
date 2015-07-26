@@ -20,7 +20,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         choosedIn3: false,
         visitedIn5: false,
         choosedIn6: false,
-        randomValue: 0.5245
+        randomValue: null
 
     }, {
         id: 3,
@@ -30,7 +30,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         choosedIn3: false,
         visitedIn5: false,
         choosedIn6: false,
-        randomValue: 0.32345
+        randomValue: null
 
     }, {
         id: 4,
@@ -40,7 +40,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         choosedIn3: false,
         visitedIn5: false,
         choosedIn6: false,
-        randomValue: 0.73456
+        randomValue: null
 
     }, {
         id: 5,
@@ -50,7 +50,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         choosedIn3: false,
         visitedIn5: false,
         choosedIn6: false,
-        randomValue: 0.44567
+        randomValue: null
 
     }, {
         id: 6,
@@ -60,7 +60,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         choosedIn3: false,
         visitedIn5: false,
         choosedIn6: false,
-        randomValue: 0.21234
+        randomValue: null
 
     }, {
         id: 7,
@@ -70,7 +70,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         choosedIn3: false,
         visitedIn5: false,
         choosedIn6: false,
-        randomValue: 0.8423
+        randomValue: null
 
     }, {
         id: 8,
@@ -80,7 +80,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         choosedIn3: false,
         visitedIn5: false,
         choosedIn6: false,
-        randomValue: 0.952346
+        randomValue: null
 
     }];
 
@@ -160,8 +160,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         setTimeout(function() {
             $scope.blockToken = false;
             $scope.visible = true;
-                            setNewImage();
-
+            setNewImage();
         }, 2000);
     };
 
