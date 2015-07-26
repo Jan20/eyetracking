@@ -1,9 +1,7 @@
-<div class='iwm-intro-area-view2 col-md-6'>
-Bitte schließen Sie zunächst die einzelnen Tabs der Produktseiten von amazon.de und kehren Sie zu dieser Übersicht zurück.
-Welche dieser Kompaktdigitalkameras würden Sie am ehesten kaufen? Bitte markieren Sie die ausgewählte Kompaktdigitalkamera, indem Sie auf das Produkt klicken.</div>
+<div class='iwm-intro-area-large col-md-6'>
+Bitte schließen Sie zunächst die einzelnen Tabs der Produktseiten von amazon.de und kehren Sie zu dieser Übersicht zurück. Welche dieser Kompaktdigitalkameras würden Sie am ehesten kaufen? Bitte <strong>markieren Sie</strong> die ausgewählte <strong>Kompaktdigitalkamera</strong>, indem Sie auf das <strong>Produkt klicken</strong>.
+</div>
 <div class='col-md-12'>
-
-
     <div ng-repeat="product in products | orderBy:'randomValue'" ng-if='product.choosedIn3 == true'>
         <div ng-click='setChoosedIn6(product.id)'>
             <div class="col-md-3">
@@ -12,9 +10,18 @@ Welche dieser Kompaktdigitalkameras würden Sie am ehesten kaufen? Bitte markier
         </div>
     </div>
 </div>
-<a ng-href='#/7a' class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-click='createObject()'>
-<div class='col-md-10'>
-    <p class='link-description'>Nachdem Sie Ihre Kaufentscheidung getroffen haben, klicken Sie bitte hier.</p>
+<a ng-href='' class='iwm-bottom-area col-md-6 btn btn-default' ng-click='createObject()' ng-if='countChoosedIn6 != 1'>
+<div class='col-md-10 col-md-offset-1'>
+    <p class='link-description'>Bitte wählen Sie ein Produkt aus.</p>
+</div>
+<div col-md-2>
+    <span class='fa fa-angle-right'></span>
+</div>
+</a>
+
+<a ng-href='#/7a' class='iwm-bottom-area col-md-6 btn btn-default' ng-click='createObject()' ng-if='countChoosedIn6 == 1'>
+<div class='col-md-10 col-md-offset-1'>
+    <p class='link-description'>Weiter</p>
 </div>
 <div col-md-2>
     <span class='fa fa-angle-right'></span>

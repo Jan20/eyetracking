@@ -1,25 +1,24 @@
 <div class='iwm-intro-area-view2 col-md-6'>
-Wir führen derzeit eine andere Studie durch. Dabei geht es um die Bekanntheit von Sehenswürdigkeiten in Münster. Bitte geben Sie an, ob Sie die angezeigten Sehenswürdigkeiten namentlich kennen. 
-</div>
+Wir führen derzeit eine andere Studie durch. Dabei geht es um die Bekanntheit von Sehenswürdigkeiten in Münster. Bitte geben Sie an, ob Sie die angezeigten Sehenswürdigkeiten <strong>namentlich kennen</strong>.</div>
 <div class='col-md-6 col-md-offset-3' ng-init='startTimer()'>
         <img src={{currentQuizImage}} class='iwm-quiz-image col-md-8 col-md-offset-2'>
     <div class='col-md-12 col-md-offset-2 btn-group'>
-        <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-click='startDelay("answer1")' ng-if='currentSecond == 0 && blockToken == false'>
+        <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-click='startDelay("answer1")' ng-if='currentSecond == 0 && blockToken == false && QuizImageCount >= 0'>
             <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer1 == false'></span>
             <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer1 == true'></span>
             <h5 class='col-md-12'>Kenne ich</h5>
         </div>
-        <div class='btn btn-lg btn-default col-md-6' ng-click='startDelay("answer2")' ng-if='currentSecond == 0 && blockToken == false'>
+        <div class='btn btn-lg btn-default col-md-6' ng-click='startDelay("answer2")' ng-if='currentSecond == 0 && blockToken == false && QuizImageCount >= 0'>
             <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer2 == false'></span>
             <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer2 == true'></span>
             <h5 class="col-md-12">Kenne ich nicht</h5>
         </div>        
-        <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-if='blockToken == true'>
+        <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-if='currentSecond == 0 && blockToken == true && QuizImageCount >= 0'>
             <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer1 == false'></span>
             <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer1 == true'></span>
             <h5 class='col-md-12'>Kenne ich</h5>
         </div>
-        <div class='btn btn-lg btn-default col-md-6' ng-if='blockToken == true'>
+        <div class='btn btn-lg btn-default col-md-6' ng-if='currentSecond == 0 && blockToken == true && QuizImageCount >= 0'>
             <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer2 == false'></span>
             <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer2 == true'></span>
             <h5 class="col-md-12">Kenne ich nicht</h5>
@@ -27,34 +26,12 @@ Wir führen derzeit eine andere Studie durch. Dabei geht es um die Bekanntheit v
     </div>
 </div>
 
-<!-- <a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='currentSecond > 0 && QuizImageCount > 0'>
-<div class='col-md-11'>
-    <p class='link-description-view4'>Nächstes Bild wird Ihnen in {{currentSecond}} Sekunden gezeigt.</p>
-</div>
-</a>
- -->
-<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='currentSecond == null && QuizImageCount > 0'>
-<div class='col-md-11'>
-    <p class='link-description-view4'>Bitte entscheiden Sie, ob sie das Bauwerk auf dem Bild kennen.</p>
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='QuizImageCount <= -1'  ng-href='#/5a'>
+<div class='col-md-10 col-md-offset-1'>
+    <p class='link-description-view4 col-md-12'>Vielen Dank, dass Sie an unserer kurzen Studie über <br>
+     Münsteraner Sehenswürdigkeiten teilgenommen haben.</p>
 </div>
 <div col-md-2>
-    <!-- <span class='fa fa-angle-right'></span> -->
-</div>
-</a>
-
-<!-- <a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='currentSecond == 0 && QuizImageCount > 0'>
-<div class='col-md-11'>
-    <p class='link-description-view4'>Bitte entscheiden Sie, ob sie das Bauwerk auf dem Bild kennen.</p>
-</div>
-</a> -->
-
-<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='QuizImageCount <= 0'  ng-href='#/5a'>
-<div class='col-md-11'>
-    <p class='link-description-view4 col-md-12'>Vielen Dank, dass Sie an unserer kurzen Studie über<br>
-     Münsteraner Sehenswürdigkeiten teilgenommen haben. 
-    Bitte fahren Sie nun fort.</p>
-</div>
-<div col-md-2>
-    <span class='fa fa-angle-right'></span>
+    <span class='fa fa-angle-right link-description-angle-view4'></span>
 </div>
 </a>

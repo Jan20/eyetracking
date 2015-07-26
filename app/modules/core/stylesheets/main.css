@@ -10,21 +10,16 @@
 
 /* Icons */
 .fa{
-	font-size: 60px;
+	font-size: 50px;
 	color: #931E1A;
 }
 
 /* Bottom Navigation */
 
 
-.link-description{
-	text-align: center;
-	padding-top: 24px;
-}
-.link-description-view4{
-	text-align: center;
-	padding-top: 16px;
-}
+
+
+
 
 .col-md-1{
 	margin: 0;
@@ -36,18 +31,16 @@
 	padding: 5px;
 }
 
-.col-md-6{
-/*	width: 695px;
-	margin: 0;
-	margin-left: 373px;
-	padding: 5px;*/
-}
 
 /*general*/
 .iwm-text{
 	font-size: 16px;
 	line-height: 30px;
+}
 
+.imageRow{
+	height: 60px;
+	border:none;
 }
 
 /* View 1 */
@@ -60,6 +53,36 @@
 	padding-top: 10px;
     vertical-align: center;
 	
+}
+
+.iwm-bottom-area{
+	width: 695px;
+	margin: 0;
+	margin-left: 373px;
+	padding: 0px;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	border: 1px solid #A1A1A1;
+	border-radius: 5px;
+	padding-bottom: 5px;
+	padding-top: 0px;
+	text-align: center;
+	border: 1px solid #931E1A;
+}
+
+.link-description{
+	text-align: center;
+	padding-top: 18px;
+}
+
+.link-description-view4{
+	text-align: center;
+	padding-top: 14px;
+}
+
+.link-description-angle-view4{
+	padding-top: 8px;
+
 }
 
 #iwm-logo{
@@ -132,9 +155,24 @@ img{
 
 /* View 2 */
 .iwm-intro-area-view2{
-		width: 695px;
+	width: 695px;
 	margin: 0;
 	margin-left: 373px;
+	padding: 5px;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	border: 1px solid #A1A1A1;
+	border-radius: 5px;
+	padding-bottom: 10px;
+	padding-top: 5px;
+	text-align: center;
+	border: 1px solid #931E1A;
+}
+
+.iwm-intro-area-large{
+	width: 900px;
+	margin: 0;
+	margin-left: 270px;
 	padding: 5px;
 	margin-top: 15px;
 	margin-bottom: 10px;
@@ -157,9 +195,11 @@ img{
 h5{
 	text-align: center;
 }
+
 .btn-group{
 	margin: 0;
 	padding:10px;
+	padding-top: 15px;
 	padding-left: 0;
 }
 

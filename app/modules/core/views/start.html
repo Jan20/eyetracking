@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='userNumber == null'>
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='userNumber == null'>
     <div class='col-md-10'>
         <p class='link-description'>Bitte geben Sie ihre Teilnahmenummer ein</p>
     </div>
@@ -21,7 +21,7 @@
     </div>
 </a>
 
-<a ng-href='#/1a' class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='(userNumber != null) && (selectedExperiment < 0.5)' ng-click='saveUserNumber(userNumber)'>
+<a ng-href='#/1a' class='iwm-bottom-area col-md-6 btn btn-default' ng-if='(userNumber != null) && (selectedExperiment < 0.5)' ng-click='saveUserNumber(userNumber)'>
     <div class='col-md-10'>
         <p class='link-description'>Klicken Sie hier um das Experiment zu starten    </p>
     </div>
@@ -30,7 +30,7 @@
     </div>
 </a>
 
-<a ng-href='#/1b' class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-if='(userNumber != null) && (selectedExperiment >= 0.5)' ng-click='saveUserNumber(userNumber)'>
+<a ng-href='#/1b' class='iwm-bottom-area col-md-6 btn btn-default' ng-if='(userNumber != null) && (selectedExperiment >= 0.5)' ng-click='saveUserNumber(userNumber)'>
     <div class='col-md-10'>
         <p class='link-description'>Klicken Sie hier um das Experiment zu starten    </p>
     </div>
@@ -38,4 +38,3 @@
         <span class='fa fa-angle-right'></span>
     </div>
 </a>
-

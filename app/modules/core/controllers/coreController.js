@@ -35,7 +35,7 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
     }, {
         id: 4,
         image: 'app/modules/core/assets/cameras/Olympus_SZ-14.jpg',
-        url: 'http://www.amazon.de/Olympus-Digitalkamera-Megapixel-24-fach-bildstabilisiert/dp/B006Q9J40Q/ref=sr_1_49?s=photo&ie=UTF8&qid=1437143145&sr=1-49&keywords=Digitalkamera',
+        url: ' http://www.amazon.de/Olympus-Digitalkamera-Megapixel-24-fach-bildstabilisiert/dp/B006Q9J438/ref=sr_1_1?ie=UTF8&qid=1437901399&sr=8-1&keywords=Olympus+SZ-14+Digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn5: false,
@@ -141,6 +141,8 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
 
     $scope.startDelay = function(answer) {
         $scope.blockToken = true;
+        $scope.visible = false;
+
         if (answer == 'answer1') {
             $scope.answer1 = true;
             $scope.answer2 = false;
@@ -150,32 +152,34 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
             $scope.answer1 = false;
             $scope.answer2 = true;
         }
-        $scope.startTimer();
+
+        setTimeout(function(){ 
+            $scope.startTimer();
+        }, 2000);
 
         setTimeout(function() {
             $scope.blockToken = false;
-        setNewImage();
+            $scope.visible = true;
+                            setNewImage();
 
-        }, 5000);
+        }, 2000);
     };
 
     var setNewImage = function() {
-        $scope.$apply(function() {
             $scope.QuizImageCount -= 1;
             $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
             $scope.answer1 = false;
             $scope.answer2 = false;
-        })
     };
 
     $scope.startTimer = function() {
-
         $scope.timerDuration = 5;
         $scope.currentSecond = 5;
 
         var current = moment.duration($scope.timerDuration * 1000, 'milliseconds');
 
         setInterval(function() {
+            $scope.visible = false;
             setCurrentTime();
         }, 1000);
 
@@ -191,9 +195,10 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
 
             })
         };
+
     };
 
-    // Functionality in View 6
+    // Functionality in View 5
     $scope.setVisitedIn5 = function(id) {
         for (var i = $scope.products.length - 1; i >= 0; i--) {
             if ($scope.products[i].id == id) {
@@ -201,17 +206,26 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
             }
         }
     };
-    // Functionality in View 7
+
+    $scope.countChoosedIn6 = 0;
+    // Functionality in View 6
     $scope.setChoosedIn6 = function(id) {
         if ($scope.products[id - 1].choosedIn6 == false) {
             for (var i = $scope.products.length - 1; i >= 0; i--) {
                 $scope.products[i].choosedIn6 = false;
             };
             $scope.products[id - 1].choosedIn6 = true;
+            $scope.countChoosedIn6 = 1;
         } else {
             $scope.products[id - 1].choosedIn6 = false;
+                        $scope.countChoosedIn6 = 0;
+
         }
     };
+
+    $scope.countChoosedIn3 = 0;
+
+
     // Save Results in View 8
     $scope.createObject = function() {
         var visitedIn2Array = [];
@@ -267,5 +281,9 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
     $scope.export = function exportData() {
         alasql("SELECT * INTO CSV('eyetracking.csv',{headers:true}) FROM ?", [$scope.eyetrackingData]);
         //alasql('SELECT * INTO CSV("test.csv". {headers:true}) FROM ?',[data]);
+    };
+
+    $scope.Hey = function(){
+        window.open('http://localhost:8888/eyetracking/#/start', 'Jan', "height=1000,width=1000");
     }
 }]);
