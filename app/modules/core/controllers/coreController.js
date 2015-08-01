@@ -85,7 +85,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     // ----------------------------------- GoTo Function -----------------------------------
 
-    var gotTo = function(path){
+    var goTo = function(path){
         $scope.$apply(function(){
             $location.path(path);
         });        
@@ -97,7 +97,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.mainFunction0 = function(userNumber){
         $scope.saveUserNumber(userNumber);
         setTimeout(function(){
-            gotTo('/1a');
+            goTo('/1a');
         }, 200);
     };
 
@@ -111,7 +111,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.mainFunction1 = function(){
         $scope.setRandomOrder();
         setTimeout(function(){
-            gotTo('/2a');
+            goTo('/2a');
         }, 200);
     };
 
@@ -127,7 +127,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.mainFunction2 = function(){
         $scope.setVisitedIn2();
         setTimeout(function(){
-            gotTo('/3a');
+            goTo('/3a');
         }, 200);
     };
 
@@ -255,7 +255,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     $scope.mainFunction5 = function(){
         setTimeout(function(){
-            gotTo('6a');
+            goTo('6a');
         }, 200);
     };
 
@@ -273,7 +273,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.mainFunction6 = function(){
         $scope.createObject();
         setTimeout(function(){
-            gotTo('7a');
+            goTo('7a');
         }, 200);
     };
     
