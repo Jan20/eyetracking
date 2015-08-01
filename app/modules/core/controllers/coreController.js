@@ -111,7 +111,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.mainFunction1 = function(){
         $scope.setRandomOrder();
         setTimeout(function(){
-            gotTo2a('/2a');
+            gotTo('/2a');
         }, 200);
     };
 
