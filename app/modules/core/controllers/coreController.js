@@ -1,7 +1,6 @@
-eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) {
-    // View 1
-    $scope.userNumber = null;
+eyetrackingApp.controller("coreController", ['$location', '$scope', function($location, $scope, $apply) {
 
+    // ----------------------------------- Model -----------------------------------
 
     $scope.products = [{
         id: 1,
@@ -84,17 +83,54 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
 
     }];
 
+    // ----------------------------------- GoTo Function -----------------------------------
+
+    var gotTo = function(path){
+        $scope.$apply(function(){
+            $location.path(path);
+        });        
+    };
+
+
+    // ----------------------------------- View start -----------------------------------
+
+    $scope.mainFunction0 = function(userNumber){
+        $scope.saveUserNumber(userNumber);
+        setTimeout(function(){
+            gotTo('/1a');
+        }, 200);
+    };
+
+    $scope.saveUserNumber = function(userNumber) {
+        $scope.userNumber = userNumber;
+    };
+
+
+    // ----------------------------------- View 1a -----------------------------------
+    
+    $scope.mainFunction1 = function(){
+        $scope.setRandomOrder();
+        setTimeout(function(){
+            gotTo2a('/2a');
+        }, 200);
+    };
+
     $scope.setRandomOrder = function() {
         for (var i = $scope.products.length - 1; i >= 0; i--) {
             $scope.products[i].randomValue = Math.random();
         };
     };
 
-    // Functions of View 1
-    $scope.saveUserNumber = function(userNumber) {
-        $scope.userNumber = userNumber;
+    
+    // ----------------------------------- View 2a -----------------------------------
+
+    $scope.mainFunction2 = function(){
+        $scope.setVisitedIn2();
+        setTimeout(function(){
+            gotTo('/3a');
+        }, 200);
     };
-    // Functionality in View 2
+
     $scope.setVisitedIn2 = function(id) {
         for (var i = $scope.products.length - 1; i >= 0; i--) {
             if ($scope.products[i].id == id) {
@@ -102,9 +138,18 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
             }
         }
     };
+
+
+    // ----------------------------------- View 3a -----------------------------------
+
+    $scope.mainFunction3 = function(){
+        setTimeout(function(){
+            goTo('/4a');        
+        }, 200);
+    };
+
     $scope.countChoosedIn3 = 0;
     
-    // Functionality in View 3
     $scope.setChoosedIn3 = function(id) {
         if ($scope.products[id - 1].choosedIn3 == false) {
             $scope.products[id - 1].choosedIn3 = true;
@@ -115,7 +160,15 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         }
     };
 
-    // Test in View 4
+
+    // ----------------------------------- View 4a -----------------------------------
+    
+    $scope.mainFunction4 = function(){
+        setTimeout(function(){
+            goTo('/5a');        
+        }, 200);
+    };
+
     $scope.quizImages = [
         'app/modules/core/assets/quiz/question1.jpg',
         'app/modules/core/assets/quiz/question2.jpg',
@@ -197,7 +250,15 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
 
     };
 
-    // Functionality in View 5
+
+    // ----------------------------------- View 5a -----------------------------------
+
+    $scope.mainFunction5 = function(){
+        setTimeout(function(){
+            gotTo('6a');
+        }, 200);
+    };
+
     $scope.setVisitedIn5 = function(id) {
         for (var i = $scope.products.length - 1; i >= 0; i--) {
             if ($scope.products[i].id == id) {
@@ -206,8 +267,18 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         }
     };
 
+
+    // ----------------------------------- View 6a -----------------------------------
+
+    $scope.mainFunction6 = function(){
+        $scope.createObject();
+        setTimeout(function(){
+            gotTo('7a');
+        }, 200);
+    };
+    
     $scope.countChoosedIn6 = 0;
-    // Functionality in View 6
+
     $scope.setChoosedIn6 = function(id) {
         if ($scope.products[id - 1].choosedIn6 == false) {
             for (var i = $scope.products.length - 1; i >= 0; i--) {
@@ -217,15 +288,10 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
             $scope.countChoosedIn6 = 1;
         } else {
             $scope.products[id - 1].choosedIn6 = false;
-                        $scope.countChoosedIn6 = 0;
-
+            $scope.countChoosedIn6 = 0;
         }
     };
 
-    $scope.countChoosedIn3 = 0;
-
-
-    // Save Results in View 8
     $scope.createObject = function() {
         var visitedIn2Array = [];
         var choosedIn3Array = [];
@@ -271,18 +337,19 @@ eyetrackingApp.controller("coreController", ['$scope', function($scope, $apply) 
         eyetrackingData = JSON.stringify(eyetrackingData);
         localStorage.setItem('eyetrackingData', eyetrackingData);
     };
+
+
+    // ----------------------------------- View Admin -----------------------------------
+
     $scope.showResults = function() {
         var eyetrackingData = localStorage.getItem('eyetrackingData');
         $scope.eyetrackingData = JSON.parse(eyetrackingData);
     }
+
     $scope.csvHeader = ['experimentNr', 'visitedIn2', 'choosedIn3', 'visitedIn5', 'choosedIn6'];
 
     $scope.export = function exportData() {
         alasql("SELECT * INTO CSV('eyetracking.csv',{headers:true}) FROM ?", [$scope.eyetrackingData]);
-        //alasql('SELECT * INTO CSV("test.csv". {headers:true}) FROM ?',[data]);
     };
 
-    $scope.Hey = function(){
-        window.open('http://localhost:8888/eyetracking/#/start', 'Jan', "height=1000,width=1000");
-    }
 }]);

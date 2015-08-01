@@ -13,22 +13,19 @@
         <link href="app/modules/core/stylesheets/main.css" rel='stylesheet'>
     </head>
 
-    <body ng-app="eyetrackingApp" ng-controller='indexController' ng-init='selectExperiment()'>
-        <div class='fixedWidth' ng-controller='coreController' ng-if='selectedExperiment < 0.5'>
-            <ng-view> 
+    <body ng-app="eyetrackingApp">
+        <div class='fixedWidth' ng-controller='coreController'>
+            <ng-view>
         </div>               
-        <div class='fixedWidth' ng-controller='coreController2' ng-if='selectedExperiment >= 0.5'>
-            <ng-view> 
-        </div>        
     </body>
     
     <script src="http://alasql.org/console/alasql.min.js"></script>
     <script src="app/bower_compressed/bower_compressed.js"></script>
     <script src="node_modules/ng-csv/build/ng-csv.min.js"></script>
     <script type="text/javascript" src="app/modules/core/controllers/router.js"></script>
-    <script type="text/javascript" src="app/modules/core/controllers/indexController.js"></script>
+    <!-- <script type="text/javascript" src="app/modules/core/controllers/indexController.js"></script> -->
     <script type="text/javascript" src="app/modules/core/controllers/coreController.js"></script>
-    <script type="text/javascript" src="app/modules/core/controllers/coreController2.js"></script>
-    <script type="text/javascript" src="app/modules/core/controllers/timerController.js"></script>
+    <!-- <script type="text/javascript" src="app/modules/core/controllers/coreController2.js"></script> -->
+    <!-- <script type="text/javascript" src="app/modules/core/controllers/timerController.js"></script> -->
 
 </html>

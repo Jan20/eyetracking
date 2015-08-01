@@ -11,17 +11,19 @@ Bitte <strong>schließen Sie</strong> zunächst die <strong>einzelnen Tabs der P
         </div>
     </div>
 </div>
-<a ng-href='#/4a' class='iwm-bottom-area col-md-6 btn btn-default' ng-if='countChoosedIn3 > 0'>
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='countChoosedIn3 > 0' ng-click='mainFunction3()'>
     <div class='col-md-10 col-md-offset-1'>
-        <p class='link-description'>Alle amazon.de Tabs geschlossen? Dann klicken Sie hier um fortzufahren.
-</p>
+        <p class='link-description'>Alle amazon.de Tabs geschlossen? Dann klicken Sie hier um fortzufahren.</p>
     </div>
     <div col-md-2>
         <span class='fa fa-angle-right'></span>
     </div>
 </a>
 
-<a ng-href='' class='iwm-bottom-area col-md-6 btn btn-default' ng-if='countChoosedIn3 == 0'>
+
+<!-- Bottom Navigation -->
+
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='countChoosedIn3 == 0'>
     <div class='col-md-10 col-md-offset-1'>
         <p class='link-description'>Bitte beziehen Sie mindestens ein Produkt in die engere Auswahl.</p>
     </div>

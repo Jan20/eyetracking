@@ -6,24 +6,32 @@ Welche dieser Kompaktdigitalkameras würden Sie am ehesten kaufen? Bitte <strong
         <div ng-click='setChoosedIn6(product.id)'>
             <div class="col-md-3">
                 <img ng-if='product.choosedIn6 == false' class='col-md-12 img-camera' src='{{product.image}}'>
-            <img ng-if='product.choosedIn6 == true' class='col-md-12 img-camera-choosed' src='{{product.image}}'>        </div>
+                <img ng-if='product.choosedIn6 == true' class='col-md-12 img-camera-choosed' src='{{product.image}}'>        
+            </div>
         </div>
     </div>
 </div>
-<a ng-href='' class='iwm-bottom-area col-md-6 btn btn-default' ng-click='createObject()' ng-if='countChoosedIn6 != 1'>
-<div class='col-md-10 col-md-offset-1'>
-    <p class='link-description'>Bitte wählen Sie ein Produkt aus.</p>
-</div>
-<div col-md-2>
-    <span class='fa fa-angle-right'></span>
-</div>
+
+
+<!-- Bottom Navigation: false option-->
+
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='countChoosedIn6 != 1'>
+    <div class='col-md-10 col-md-offset-1'>
+        <p class='link-description'>Bitte wählen Sie ein Produkt aus.</p>
+    </div>
+    <div col-md-2>
+        <span class='fa fa-angle-right'></span>
+    </div>
 </a>
 
-<a ng-href='#/7a' class='iwm-bottom-area col-md-6 btn btn-default' ng-click='createObject()' ng-if='countChoosedIn6 == 1'>
-<div class='col-md-10 col-md-offset-1'>
-    <p class='link-description'>Weiter</p>
-</div>
-<div col-md-2>
-    <span class='fa fa-angle-right'></span>
-</div>
+
+<!-- Bottom Navigation: right option-->
+
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-click='mainFunction6()' ng-if='countChoosedIn6 == 1'>
+    <div class='col-md-10 col-md-offset-1'>
+        <p class='link-description'>Weiter</p>
+    </div>
+    <div col-md-2>
+        <span class='fa fa-angle-right'></span>
+    </div>
 </a>

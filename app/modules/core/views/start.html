@@ -1,4 +1,4 @@
-<div class='iwm-intro-area col-md-6 col-md-offset-3' ng-init='selectExperiment()'>
+<div class='iwm-intro-area col-md-6 col-md-offset-3'>
     <div class='iwm-text'>
         <div class="col-md-12">
             <img src='app/modules/core/assets/experiment/iwm.png' id='iwm-logo'>
@@ -12,6 +12,9 @@
     </div>
 </div>
 
+
+<!-- Bottom Navigation -->
+
 <a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='userNumber == null'>
     <div class='col-md-10 col-md-offset-1'>
         <p class='link-description'>Bitte geben Sie ihre Teilnahmenummer ein</p>
@@ -21,18 +24,9 @@
     </div>
 </a>
 
-<a ng-href='#/1a' class='iwm-bottom-area col-md-6 btn btn-default' ng-if='(userNumber != null) && (selectedExperiment < 0.5)' ng-click='saveUserNumber(userNumber)'>
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='userNumber != null' ng-click='mainFunction0(userNumber)'>
     <div class='col-md-10 col-md-offset-1'>
-        <p class='link-description'>Klicken Sie hier um das Experiment zu starten    </p>
-    </div>
-    <div col-md-2>
-        <span class='fa fa-angle-right'></span>
-    </div>
-</a>
-
-<a ng-href='#/1b' class='iwm-bottom-area col-md-6 btn btn-default' ng-if='(userNumber != null) && (selectedExperiment >= 0.5)' ng-click='saveUserNumber(userNumber)'>
-    <div class='col-md-10 col-md-offset-1'>
-        <p class='link-description'>Klicken Sie hier um das Experiment zu starten    </p>
+        <p class='link-description'>Klicken Sie hier um das Experiment zu starten</p>
     </div>
     <div col-md-2>
         <span class='fa fa-angle-right'></span>
