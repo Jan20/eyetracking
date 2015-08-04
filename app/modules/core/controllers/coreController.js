@@ -53,7 +53,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     }, {
         id: 6,
-        image: 'app/modules/core/assets/cameras/Samsung_WB350F.jpg',
+        image: 'app/modules/core/assets/cameras/Samsung DV150F.jpg',
         url: 'http://www.amazon.de/Samsung-Smart-Digitalkamera-Megapixel-LCD-Display-bildstabilisiert/dp/B00B1OXLJG/ref=sr_1_6?s=photo&ie=UTF8&qid=1438697567&sr=1-6&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
