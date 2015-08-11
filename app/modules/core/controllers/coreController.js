@@ -44,7 +44,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     }, {
         id: 5,
         image: 'app/modules/core/assets/cameras/Panasonic_DMC-TZ56EG-W.jpg',
-        url: 'http://www.amazon.de/Panasonic-DMC-TZ56EG-W-Travellerzoom-Kompaktkamera-LCD-Display/dp/B00I3BTGT4/ref=sr_1_2?s=photo&ie=UTF8&qid=1437829309&sr=1-2&keywords=panasonic',
+        url: 'http://www.amazon.de/Panasonic-Lumix-DMC-SZ3-Megapixel-Display/dp/B00BB3FWBW/ref=sr_1_10?s=photo&ie=UTF8&qid=1439291686&sr=1-10&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn5: false,
@@ -183,6 +183,10 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         'app/modules/core/assets/quiz/question11.jpg',
         'app/modules/core/assets/quiz/question12.jpg'
     ];
+    // $scope.quizImage = [
+        
+
+    // ];
 
     $scope.QuizImageCount = $scope.quizImages.length - 1;
     $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
@@ -324,32 +328,48 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
             visitedIn5: visitedIn5Array,
             choosedIn6: choosedIn6Array
         }
-        console.log('Test: ' + localStorage.getItem('eyetrackingData'));
+        // console.log(JSON.parse(localStorage.getItem('eyetrackingData')));
         console.log(newDataSet);
         var eyetrackingData = [];
         if (localStorage.getItem('eyetrackingData') != undefined) {
             var eyetrackingData = localStorage.getItem('eyetrackingData');
             var eyetrackingData = JSON.parse(eyetrackingData);
-        } else {
-            localStorage.setItem('eyetrackingData', eyetrackingData);
         }
+
         eyetrackingData.push(newDataSet);
         eyetrackingData = JSON.stringify(eyetrackingData);
         localStorage.setItem('eyetrackingData', eyetrackingData);
     };
 
 
+
+
     // ----------------------------------- View Admin -----------------------------------
+
 
     $scope.showResults = function() {
         var eyetrackingData = localStorage.getItem('eyetrackingData');
         $scope.eyetrackingData = JSON.parse(eyetrackingData);
     }
 
-    $scope.csvHeader = ['experimentNr', 'visitedIn2', 'choosedIn3', 'visitedIn5', 'choosedIn6'];
-
+    /** 
+    *
+    *   Simples Array, das die Spaltenüberschriften der ges 
+    *
+    */
+    $scope.csvHeader = ['ExperimentNr', 'visitedIn2', 'choosedIn3', 'visitedIn5', 'choosedIn6'];
     $scope.export = function exportData() {
-        alasql("SELECT * INTO CSV('eyetracking.csv',{headers:true}) FROM ?", [$scope.eyetrackingData]);
+            console.log('eytrackingData: ' + $scope.csvHeader);
+            console.log('eytrackingData: ' + JSON.stringify($scope.eyetrackingData));
+            // $scope.eyetrackingData = JSON.stringify($scope.eyetrackingData);
+        alasql("SELECT * INTO CSV('eyetracking.csv',{headers:true, separator:';'}) FROM ?", [$scope.eyetrackingData]);
     };
 
+
+
 }]);
+
+
+
+
+
