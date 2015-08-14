@@ -183,27 +183,12 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         'app/modules/core/assets/quiz/question11.jpg',
         'app/modules/core/assets/quiz/question12.jpg'
     ];
+    // $scope.quizImage = [
+        
 
-    // $scope.quizImages = [
-    //     'app/modules/core/assets/quizBayern/question1.jpg',
-    //     'app/modules/core/assets/quizBayern/question2.jpg',
-    //     'app/modules/core/assets/quizBayern/question3.jpg',
-    //     'app/modules/core/assets/quizBayern/question4.jpg',
-    //     'app/modules/core/assets/quizBayern/question5.jpg',
-    //     'app/modules/core/assets/quizBayern/question6.jpg',
-    //     'app/modules/core/assets/quizBayern/question7.jpg',
-    //     'app/modules/core/assets/quizBayern/question8.jpg',
-    //     'app/modules/core/assets/quizBayern/question9.jpg',
-    //     'app/modules/core/assets/quizBayern/question10.jpg',
-    //     'app/modules/core/assets/quizBayern/question11.jpg',
-    //     'app/modules/core/assets/quizBayern/question12.jpg'
     // ];
 
-
-
     $scope.QuizImageCount = $scope.quizImages.length - 1;
-    console.log($scope.QuizImageCount);
-    console.log($scope.quizImages[$scope.QuizImageCount])
     $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
 
     $scope.answer1 = false;

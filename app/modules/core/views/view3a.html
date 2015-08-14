@@ -5,8 +5,8 @@ Bitte <strong>schließen Sie</strong> zunächst die <strong>einzelnen Tabs der P
     <div ng-repeat="product in products | orderBy:'randomValue'">
         <div ng-click='setChoosedIn3(product.id)'>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <img ng-src='{{product.image}}' class='col-md-12 img-camera' ng-if='product.choosedIn3 == false' >
-                <img ng-src='{{product.image}}' class='col-md-12 img-camera-choosed' ng-if='product.choosedIn3 == true'>
+                <img ng-if='product.choosedIn3 == false' class='col-md-12 img-camera' src='{{product.image}}'>
+                <img ng-if='product.choosedIn3 == true' class='col-md-12 img-camera-choosed' src='{{product.image}}'>
             </div>
         </div>
     </div>

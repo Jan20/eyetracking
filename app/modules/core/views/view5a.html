@@ -5,7 +5,7 @@ Im Folgenden sehen Sie Ihre engere Auswahl der Kompaktdigitalkameras. Wir würde
     <div ng-repeat="product in products | orderBy:'randomValue'" ng-if='product.choosedIn3 == true'>
         <a href="{{product.url}}" target="_blank" ng-click='setVisitedIn5(product.id)'>
         <div class="col-md-3">
-            <img ng-src='{{product.image}}' class='col-md-12 img-camera-with-Link'>
+            <img class='col-md-12 img-camera-with-Link' src='{{product.image}}'>
         </div>
         </a>
     </div>

@@ -5,9 +5,9 @@ Sie möchten zunächst eine <strong>engere Auswahl treffen</strong>, bevor Sie s
 
 <div class='col-md-12'>
     <div ng-repeat="product in products | orderBy:'randomValue'">
-        <a href="{{product.url}}" target="_blank" ng-click='setVisitedIn2(product.id)'>
+        <a href="{{product.url}}"  target="_blank" ng-click='setVisitedIn2(product.id)'>
         <div class="col-md-3">
-            <img class='col-md-12 img-camera-with-Link' ng-src='{{product.image}}'>
+            <img class='col-md-12 img-camera-with-Link' src='{{product.image}}'>
         </div>
         </a>
     </div>
