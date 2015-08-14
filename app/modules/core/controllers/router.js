@@ -1,4 +1,4 @@
-var eyetrackingApp = angular.module("eyetrackingApp", ['ngRoute', 'ngSanitize', 'ngCsv']);
+var eyetrackingApp = angular.module("eyetrackingApp", ['ngRoute', 'ngSanitize']);
 
 eyetrackingApp.config(function ($routeProvider) {
 	
