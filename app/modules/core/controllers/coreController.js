@@ -80,7 +80,6 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         visitedIn5: false,
         choosedIn6: false,
         randomValue: null
-
     }];
 
     // ----------------------------------- GoTo Function -----------------------------------
