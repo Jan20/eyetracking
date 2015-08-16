@@ -169,35 +169,35 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         }, 200);
     };
 
-    $scope.quizImages = [
-        'app/modules/core/assets/quiz/question1.jpg',
-        'app/modules/core/assets/quiz/question2.jpg',
-        'app/modules/core/assets/quiz/question3.jpg',
-        'app/modules/core/assets/quiz/question4.jpg',
-        'app/modules/core/assets/quiz/question5.jpg',
-        'app/modules/core/assets/quiz/question6.jpg',
-        'app/modules/core/assets/quiz/question7.jpg',
-        'app/modules/core/assets/quiz/question8.jpg',
-        'app/modules/core/assets/quiz/question9.jpg',
-        'app/modules/core/assets/quiz/question10.jpg',
-        'app/modules/core/assets/quiz/question11.jpg',
-        'app/modules/core/assets/quiz/question12.jpg'
-    ];
-
     // $scope.quizImages = [
-    //     'app/modules/core/assets/quizBayern/question1.jpg',
-    //     'app/modules/core/assets/quizBayern/question2.jpg',
-    //     'app/modules/core/assets/quizBayern/question3.jpg',
-    //     'app/modules/core/assets/quizBayern/question4.jpg',
-    //     'app/modules/core/assets/quizBayern/question5.jpg',
-    //     'app/modules/core/assets/quizBayern/question6.jpg',
-    //     'app/modules/core/assets/quizBayern/question7.jpg',
-    //     'app/modules/core/assets/quizBayern/question8.jpg',
-    //     'app/modules/core/assets/quizBayern/question9.jpg',
-    //     'app/modules/core/assets/quizBayern/question10.jpg',
-    //     'app/modules/core/assets/quizBayern/question11.jpg',
-    //     'app/modules/core/assets/quizBayern/question12.jpg'
+    //     'app/modules/core/assets/quiz/question1.jpg',
+    //     'app/modules/core/assets/quiz/question2.jpg',
+    //     'app/modules/core/assets/quiz/question3.jpg',
+    //     'app/modules/core/assets/quiz/question4.jpg',
+    //     'app/modules/core/assets/quiz/question5.jpg',
+    //     'app/modules/core/assets/quiz/question6.jpg',
+    //     'app/modules/core/assets/quiz/question7.jpg',
+    //     'app/modules/core/assets/quiz/question8.jpg',
+    //     'app/modules/core/assets/quiz/question9.jpg',
+    //     'app/modules/core/assets/quiz/question10.jpg',
+    //     'app/modules/core/assets/quiz/question11.jpg',
+    //     'app/modules/core/assets/quiz/question12.jpg'
     // ];
+
+    $scope.quizImages = [
+        'app/modules/core/assets/quizBayern/question1.jpg',
+        'app/modules/core/assets/quizBayern/question2.jpg',
+        'app/modules/core/assets/quizBayern/question3.jpg',
+        'app/modules/core/assets/quizBayern/question4.jpg',
+        'app/modules/core/assets/quizBayern/question5.jpg',
+        'app/modules/core/assets/quizBayern/question6.jpg',
+        'app/modules/core/assets/quizBayern/question7.jpg',
+        'app/modules/core/assets/quizBayern/question8.jpg',
+        'app/modules/core/assets/quizBayern/question9.jpg',
+        'app/modules/core/assets/quizBayern/question10.jpg',
+        'app/modules/core/assets/quizBayern/question11.jpg',
+        'app/modules/core/assets/quizBayern/question12.jpg'
+    ];
 
 
 
