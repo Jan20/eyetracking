@@ -117,7 +117,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.setRandomOrder = function() {
         for (var i = $scope.products.length - 1; i >= 0; i--) {
             $scope.products[i].randomValue = Math.random();
-        };
+        }
     };
 
     
@@ -150,7 +150,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.countChoosedIn3 = 0;
     
     $scope.setChoosedIn3 = function(id) {
-        if ($scope.products[id - 1].choosedIn3 == false) {
+        if ($scope.products[id - 1].choosedIn3 === false) {
             $scope.products[id - 1].choosedIn3 = true;
             $scope.countChoosedIn3 += 1;
         } else {
@@ -202,7 +202,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     $scope.QuizImageCount = $scope.quizImages.length - 1;
     console.log($scope.QuizImageCount);
-    console.log($scope.quizImages[$scope.QuizImageCount])
+    console.log($scope.quizImages[$scope.QuizImageCount]);
     $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
 
     $scope.answer1 = false;
@@ -256,14 +256,14 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         var setCurrentTime = function() {
             $scope.$apply(function() {
 
-                if (current == 0) {
+                if (current === 0) {
                     return null;
                 }
 
                 current = moment.duration(current - 1000, 'milliseconds');
                 $scope.currentSecond = current.get('seconds');
 
-            })
+            });
         };
 
     };
@@ -298,10 +298,10 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.countChoosedIn6 = 0;
 
     $scope.setChoosedIn6 = function(id) {
-        if ($scope.products[id - 1].choosedIn6 == false) {
+        if ($scope.products[id - 1].choosedIn6 === false) {
             for (var i = $scope.products.length - 1; i >= 0; i--) {
                 $scope.products[i].choosedIn6 = false;
-            };
+            }
             $scope.products[id - 1].choosedIn6 = true;
             $scope.countChoosedIn6 = 1;
         } else {
@@ -316,38 +316,37 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         var visitedIn5Array = [];
         var choosedIn6Array = [];
         for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].visitedIn2 == true) {
+            if ($scope.products[i].visitedIn2 === true) {
                 visitedIn2Array.push($scope.products[i].id);
             }
-        };
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].choosedIn3 == true) {
-                choosedIn3Array.push($scope.products[i].id);
+        }
+        for (var j = $scope.products.length - 1; j >= 0; j--) {
+            if ($scope.products[j].choosedIn3 === true) {
+                choosedIn3Array.push($scope.products[j].id);
             }
-        };
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].visitedIn5 == true) {
-                visitedIn5Array.push($scope.products[i].id);
+        }
+        for (var k = $scope.products.length - 1; k >= 0; k--) {
+            if ($scope.products[k].visitedIn5 === true) {
+                visitedIn5Array.push($scope.products[k].id);
             }
-        };
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].choosedIn6 == true) {
-                choosedIn6Array.push($scope.products[i].id);
+        }
+        for (var l = $scope.products.length - 1; l >= 0; l--) {
+            if ($scope.products[l].choosedIn6 === true) {
+                choosedIn6Array.push($scope.products[l].id);
             }
-        };
+        }
         var newDataSet = {
             ExperimentNr: $scope.userNumber,
             visitedIn2: visitedIn2Array,
             choosedIn3: choosedIn3Array,
             visitedIn5: visitedIn5Array,
             choosedIn6: choosedIn6Array
-        }
+        };
         // console.log(JSON.parse(localStorage.getItem('eyetrackingData')));
         console.log(newDataSet);
         var eyetrackingData = [];
-        if (localStorage.getItem('eyetrackingData') != undefined) {
-            var eyetrackingData = localStorage.getItem('eyetrackingData');
-            var eyetrackingData = JSON.parse(eyetrackingData);
+        if (localStorage.getItem('eyetrackingData') !== undefined) {
+            eyetrackingData = JSON.parse(localStorage.getItem('eyetrackingData'));
         }
 
         eyetrackingData.push(newDataSet);
@@ -364,7 +363,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.showResults = function() {
         var eyetrackingData = localStorage.getItem('eyetrackingData');
         $scope.eyetrackingData = JSON.parse(eyetrackingData);
-    }
+    };
 
     /** 
     *

@@ -12,35 +12,35 @@ angular.module('app.experiment')
 		controller: 'Experiment2Controller'
 	});	
 
-	// $routeProvider.when('/2a',{
-	// 	templateUrl: 'app/modules/core/views/view2a.html',
-	// 	controller: 'Exp2Controller'
-	// });	
+	$routeProvider.when('/3',{
+		templateUrl: 'app/experiment/experiment.3/experiment.3.template.html',
+		controller: 'Experiment3Controller'
+	});	
 
-	// $routeProvider.when('/3a',{
-	// 	templateUrl: 'app/modules/core/views/view3a.html',
-	// 	controller: 'Exp3Controller'
-	// });
+	$routeProvider.when('/4',{
+		templateUrl: 'app/experiment/experiment.4/experiment.4.template.html',
+		controller: 'Experiment4Controller'
+	});
 
-	// $routeProvider.when('/4a',{
-	// 	templateUrl: 'app/modules/core/views/view4a.html',
-	// 	controller: 'Exp4Controller'
-	// });	
+	$routeProvider.when('/5',{
+		templateUrl: 'app/experiment/experiment.5/experiment.5.template.html',
+		controller: 'Experiment5Controller'
+	});	
 
-	// $routeProvider.when('/5a',{
-	// 	templateUrl: 'app/modules/core/views/view5a.html',
-	// 	controller: 'Exp5Controller'
-	// });	
+	$routeProvider.when('/6',{
+		templateUrl: 'app/experiment/experiment.6/experiment.6.template.html',
+		controller: 'Experiment6Controller'
+	});	
 
-	// $routeProvider.when('/6a',{
-	// 	templateUrl: 'app/modules/core/views/view6a.html',
-	// 	controller: 'Exp6Controller'
-	// });	
+	$routeProvider.when('/7',{
+		templateUrl: 'app/experiment/experiment.7/experiment.7.template.html',
+		controller: 'Experiment7Controller'
+	});	
 
-	// $routeProvider.when('/7a',{
-	// 	templateUrl: 'app/modules/core/views/view7a.html',
-	// 	controller: 'Exp7Controller'
-	// });	
+	$routeProvider.when('/8',{
+		templateUrl: 'app/experiment/experiment.8/experiment.8.template.html',
+		controller: 'Experiment8Controller'
+	});
   
   	$routeProvider.otherwise({ redirectTo: '/1' });
 

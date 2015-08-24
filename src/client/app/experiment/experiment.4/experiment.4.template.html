@@ -1,24 +1,37 @@
-<div class='iwm-intro-area-large col-md-6'>
-Im Folgenden sehen Sie Ihre engere Auswahl der Kompaktdigitalkameras. Wir würden Sie gleich bitten eine <strong>Entscheidung zu treffen</strong>, welche Sie am ehesten kaufen würden. Wenn Sie auf die <strong>Bilder</strong> der jeweiligen Kompaktdigitalkameras <strong>klicken</strong>, gelangen Sie erneut auf die <strong>Produktseiten</strong> auf amazon.de.
+<div class='iwm-intro-area-large col-md-8'>
+Bitte <strong>schließen Sie</strong> zunächst die <strong>einzelnen Tabs der Produktseiten</strong> von amazon.de und kehren Sie zu dieser Übersicht zurück. Welche dieser Kompaktdigitalkameras würden Sie in Ihre engere Auswahl nehmen? Bitte <strong>markieren Sie</strong> die ausgewählten <strong>Kompaktdigitalkameras</strong>, indem Sie auf die jeweiligen Produkte klicken.
 </div>
-<div class='col-md-12'>    
-    <div ng-repeat="product in products | orderBy:'randomValue'" ng-if='product.choosedIn3 == true'>
-        <a href="{{product.url}}" target="_blank" ng-click='setVisitedIn5(product.id)'>
-        <div class="col-md-3">
-            <img ng-src='{{product.image}}' class='col-md-12 img-camera-with-Link'>
+<div class='col-md-12'>
+    <div ng-repeat="product in products | orderBy:'randomValue'">
+        <div ng-click='setChoosedIn3(product.id)'>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <img ng-src='{{product.image}}' class='col-md-12 img-camera' ng-if='product.choosedIn3 == false' >
+                <img ng-src='{{product.image}}' class='col-md-12 img-camera-choosed' ng-if='product.choosedIn3 == true'>
+            </div>
         </div>
-        </a>
     </div>
 </div>
 
 
-<!-- Bottom Navigation -->
+<!-- Bottom Navigation: false option-->
 
-<a class='iwm-bottom-area col-md-6 btn btn-default' ng-click='mainFunction5()'>
-	<div class='col-md-10 col-md-offset-1'>
-    	<p class='link-description'>Entscheidung treffen</p>
-	</div>
-	<div col-md-2>
-    	<span class='fa fa-angle-right'></span>
-	</div>
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='countChoosedIn3 == 0'>
+    <div class='col-md-10 col-md-offset-1'>
+        <p class='link-description'>Bitte beziehen Sie mindestens ein Produkt in die engere Auswahl.</p>
+    </div>
+    <div col-md-2>
+        <span class='fa fa-angle-right'></span>
+    </div>
+</a>
+
+
+<!-- Bottom Navigation: right option-->
+
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='countChoosedIn3 > 0' ng-click='mainFunction3()'>
+    <div class='col-md-10 col-md-offset-1'>
+        <p class='link-description'>Alle amazon.de Tabs geschlossen? Dann klicken Sie hier um fortzufahren.</p>
+    </div>
+    <div col-md-2>
+        <span class='fa fa-angle-right'></span>
+    </div>
 </a>
