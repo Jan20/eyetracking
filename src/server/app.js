@@ -12,53 +12,35 @@ app.get('/', function(req, res){
 
 app.use('/api', require('./routes'));
 
+
 // -------
-
-var Experiment = require('.models/experiment.js');
-app.get('/api/experiments', function(req, res){
-	Experiment.find({}, function(err, experiments){
-		res.json(experiments.map(function(a){
-			return { 
-				name: a.name,
-				description: a.description,
-				buttonActive: a.buttonActive,
-				buttonInactive: a.buttonInactive
-			};
-		}));
-	}
-	);
-});
-
-
-
-// --------
 app.use(require('body-parser')());
-var Rocket = require('./models/rocket.js');
 
-app.get('/api/rockets', function(req, res){
-	Rocket.find({
+var Experiment = require('./models/experiment.js');
 
-	}, function(err, rockets){
+app.get('/api/experiments', function(req, res){
+	Experiment.find({name: 'experiment1'}, function(err, experiments){
 		if(err){
-			return res.send(500, 'Error occured: database error');
+			return res.send(500, 'Error occured: database error');			
 		}else{
-			res.json(rockets.map(function(a){
-				return{
+			res.json(experiments.map(function(a){
+				return { 
 					name: a.name,
-					company: a.company,
-					description: a.description
+					description: a.description,
+					buttonActive: a.buttonActive,
+					buttonInactive: a.buttonInactive
 				};
 			}));
 		}
 	});
 });
 
-app.post('/api/rocket', function(req, res){
-	console.log(req.body.name);
-	var a = new Rocket({
-		name: req.body.name,
-		company: req.body.company,
-		description: req.body.description
+app.post('/api/experiment', function(req, res){
+	var a = new Experiment({
+		"name": req.body.name,
+		"description": req.body.description,
+		"buttonActive": req.body.buttonActive,
+		"buttonInactive": req.body.buttonInactive
 	});
 	a.save(function(err, a){
 		if(err){
@@ -69,6 +51,19 @@ app.post('/api/rocket', function(req, res){
 	});
 });
 
+app.put('/api/experiment', function(req, res){
+	Experiment.findOne({name: 'experiment1'}, function(err, experiment){
+		experiment.name = req.body.name;
+		experiment.description = req.body.description;
+		experiment.buttonActive = req.body.buttonActive;
+		experiment.buttonInactive = req.body.buttonInactive;
+		experiment.save(function(err){
+			if(err){
+				return res.send(500, 'Error occurred: database error');
+			}
+		});
+	});
+});
 
 var server = app.listen(app.get('port'), function(){
 	console.log('Example app listening at localhost:' + app.get('port') + '. Tap Ctrl+C to terminate.');

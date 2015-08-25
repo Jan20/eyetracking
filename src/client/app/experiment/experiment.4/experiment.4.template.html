@@ -1,37 +1,43 @@
-<div class='iwm-intro-area-large col-md-8'>
-Bitte <strong>schließen Sie</strong> zunächst die <strong>einzelnen Tabs der Produktseiten</strong> von amazon.de und kehren Sie zu dieser Übersicht zurück. Welche dieser Kompaktdigitalkameras würden Sie in Ihre engere Auswahl nehmen? Bitte <strong>markieren Sie</strong> die ausgewählten <strong>Kompaktdigitalkameras</strong>, indem Sie auf die jeweiligen Produkte klicken.
+<div class='iwm-intro-area-view2 col-md-6'>
+    Wir führen derzeit eine andere Studie durch. Dabei geht es um die Bekanntheit von Sehenswürdigkeiten in Münster. Bitte geben Sie an, ob Sie die angezeigten Sehenswürdigkeiten <strong>namentlich kennen</strong>.
+    
+ <!-- Wir führen derzeit eine andere Studie durch. Dabei geht es um die Bekanntheit von Sehenswürdigkeiten in Bayern. Bitte geben Sie an, ob Sie die angezeigten Sehenswürdigkeiten <strong>namentlich kennen</strong>. -->
 </div>
-<div class='col-md-12'>
-    <div ng-repeat="product in products | orderBy:'randomValue'">
-        <div ng-click='setChoosedIn3(product.id)'>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <img ng-src='{{product.image}}' class='col-md-12 img-camera' ng-if='product.choosedIn3 == false' >
-                <img ng-src='{{product.image}}' class='col-md-12 img-camera-choosed' ng-if='product.choosedIn3 == true'>
-            </div>
+
+<div class='col-md-6 col-md-offset-3' ng-init='startTimer()'>
+        <img ng-src={{currentQuizImage}} class='iwm-quiz-image col-md-8 col-md-offset-2' ng-if='QuizImageCount >= 0'>
+    <div class='col-md-12 col-md-offset-2 btn-group'>
+        <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-click='startDelay("answer1")' ng-if='currentSecond == 0 && blockToken == false && QuizImageCount >= 0'>
+            <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer1 == false'></span>
+            <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer1 == true'></span>
+            <h5 class='col-md-12'>Kenne ich namentlich</h5>
+        </div>
+        <div class='btn btn-lg btn-default col-md-6' ng-click='startDelay("answer2")' ng-if='currentSecond == 0 && blockToken == false && QuizImageCount >= 0'>
+            <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer2 == false'></span>
+            <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer2 == true'></span>
+            <h5 class="col-md-12">Kenne ich nicht namentlich</h5>
+        </div>        
+        <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-if='currentSecond == 0 && blockToken == true && QuizImageCount >= 0'>
+            <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer1 == false'></span>
+            <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer1 == true'></span>
+            <h5 class='col-md-12'>Kenne ich namentlich</h5>
+        </div>
+        <div class='btn btn-lg btn-default col-md-6' ng-if='currentSecond == 0 && blockToken == true && QuizImageCount >= 0'>
+            <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer2 == false'></span>
+            <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer2 == true'></span>
+            <h5 class="col-md-12">Kenne ich nicht namentlich</h5>
         </div>
     </div>
 </div>
 
 
-<!-- Bottom Navigation: false option-->
+<!-- Bottom Navigation -->
 
-<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='countChoosedIn3 == 0'>
+<a class='iwm-bottom-area-view4 col-md-6 btn btn-default' ng-if='QuizImageCount <= -1'  ng-click='mainFunction4()'>
     <div class='col-md-10 col-md-offset-1'>
-        <p class='link-description'>Bitte beziehen Sie mindestens ein Produkt in die engere Auswahl.</p>
+        <p class='link-description-view4 col-md-12'>Vielen Dank, dass Sie an unserer kurzen Studie über <br> Münsteraner Sehenswürdigkeiten teilgenommen haben.</p>
     </div>
     <div col-md-2>
-        <span class='fa fa-angle-right'></span>
-    </div>
-</a>
-
-
-<!-- Bottom Navigation: right option-->
-
-<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='countChoosedIn3 > 0' ng-click='mainFunction3()'>
-    <div class='col-md-10 col-md-offset-1'>
-        <p class='link-description'>Alle amazon.de Tabs geschlossen? Dann klicken Sie hier um fortzufahren.</p>
-    </div>
-    <div col-md-2>
-        <span class='fa fa-angle-right'></span>
+        <span class='fa fa-angle-right link-description-angle-view4'></span>
     </div>
 </a>

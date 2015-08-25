@@ -1,20 +1,20 @@
 angular
-    .module('app.experiment')
-	.controller('Experiment1Controller', Experiment1Controller);
+	.module('app.experiment')
+	.controller('Experiment2Controller', Experiment2Controller);
 
-Experiment1Controller.$inject = ['$scope', '$location'];
+Experiment2Controller.$inject = ['$scope', '$location'];
 
-function Experiment1Controller($scope, $location){
-    
-    $scope.mainFunction0 = mainFunction0;
+function Experiment2Controller($scope, $location){
+	$scope.mainFunction2 = mainFunction2;
 
-    function mainFunction0(userNumber){
-        saveUserNumber(userNumber);
-        $location.path('/2');
+	function mainFunction2(){
+        setRandomOrder();
+        $location.path('/3');
     }
 
-    function saveUserNumber(userNumber) {
-        $scope.userNumber = userNumber;
+    function setRandomOrder() {
+        for (var i = $scope.products.length - 1; i >= 0; i--) {
+            $scope.products[i].randomValue = Math.random();
+        }
     }
-
 }

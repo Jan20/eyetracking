@@ -1,36 +1,20 @@
 <div class='iwm-intro-area col-md-6 col-md-offset-3'>
-<button class='btn btn-default pull-right' type="button" data-toggle='modal' data-target='#modalView'>Change</button>
     <div class='iwm-text'>
         <div class="col-md-12">
             <img src='images/iwm.png' id='iwm-logo'>
             <br><br>
-            <p>
-            Bitte geben Sie hier die Teilnahmenummer ein, die Ihnen ihr Experimentleiter gegeben hat.<br></p>
-        </div>
-        <div class='col-md-5 col-md-offset-3'>
-            <input type='text' name='' id='input' class='form-control input-lg' value='' required='required' pattern='' title='' ng-model='userNumber'>
+            Erinnern Sie sich bitte nochmals an folgende Situation:
+            <br><strong>Sie haben vor, sich auf amazon.de eine Kompaktdigitalkamera zu kaufen. </strong> Ihnen steht eine Auswahl von 8 Kompaktdigitalkameras zur Verfügung. Die Kompaktdigitalkameras kosten zwischen 100€ und 200€.<br><br>
+            <img class="imageRow " src='images/reihe_1.jpg' >
+            <img class="imageRow " src='images/reihe_2.jpg' >
         </div>
     </div>
 </div>
 
 
-<!-- Bottom Navigation: false option-->
+<!-- Bottom Navigation -->
 
-<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='userNumber == null' >
-
-    <div class='col-md-10 col-md-offset-1'><button class='btn btn-default pull-right' type="button" data-toggle='modal' data-target='#modalView'>Change</button>
-
-        <p class='link-description'>Bitte geben Sie ihre Teilnahmenummer ein</p>
-    </div>
-    <div col-md-2>
-        <span class='fa fa-angle-right'></span>
-    </div>
-</a>
-
-
-<!-- Bottom Navigation: right option -->
-
-<a class='iwm-bottom-area col-md-6 btn btn-default' ng-if='userNumber != null' ng-click='mainFunction0(userNumber)' >
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-click='mainFunction2()'>
     <div class='col-md-10 col-md-offset-1'>
         <p class='link-description'>Klicken Sie hier um das Experiment zu starten</p>
     </div>
@@ -38,33 +22,3 @@
         <span class='fa fa-angle-right'></span>
     </div>
 </a>
-
-
-
-
-<!-- Modal  -->
-<div class="modal fade" id="modalView">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">View 1</h2>
-            </div>
-            <div class="modal-body">
-                <h4>Beschreibung</h4>
-                <textarea name="" class="form-control input-lg" value="" required="required" pattern="" title="" ng-model='inputIntroText'></textarea>
-<!--                 <hr>
-                <h4>Text des Buttons, solange keine Teilnahmenummer eingetragen wurde.</h4>
-                <input type="text" name="" class="form-control input-lg" value="" required="required" pattern="" title="" ng-model='inputButtenInactive'>
-                <hr>
-                <h4>Text des Buttons, nachdem eine Teilnahmenummer eingegeben wurde.</h4>
-                <input type="text" name="" class="form-control input-lg" value="" required="required" pattern="" title="" ng-model='inputButtonActive'> -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-<!--                 <button type="button" class="btn btn-danger" ng-click='deleteElement()' data-dismiss='modal'>delete Element</button>-->                
-                <button type="button" class="btn btn-success" ng-click='saveChanges()' data-dismiss='modal'>Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>

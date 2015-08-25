@@ -21,7 +21,6 @@ function getProducts(){
         visitedIn5: false,
         choosedIn6: false,
         randomValue: null
-
     }, {
         id: 3,
         image: 'app/modules/core/assets/cameras/Nikon_Coolpix_S3700.jpg',
