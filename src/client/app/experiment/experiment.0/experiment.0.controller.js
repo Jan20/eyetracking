@@ -1,70 +1,124 @@
 angular
     .module('app.experiment')
-	.controller('Experiment1Controller', Experiment1Controller);
+	.controller('Experiment0Controller', Experiment0Controller);
 
-Experiment1Controller.$inject = ['$scope', '$location', 'dataservice'];
+Experiment0Controller.$inject = ['$scope', '$location', 'experimentDataservice', 'userDataservice'];
 
-function Experiment1Controller($scope, $location, dataservice){
-
-    $scope.mainFunction0 = mainFunction0;
-
-    function mainFunction0(userNumber){
-        saveUserNumber(userNumber);
-        $location.path('/2');
-    }
-
-    function saveUserNumber(userNumber) {
-        $scope.userNumber = userNumber;
-    }
-
-    var vm = this;
-    vm.experiments = [];
-        activate();
-
-    function activate(){
-        return getExperiments().then(function(){
-            console.info('Activated Experiments View');
-        });
-    }
+function Experiment0Controller($scope, $location, experimentDataservice, userDataservice){
     
-    $scope.postExperiment = postExperiment;
-    $scope.putExperiment = putExperiment;
-    $scope.name = 'experiment1';
-    $scope.description = '';
-    $scope.buttonActive = '';
-    $scope.buttonInactive = '';
+    $scope.userNumber = null;       
+    
+    /**
+    *
+    *   Im Folgenden werden alle Methoden gelistet, die im Scope zur 
+    *   Verfügung stehen werden.
+    *
+    */
+    $scope.createUser = createUser;
 
-    var data = {
-        name: $scope.name,
-        description: $scope.description,
-        buttonActive: $scope.buttonActive,
-        buttonInactive: $scope.buttonInactive,
-    };
+    function inputUser(userId, visitedIn2, choosedIn3, visitedIn5, choosedIn6){
+        this.userId = userId;
+        this.visitedIn2 = visitedIn2;
+        this.choosedIn3 = choosedIn3;
+        this.visitedIn5 = visitedIn5;
+        this.choosedIn6 = choosedIn6;
+    }   
 
-    function getExperiments(){
-        return dataservice.getExperiments()
-            .then(function(data){
-                vm.experiments = data[0];
-                $scope.description = vm.experiments.description;
-                $scope.buttonActive = vm.experiments.buttonActive;
-                $scope.buttonInactive = vm.experiments.buttonInactive;
-                return vm.experiments;
+    /**
+    *
+    *   Definition der saveUserNumber Methode: 
+    *   @param userNumber Die Variable bezieht sich auf den Wert, der 
+    *   in das Textfeld unterhalb der Beschreibung auf der Übersichtsseite 
+    *   eingetragen wird.
+    *
+    */
+    function createUser() {
+        $location.path('/1');
+        var user = new inputUser($scope.userNumber, null, null, null, null);
+        return userDataservice.postUser(user)
+            .then(function(user){
+                console.log('Neuer User erfogreich hinzugefügt: ' + user.userId);
             });
     }
 
     function postExperiment(){
-        return dataservice.postExperiment(data)
+        return userDataservice.postUser(data)
             .then(function(data){
                 console.log('Post successfull');
-                return ;
             });
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var vm = this;
+    vm.experiment = {};
+    $scope.name = 'experiment0';
+    $scope.description = vm.experiment.description;
+    $scope.buttonActive = vm.experiment.buttonActive;
+    $scope.buttonInactive = vm.experiment.buttonInactive; 
+
+
+    
+    
+    $scope.postExperiment = postExperiment;
+    $scope.putExperiment = putExperiment;
+    
+
+    getExperiment();
+
+    function getExperiment(){
+        return experimentDataservice.getExperiment()
+            .then(function(data){
+                $scope.name = data.name;
+                $scope.description = data.description;
+                $scope.buttonActive = data.buttonActive;
+                $scope.buttonInactive = data.buttonInactive;
+            });
+    }
+
+    function postExperiment(){
+        return experimentDataservice.postExperiment(data)
+            .then(function(data){
+                console.log('Post successfull');
+            });
+    }
+
+    function inputData(name, description, buttonActive, buttonInactive){
+        this.name = name;
+        this.description = description;
+        this.buttonActive = buttonActive;
+        this.buttonInactive = buttonInactive;
+    }
+
+    var myInput = new inputData($scope.name, $scope.description, $scope.buttonActive, $scope.buttonInactive);
+
+    console.log('myInput: ' + myInput);
+    console.log(myInput);
+
     function putExperiment(){
-        return dataservice.putExperiment(data)
+            var myInput = new inputData($scope.name, $scope.description, $scope.buttonActive, $scope.buttonInactive);
+
+        console.log('Inputdata: ' + myInput.name);
+        console.log('Inputdata: ' + myInput.description);
+        console.log('Inputdata: ' + myInput.buttonActive);
+        console.log('Inputdata: ' + myInput.buttonInactive);
+        return experimentDataservice.putExperiment(myInput)
             .then(function(data){
                 console.log('Put successfull');
-                return ;
         });       
     }
 
