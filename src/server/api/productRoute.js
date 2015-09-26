@@ -3,19 +3,21 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Product = require('.././models/product');
 
-mongoose.connect('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
+
+
+mongoose.createConnection('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
 
 var productRoute = express.Router();
 
 productRoute
 	.route('/products')
-		.get(getProducts);
+		.get(getProducts)
+		.post(postProduct);
 
 productRoute
-	.route('/product')
+	.route('/product/:productId')
 		.get(getProduct)
-		.post(postProduct)
-		.put(updateProduct)
+		.put(putProduct)
 		.delete(deleteProduct);
 
 /**
@@ -41,7 +43,7 @@ function getProducts(req, res){
 *
 */
 function getProduct(req, res){
-	Product.find('admin', function(err, product){
+	Product.find({productId: req.params.productId}, function(err, product){
 		if(err)
 			res.send('Bei der Abfrage eines einzelnen Produkts ist ein Fehler aufgetreten: ' + err);
 		res.json(product);
@@ -56,7 +58,6 @@ function getProduct(req, res){
 *
 */
 function postProduct(req, res){
-	console.log('Hello: ' + req.body.name);
 	var product = new Product({
 		productId: req.body.productId,
 		name: req.body.name,
@@ -79,8 +80,8 @@ function postProduct(req, res){
 *
 *
 */
-function updateProduct(req, res){
-	Product.findOne({productId: req.body.productId}, function(err, product){
+function putProduct(req, res){
+	Product.findOne({productId: req.params.productId}, function(err, product){
 		console.log(req.body);
 		product.productId = req.body.productId;
 		product.name = req.body.name;

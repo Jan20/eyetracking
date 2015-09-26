@@ -4,8 +4,8 @@ angular
 
 function adminRoute($routeProvider){
 	$routeProvider
-    	  .when('/0', {
-    	    templateUrl: 'app/admin/admin/admin.view.html',
+    	  .when('/admin', {
+    	    templateUrl: 'app/admin/admin.view.html',
     	    controller: 'AdminController'
     	  });
 }

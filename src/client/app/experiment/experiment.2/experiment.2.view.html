@@ -1,37 +1,34 @@
 <div class='iwm-intro-area-large col-md-10 col-md-offset-2'>
-Sie möchten zunächst eine <strong>engere Auswahl treffen</strong>, bevor Sie sich für eine Kompaktdigitalkamera entscheiden. Schauen Sie sich die Produkte in Ruhe an. Wenn Sie auf die <strong>Bilder</strong> der jeweiligen Produkte <strong>klicken</strong>, gelangen Sie auf die <strong>Produktseiten auf amazon.de</strong>. Nachdem Sie Ihre engere Auswahl getroffen haben, stehen Ihnen nochmals alle Informationen zur Verfügung.
-</div>
+    <p id='description'></p></div>
+<i class="glyphicon glyphicon-pencil" data-toggle='modal' data-target='#ExperimentModalView' ng-if="userId == 'admin'"></i>
+
 
 
 <div class='col-md-12'>
     <div ng-repeat="product in products | orderBy:'randomValue'">
         <div class="col-md-3">                        
-        <i class="glyphicon glyphicon-pencil col-xs-offset-11" data-toggle='modal' data-target='#descriptionModalView' ng-if="userNumber == 'admin'" ng-click='selectProduct(product.productId)'></i>
-        <a href="{{product.url}}" target="_blank" ng-click='setVisitedIn2(product.id)'>
-
+        <i class="glyphicon glyphicon-pencil col-xs-offset-11" data-toggle='modal' data-target='#ProductModalView' ng-if="userId == 'admin'" ng-click='selectProduct(product.productId)'></i>
+        <a href="{{product.url}}" target="_blank" ng-click='setVisitedIn2(product.productId)'>
             <img class='col-md-12 img-camera-with-Link' ng-src='{{product.image}}'>
         </a>
-
         </div>
-
     </div>
 </div>
 
 
 <!-- Bottom Navigation -->
-<a class='iwm-bottom-area col-md-6 btn btn-default' ng-click='mainFunction2()'>
+<a class='iwm-bottom-area col-md-6 btn btn-default' ng-click='submitToView3()'>
     <div class='col-md-10 col-md-offset-1'>
-        <p class='link-description'>Engere Auswahl treffen</p>
+        <p class='link-description' id='buttonActive'></p>
     </div>
     <div col-md-2>
         <span class='fa fa-angle-right'></span>
     </div>
-</a>
-
+</a>        
 
 
 <!-- Modal View für den beschreibenden Text unterhalb des IWM Logos -->
-<div class="modal fade" id="descriptionModalView">
+<div class="modal fade" id="ProductModalView">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -40,7 +37,7 @@ Sie möchten zunächst eine <strong>engere Auswahl treffen</strong>, bevor Sie s
             </div>
             <div class="modal-body">
                 <h4>ProductId</h4>
-                <input type="text" class="form-control input-lg" value="" required="required" pattern="" title="" ng-model='currentProductId'>
+                <input type="text" class="form-control input-lg" value="" required="required" pattern="" title="" readonly="true" ng-model='currentProductId'>
                 <h4>Name</h4>
                 <input type="text" class="form-control input-lg" value="" required="required" pattern="" title="" ng-model='currentName'>
                 <h4>Bild</h4>
@@ -51,11 +48,30 @@ Sie möchten zunächst eine <strong>engere Auswahl treffen</strong>, bevor Sie s
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" ng-click='updateProduct()' data-dismiss='modal'>Save changes</button>
-            </div>            
-            <div class="modal-footer" ng-if='products == []'>
+                <button type="button" class="btn btn-success" ng-click='updateProduct(currentProductId)' data-dismiss='modal'>Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal View für den beschreibenden Text unterhalb des IWM Logos -->
+<div class="modal fade" id="ExperimentModalView">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">1: Übersicht</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Beschreibung</h4>
+                <textarea ng-model="description" class="form-control input-lg" rows="8" value="" required="required" pattern="" title=""></textarea>
+                <h4>Text des Buttons</h4>
+                <input type="text" ng-model='buttonActive' class="form-control input-lg" value="" required="required" pattern="" title="">
+
+            </div>
+            <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" ng-click='updateProduct()' data-dismiss='modal'>Save changes</button>
+                <button type="button" class="btn btn-success" ng-click='updateExperiment(experimentId)' data-dismiss='modal'>Save changes</button>
             </div>
         </div>
     </div>

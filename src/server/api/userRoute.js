@@ -3,19 +3,25 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var User = require('.././models/user');
 
-mongoose.connect('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
+mongoose.createConnection('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
 
 var userRoute = express.Router();
 
 userRoute
 	.route('/users')
-		.get(getUsers);
-
-userRoute
-	.route('/user')
-		.get(getUser)
+		.get(getUsers)
 		.post(postUser);
 
+userRoute
+	.route('/user/:userId')
+		.get(getUser)
+		.put(updateUser);
+
+/**
+*
+*	Die folgende Funktion implementiert die GET ALL Funktionalität der Route
+*
+*/
 function getUsers(req, res){
 	User.find({}, function(err, users){
 		if(err)
@@ -24,14 +30,27 @@ function getUsers(req, res){
 	});
 }
 
+
+/**
+*
+*	Die folgende Funktion implementiert die GET ONE Funktionalität der Route
+*
+*/
 function getUser(req, res){
-	User.find('admin', function(err, user){
+	console.log('req.params.userId: ' + req.params.userId);
+	User.findOne({userId: req.params.userId}, function(err, user){
 		if(err)
 			res.send('Bei der Abfrage eines einzelnen Nutzers ist ein Fehler aufgetreten: ' + err);
 		res.json(user);
 	});
 }
 
+
+/**
+*
+*	Die folgende Funktion implementiert die POST Funktionalität der Route
+*
+*/
 function postUser(req, res){
 	console.log('Hello: ' + req.body.visitedIn2);
 	var user = new User({
@@ -46,6 +65,26 @@ function postUser(req, res){
 		if(err)
 			res.send('Bei dem Anlegen eines neuen Users ist ein Fehler aufgetreten: ' + err);
 		res.json(user);
+	});
+}
+
+/**
+*
+*	Die folgende Funktion implementiert die GET ALL Funktionalität der Route
+*
+*/
+function updateUser(req, res){
+	User.findOne({userId: req.params.userId}, function(err, user){
+		user.userId = req.body.userId;
+		user.visitedIn2 = req.body.visitedIn2;
+		user.choosedIn3 = req.body.choosedIn3;
+		user.visitedIn5 = req.body.visitedIn5;
+		user.choosedIn6 = req.body.choosedIn6;
+		user.save(function(err){
+		if(err)
+			res.send('Bei der Änderung eines Users ist ein Fehler aufgetreten: ' + err);
+		res.json(user);
+		});
 	});
 }
 

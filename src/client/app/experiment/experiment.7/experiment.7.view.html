@@ -1,9 +1,33 @@
 <div class='iwm-intro-area col-md-6 col-md-offset-3'>
     <div class='iwm-text'>
         <div class="col-md-12">
-            <img src='app/modules/core/assets/experiment/iwm.png' id='iwm-logo'>
-            <br><br>
-            <p>Vielen Dank für Ihre Wahl. Abschließend würden wir Sie bitten, noch einige Fragen zu beantworten. Bitte schließen Sie dazu dieses Browserfenster.</p>
+            <img src='images/iwm.png' id='iwm-logo'>
+            <br>
+            <br>
+            <p id='description'></p>
+        </div>
+    </div>
+</div>
+<div class='col-md-2'>
+    <i class="glyphicon glyphicon-pencil" data-toggle='modal' data-target='#descriptionModalView' ng-if="userId == 'admin'"></i>
+</div>
+<!-- Bottom Navigation -->
+<!-- Modal View für den beschreibenden Text unterhalb des IWM Logos -->
+<div class="modal fade" id="descriptionModalView">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">View 7</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Beschreibung</h4>
+                <textarea ng-model="description" class="form-control input-lg" rows="8" value="" required="required" pattern="" title=""></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" ng-click='updateExperiment(experimentId)' data-dismiss='modal'>Save changes</button>
+            </div>
         </div>
     </div>
 </div>

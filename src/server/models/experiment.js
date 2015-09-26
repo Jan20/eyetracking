@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var experimentSchema = mongoose.Schema({
-	name: String,
+	experimentId: Number,
 	description: String,
 	buttonActive: String,
 	buttonInactive: String

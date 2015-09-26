@@ -9,7 +9,7 @@ function productDataservice($http){
 	return {
 		getProducts: getProducts,
 		postProduct: postProduct,
-		updateProduct: updateProduct
+		putProduct: putProduct
 	};
 
 	/**
@@ -37,7 +37,7 @@ function productDataservice($http){
 //--------------------------------------- postWord function ---------------------------------------
 
 	function postProduct(data){
-		return $http.post('http://localhost:3000/api/product', data)
+		return $http.post('http://localhost:3000/api/products', data)
 			.then(postProductCompleted)
 			.catch(postProductFailed);
 
@@ -50,8 +50,8 @@ function productDataservice($http){
 		}
 	}
 
-	function updateProduct(data){
-		return $http.put('http://localhost:3000/api/product', data)
+	function putProduct(productId, data){
+		return $http.put('http://localhost:3000/api/product/' + productId, data)
 			.then(postProductCompleted)
 			.catch(postProductFailed);
 

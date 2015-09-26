@@ -28,7 +28,5 @@ function experimentRoute($routeProvider){
     	}).when('/7', {
     	    templateUrl: 'app/experiment/experiment.7/experiment.7.view.html',
     	    controller: 'Experiment7Controller'
-    	}).otherwise({
-    	    redirectTo: '/0'
     	});
 }

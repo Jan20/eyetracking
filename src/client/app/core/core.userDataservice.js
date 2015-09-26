@@ -6,13 +6,29 @@ userDataservice.$inject = ['$http'];
 
 function userDataservice($http){
 
+	var currentUser = 'asdf';
+
 	return {
 		getUsers: getUsers,
-		postUser: postUser
+		getUser: getUser,
+		postUser: postUser,
+		putUser: putUser,
+		getCurrentUser: getCurrentUser
 	};
 
-//--------------------------------------- getWords function ---------------------------------------
-	
+
+	function getCurrentUser(){
+		return currentUser;
+	}
+
+	/**
+	*
+	*
+	*
+	*
+	*
+	*
+	*/	
 	function getUsers(){
 		return $http.get('http://localhost:3000/api/users')
 			.then(getUsersCompleted)
@@ -28,14 +44,44 @@ function userDataservice($http){
 	}
 
 
-//--------------------------------------- postWord function ---------------------------------------
+	/**
+	*
+	*
+	*
+	*
+	*
+	*
+	*/
+	function getUser(userId){
+		return $http.get('http://localhost:3000/api/user/' + userId, userId)
+			.then(getUserCompleted)
+			.catch(getUserFailed);
 
+		function getUserCompleted(response){
+			console.log('User response.data:');
+			console.log(response.data);
+			return response.data;
+		}
+
+		function getUserFailed(response){
+			console.error('Der userDatenservice konnte den gewünschten Nutzer nicht abrufen: ' + error.data.response);
+		}
+	}
+
+	/**
+	*
+	*
+	*
+	*
+	*
+	*/
 	function postUser(data){
-		return $http.post('http://localhost:3000/api/user', data)
+		return $http.post('http://localhost:3000/api/users', data)
 			.then(postUserCompleted)
 			.catch(postUserFailed);
 
 		function postUserCompleted(response){
+			currentUser = response.data.userId;
 			return response.data;
 		}
 
@@ -44,38 +90,26 @@ function userDataservice($http){
 		}
 	}
 
+
+	/**
+	*
+	*		
+	*
+	*
+	*
+	*/
+	function putUser(userId, data){
+		return $http.put('http://localhost:3000/api/user/' + userId, data)
+			.then(putUserCompleted)
+			.catch(putUserFailed);
+		
+		function putUserCompleted(response){
+			return response.data;
+		}
+
+		function putUserFailed(error){
+			console.error('Der userDatenservice konnte den gewünschten Änderung nicht durchführen:  ' + error.data.response);
+		}
+	}
+
 }
-// (function () {
-//     'use strict';
-
-//     angular
-//         .module('app.core')
-//         .factory('dataservice', dataservice);
-
-//     dataservice.$inject = ['$http', '$q', 'exception', 'logger'];
-//     /* @ngInject */
-//     function dataservice($http, $q, exception, logger) {
-//         var service = {
-//             getPeople: getPeople,
-//             getMessageCount: getMessageCount
-//         };
-
-//         return service;
-
-//         function getMessageCount() { return $q.when(72); }
-
-//         function getPeople() {
-//             return $http.get('/api/people')
-//                 .then(success)
-//                 .catch(fail);
-
-//             function success(response) {
-//                 return response.data;
-//             }
-
-//             function fail(e) {
-//                 return exception.catcher('XHR Failed for getPeople')(e);
-//             }
-//         }
-//     }
-// })();

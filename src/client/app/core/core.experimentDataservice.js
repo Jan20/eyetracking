@@ -31,8 +31,8 @@ function experimentDataservice($http){
 
 // -------------------------------------- GET ONE --------------------------------------
 
-	function getExperiment(){
-		return $http.get('http://localhost:3000/api/experiment')
+	function getExperiment(experimentId){
+		return $http.get('http://localhost:3000/api/experiment/' + experimentId, experimentId)
 			.then(getExperimentsCompleted)
 			.catch(getExperimentFailed);
 
@@ -50,7 +50,7 @@ function experimentDataservice($http){
 // -------------------------------------- POST --------------------------------------
 
 	function postExperiment(data){
-		return $http.post('http://localhost:3000/api/experiment', data)
+		return $http.post('http://localhost:3000/api/experiments', data)
 			.then(postExperimentCompleted)
 			.catch(postExperimentFailed);
 
@@ -66,8 +66,8 @@ function experimentDataservice($http){
 
 // -------------------------------------- UPDATE --------------------------------------
 
-	function putExperiment(data){
-		return $http.put('http://localhost:3000/api/experiment', data)
+	function putExperiment(experimentId, data){
+		return $http.put('http://localhost:3000/api/experiment/' + experimentId, data)
 			.then(putExperimentCompleted)
 			.catch(putExperimentFailed);
 		

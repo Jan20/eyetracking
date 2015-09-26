@@ -3,101 +3,86 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Experiment = require('.././models/experiment');
 
-mongoose.connect('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
+mongoose.createConnection('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
+
 
 var experimentRoute = express.Router();
 
 experimentRoute
 	.route('/experiments')
+		.post(postExperiment)
 		.get(getExperiments);
 
 experimentRoute
-	.route('/experiment')
+	.route('/experiment/:experimentId')
 		.get(getExperiment)
-		.post(postExperiment)
 		.put(updateExperiment);
 
-
-
-// -------------------------------------- GET ALL --------------------------------------
-
+/**
+*
+*	Die folgende Funktion implementiert die GET ALL Funktionalität der Route
+*
+*/
 function getExperiments(req, res){
 	Experiment.find({}, function(err, experiments){
-		if(err){
-			return res.send(500, 'Error occured: database error');			
-		}else{
-			console.log('GET Database query succeeded.');
-			res.json(experiments.map(function(a){
-				return { 
-					name: a.name,
-					description: a.description,
-					buttonActive: a.buttonActive,
-					buttonInactive: a.buttonInactive
-				};
-			}));
-		}
+		if(err)
+			res.send('Bei der Abfrage aller Experimente ist ein Fehler aufgetreten: ' + err);
+		res.json(experiments);
+		
 	});
 }
 
-// -------------------------------------- GET ONE --------------------------------------
-
+/**
+*
+*	Die folgende Funktion implementiert die GET ONE Funktionalität der Route
+*
+*/
 function getExperiment(req, res){
-	Experiment.findOne({name: 'experiment0'}, function(err, experiment){
+	Experiment.findOne({experimentId: req.params.experimentId}, function(err, experiment){
 		if(err)
-			return send(500, 'Error occured: database error');
-		console.log('GET Database query succeeded.');
+			res.send('Bei der Abfrage eines Experiments ist ein Fehler aufgetreten: ' + err);
 		res.json(experiment);
 	});
 }
 
 
-// -------------------------------------- POST --------------------------------------
-
+/**
+*
+*	Die folgende Funktion implementiert die POST Funktionalität der Route
+*
+*/
 function postExperiment(req, res){
-	var a = new Experiment({
-		name: req.body.name,
+	var experiment = new Experiment({
+		experimentId: req.body.experimentId,
 		description: req.body.description,
 		buttonActive: req.body.buttonActive,
 		buttonInactive: req.body.buttonInactive
 	});
-	console.log(a);
-	a.name = 'Jan';
-	a.save(function(err, a){
-		if(err){
-
-			return res.send(500, 'Error occurred: database error');
-		}else{
-			console.log('POST Database query succeeded.');
-			res.json(
-				{	id: a._id,
-					name: a.name	}
-			);
-		}
+	experiment.save(function(err, a){
+		if(err)
+			res.send('Bei der Abfrage eines Experiments ist ein Fehler aufgetreten: ' + err);
+		res.json(experiment);
 	});
 }
 
 
-// -------------------------------------- UPDATE --------------------------------------
-
+/**
+*
+*	Die folgende Funktion implementiert die GET ALL Funktionalität der Route
+*
+*/
 function updateExperiment(req, res){
-	Experiment.findOne({name: 'experiment0'}, function(err, experiment){
-		experiment.name = req.body.name;
+	Experiment.findOne({experimentId: req.params.experimentId}, function(err, experiment){
+		experiment.experimentId = req.body.experimentId;
 		experiment.description = req.body.description;
 		experiment.buttonActive = req.body.buttonActive;
 		experiment.buttonInactive = req.body.buttonInactive;
 		experiment.save(function(err){
-			if(err){
-				return res.send(500, 'Error occurred: database error');
-			}
-			res.json({message: 'Experiment updated!'});
+		if(err)
+			res.send('Bei der Änderung eines Experiments ist ein Fehler aufgetreten: ' + err);
+		res.json(experiment);
 		});
 	});
 }
-
-
-// -------------------------------------- GET ALL --------------------------------------
-
-
-
 
 module.exports = experimentRoute;

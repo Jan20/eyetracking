@@ -5,9 +5,10 @@ angular
 Experiment0Controller.$inject = ['$scope', '$location', 'experimentDataservice', 'userDataservice'];
 
 function Experiment0Controller($scope, $location, experimentDataservice, userDataservice){
-    
-    $scope.userNumber = null;       
-    
+
+
+    $scope.userId = 'admin';       
+
     /**
     *
     *   Im Folgenden werden alle Methoden gelistet, die im Scope zur 
@@ -15,8 +16,9 @@ function Experiment0Controller($scope, $location, experimentDataservice, userDat
     *
     */
     $scope.createUser = createUser;
+    $scope.updateExperiment = updateExperiment;    
 
-    function inputUser(userId, visitedIn2, choosedIn3, visitedIn5, choosedIn6){
+    function User(userId, visitedIn2, choosedIn3, visitedIn5, choosedIn6){
         this.userId = userId;
         this.visitedIn2 = visitedIn2;
         this.choosedIn3 = choosedIn3;
@@ -34,92 +36,98 @@ function Experiment0Controller($scope, $location, experimentDataservice, userDat
     */
     function createUser() {
         $location.path('/1');
-        var user = new inputUser($scope.userNumber, null, null, null, null);
+        var user = new User($scope.userId, null, null, null, null);
         return userDataservice.postUser(user)
             .then(function(user){
                 console.log('Neuer User erfogreich hinzugefügt: ' + user.userId);
             });
     }
 
-    function postExperiment(){
-        return userDataservice.postUser(data)
+
+    /**************************** Experiment-Bereicht **************************************/
+
+    /**
+    *
+    *   Die folgende Funktion ruft über den experimentDatenservice den Experiment-Abschnitt
+    *   korrespondierend zu der experimentId ab.
+    *   @param experimentId Id des Abschnitts zur eindeutigen Identifikation
+    *
+    */
+    function getExperiment(experimentId){
+        return experimentDataservice.getExperiment(experimentId)
             .then(function(data){
-                console.log('Post successfull');
-            });
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    var vm = this;
-    vm.experiment = {};
-    $scope.name = 'experiment0';
-    $scope.description = vm.experiment.description;
-    $scope.buttonActive = vm.experiment.buttonActive;
-    $scope.buttonInactive = vm.experiment.buttonInactive; 
-
-
-    
-    
-    $scope.postExperiment = postExperiment;
-    $scope.putExperiment = putExperiment;
-    
-
-    getExperiment();
-
-    function getExperiment(){
-        return experimentDataservice.getExperiment()
-            .then(function(data){
-                $scope.name = data.name;
+                $scope.experimentId = data.experimentId;
                 $scope.description = data.description;
                 $scope.buttonActive = data.buttonActive;
                 $scope.buttonInactive = data.buttonInactive;
+          
+                $( "#description" ).append($.parseHTML($scope.description));
+                $( "#buttonInactive" ).append($.parseHTML($scope.buttonInactive));            
+                $( "#buttonActive" ).append($.parseHTML($scope.buttonActive));           
+
+
             });
     }
+    getExperiment(0);
 
-    function postExperiment(){
-        return experimentDataservice.postExperiment(data)
-            .then(function(data){
-                console.log('Post successfull');
-            });
-    }
-
-    function inputData(name, description, buttonActive, buttonInactive){
-        this.name = name;
+    /**
+    *
+    *   Der folgende Prototype stellt den Standardweg zur Erzeugung eines neuen 
+    *   Experimentabschnitts dar. Innerhalb einer Create oder Update Funktion
+    *   wird eine Instanz dieses Objekts erzeugt, um ein Experimentabschnitt
+    *   über den experimentDatenservice an den Node Server zu übertragen.
+    *   @param experimentId Id des Abschnitts zur eindeutigen Identifikation
+    *   @param description Bezieht sich auf den Text der am oberen Ende einer Seite steht
+    *   @param buttonActive Bezieht sich auf den Text eines klickbaren Buttons
+    *   @param buttonInactive Bezieht sich auf den Text eines nicht klickbaren Buttons
+    *
+    */
+    function Experiment(experimentId, description, buttonActive, buttonInactive){
+        this.experimentId = experimentId;
         this.description = description;
         this.buttonActive = buttonActive;
         this.buttonInactive = buttonInactive;
     }
 
-    var myInput = new inputData($scope.name, $scope.description, $scope.buttonActive, $scope.buttonInactive);
-
-    console.log('myInput: ' + myInput);
-    console.log(myInput);
-
-    function putExperiment(){
-            var myInput = new inputData($scope.name, $scope.description, $scope.buttonActive, $scope.buttonInactive);
-
-        console.log('Inputdata: ' + myInput.name);
-        console.log('Inputdata: ' + myInput.description);
-        console.log('Inputdata: ' + myInput.buttonActive);
-        console.log('Inputdata: ' + myInput.buttonInactive);
-        return experimentDataservice.putExperiment(myInput)
+    /**
+    *
+    *   Die folgende Funktion implementiert die Update-Funktionalität, über die
+    *   Änderungen an der Datenbasis des Abschnitts vorgenommen werden können.
+    *   Sie wird über den Scope aufgerufen und erwartet einen Parameter, sowie
+    *   zur Konstruktion eines modifizierten Experimentobjekts verschiedene Variablen,
+    *   die übe den Scope zur Verfügung stehen.
+    *   @param experimentId Id des Experiment-Abschnitts zur eindeutigen Identifikation   
+    *
+    */
+    function updateExperiment(experimentId){
+        var experiment = new Experiment($scope.experimentId, $scope.description, $scope.buttonActive, $scope.buttonInactive);
+        return experimentDataservice.putExperiment(experimentId, experiment)
             .then(function(data){
-                console.log('Put successfull');
-        });       
+                $( "#description" ).empty();
+                $( "#buttonActive" ).empty();                
+                $( "#buttonInactive" ).empty();                
+                getExperiment(0);
+                console.log('Änderungen sind erfolgreich durchgeführt worden:');        
+            });       
     }
 
+    /**
+    *
+    *   Die folgende Funktion dient zur erstmaligen Konstruktion der Datenbasis, die hinter
+    *   diesem Experiment-Abschnitt stehen soll. Sie wird lediglich eimalig aufgerufen und 
+    *   steht lediglich zur Sicherheit weiterhin im Controller bereit.
+    *
+    */
+    function createExperiment(){
+        var experiment = new Experiment(
+            1, 
+            'Erinnern Sie sich bitte nochmals an folgende Situation: Sie haben vor, sich auf amazon.de eine Kompaktdigitalkamera zu kaufen Ihnen steht eine Auswahl von 8 Kompaktdigitalkameras zur Verfügung. Die Kompaktdigitalkameras kosten zwischen 100€ und 200€.', 
+            'Klicken Sie hier um das Experiment zu starten', 
+            '');
+        
+        return experimentDataservice.postExperiment(experiment)
+            .then(function(data){
+                console.log('Neuer Experimentabschnitt erfolgreich erstellt.');
+            });
+    }
 }
