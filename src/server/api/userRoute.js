@@ -15,7 +15,8 @@ userRoute
 userRoute
 	.route('/user/:userId')
 		.get(getUser)
-		.put(updateUser);
+		.put(updateUser)
+		.delete(deleteUser);
 
 /**
 *
@@ -88,5 +89,20 @@ function updateUser(req, res){
 	});
 }
 
+/**
+*
+*	Die folgende Funktion dient zur Löschung eines bestimmten Users. Sie findet im Rahmen
+*	des Experiments ledlich im View 0 Anwendung, um Datensätze, die durch das Eintragen des
+*	Schlüsselworts 'admin' im View 0 angelegt werden. Dies ist nicht die eleganteste, aber 
+*	eine schnelle und effektive Lösung um das obige Problem zu lösen.
+*
+*/
+function deleteUser(req, res, err) {
+    User.remove({ userId: req.params.userId}, function(err, user){
+       if (err) 
+       		res.send('Bei der Löschung eines Nutzers ist ein Datenbankfehler aufgetreten: ' + err);
+       res.json({ message: 'Nutzer erfolgreich gelöscht.'});
+    });
+}
 
 module.exports = userRoute;

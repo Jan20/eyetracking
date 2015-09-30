@@ -2,7 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Product = require('.././models/product');
-
+var multer = require('multer');
 
 
 mongoose.createConnection('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
@@ -19,6 +19,39 @@ productRoute
 		.get(getProduct)
 		.put(putProduct)
 		.delete(deleteProduct);
+
+
+/**
+*
+*	Datenupload
+*
+*
+*
+*/
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/images/products');
+  },
+  filename: function (req, file, cb) {
+    cb(null, 'product' + req.params.productId + '.jpg');
+  }
+});
+
+var upload = multer({ storage: storage });
+
+
+productRoute
+	.post('/product/:productId', upload.single('image'), function postImage(req, res, next){
+		
+	console.log(req.file.originalname);
+	console.log(req.body);
+	console.log(req.file);
+	console.log(req.file.filename);
+	res.status(204).end();
+});
+
+
+
 
 /**
 *
@@ -97,11 +130,12 @@ function putProduct(req, res){
 }
 
 function deleteProduct(req, res, err) {
-    Product.remove({ productId: req.body.productId}, function(err, rocket){
+    Product.remove({ productId: req.body.productId}, function(err, product){
         if (err) res.send('A database error occured.' + err);
         res.json({ message: 'Successfully deleted.'});    	
     });
 
 }
+
 
 module.exports = productRoute;

@@ -7,8 +7,8 @@ module.exports = function(grunt) {
         // Task configuration.
         bower_concat: {
             all: {
-                dest: 'app/bower_compressed/bower_compressed.js',
-                cssDest: 'app/bower_compressed/bower_compressed.css',
+                dest: 'src/server/public/bower_compressed/bower_compressed.js',
+                cssDest: 'src/server/public/bower_compressed/bower_compressed.css',
                 mainFiles: {
                     'bootstrap': ['dist/js/bootstrap.min.js', 'dist/css/bootstrap.css' ],
                     'font-awesome': ['fonts/fontawesome-webfont.woff']
