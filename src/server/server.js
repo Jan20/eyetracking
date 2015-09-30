@@ -18,7 +18,7 @@ var experimentSchema = mongoose.Schema({
 
 var Experiment = mongoose.model('Experiment', experimentSchema);
 console.log(Experiment.find({},function(err, experiments){
-	res.sjon(experiments);
+	res.json(experiments);
 }));
 
 // app.get('/experiments', function(req, res){
