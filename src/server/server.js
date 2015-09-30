@@ -8,6 +8,10 @@ var http = require('http');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
 
+app.use('/asdf', function(req, res){
+	res.send('Hello');
+});
+
 
 app.set('port', process.env.PORT || 3000);
 
