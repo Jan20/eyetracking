@@ -241,7 +241,7 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
         $scope.currentQuestionId = questionId;
         console.log($scope.currentQuestionId);
         $scope.currentName = $scope.questions[questionId].name;
-        $scope.currentActionUrl = 'http://localhost:3000/api/question/'+questionId;
+        $scope.currentActionUrl = 'http://iwm-devsrv1.iwmnetwork.de:3000/api/question/'+questionId;
     }
 
     function Question(questionId, name){

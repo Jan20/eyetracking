@@ -157,7 +157,7 @@ function Experiment3Controller($scope, $location, experimentDataservice, userDat
 		$scope.currentName = $scope.products[productId].name;
 		$scope.currentImage = $scope.products[productId].image;
 		$scope.currentUrl = $scope.products[productId].url;
-		$scope.currentActionUrl = 'http://localhost:3000/api/product/'+$scope.products[productId].productId;
+		$scope.currentActionUrl = 'http://iwm-devsrv1.iwmnetwork.de:3000/api/product/'+$scope.products[productId].productId;
 	}
 
 	function Product(productId, name, image, url){

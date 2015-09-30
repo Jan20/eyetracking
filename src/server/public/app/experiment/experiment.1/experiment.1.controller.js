@@ -78,8 +78,8 @@ function Experiment1Controller($http, $scope, $location, $timeout, experimentDat
                 $scope.experimentId = data.experimentId;
                 $scope.description = data.description;
                 $scope.buttonActive = data.buttonActive;
-                $scope.currentActionUrl = 'http://localhost:3000/api/experiment/'+data.experimentId;
-                $scope.currentActionUrl1 = 'http://localhost:3000/api/experiment1/'+data.experimentId;
+                $scope.currentActionUrl = 'http://iwm-devsrv1.iwmnetwork.de:3000/api/experiment/'+data.experimentId;
+                $scope.currentActionUrl1 = 'http://iwm-devsrv1.iwmnetwork.de:3000/api/experiment1/'+data.experimentId;
 
                 $( "#description" ).append($.parseHTML($scope.description));
                 $( "#buttonActive" ).append($.parseHTML($scope.buttonActive));           
