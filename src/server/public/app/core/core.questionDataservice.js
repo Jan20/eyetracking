@@ -4,7 +4,8 @@ angular
 
 questionDataservice.$inject = ['$http'];
 
-var environment = 'http://localhost:3000';
+// var environment = 'http://localhost:3000';
+var environment = 'http://iwm-devsrv1.iwmnetwork.de:3000';
 
 function questionDataservice($http){
 
