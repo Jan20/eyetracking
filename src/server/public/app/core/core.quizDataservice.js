@@ -2,12 +2,13 @@ angular
 	.module('app.core')
 	.factory('quizDataservice', quizDataservice);
 
-quizDataservice.$inject = ['$http'];
+quizDataservice.$inject = ['$http', 'experimentDataservice'];
 
 // var environment = 'http://localhost:3000';
-var environment = 'http://iwm-devsrv1.iwmnetwork.de:3000';
 
-function quizDataservice($http){
+function quizDataservice($http, experimentDataservice){
+	
+	var environment = experimentDataservice.getEnvironment();
 
 	return {
 		getQuiz: getQuiz,

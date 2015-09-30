@@ -2,12 +2,13 @@ angular
 	.module('app.core')
 	.factory('productDataservice', productDataservice);
 
-productDataservice.$inject = ['$http'];
+productDataservice.$inject = ['$http', 'experimentDataservice'];
 
 // var environment = 'http://localhost:3000';
-var environment = 'http://iwm-devsrv1.iwmnetwork.de:3000';
 
-function productDataservice($http){
+function productDataservice($http, experimentDataservice){
+	
+	var environment = experimentDataservice.getEnvironment();
 
 	return {
 		getProducts: getProducts,

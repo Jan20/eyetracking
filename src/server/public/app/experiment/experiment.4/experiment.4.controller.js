@@ -5,6 +5,8 @@ angular
 Experiment4Controller.$inject = ['$scope', '$location', '$timeout', '$interval', 'experimentDataservice', 'userDataservice', 'productDataservice', 'questionDataservice', 'quizDataservice'];
 
 function Experiment4Controller($scope, $location, $timeout, $interval, experimentDataservice, userDataservice, productDataservice, questionDataservice, quizDataservice){
+    var environment = experimentDataservice.getEnvironment();
+
     getQuestions();
 
 
@@ -241,7 +243,7 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
         $scope.currentQuestionId = questionId;
         console.log($scope.currentQuestionId);
         $scope.currentName = $scope.questions[questionId].name;
-        $scope.currentActionUrl = 'http://iwm-devsrv1.iwmnetwork.de:3000/api/question/'+questionId;
+        $scope.currentActionUrl = environment+questionId;
     }
 
     function Question(questionId, name){

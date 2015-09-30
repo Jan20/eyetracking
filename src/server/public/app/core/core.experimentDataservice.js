@@ -4,16 +4,24 @@ angular
 
 experimentDataservice.$inject = ['$http'];
 
-// var environment = 'http://localhost:3000';
-var environment = 'http://iwm-devsrv1.iwmnetwork.de:3000';
-
 function experimentDataservice($http){
+	var environment = 'http://iwm-devsrv1.iwmnetwork.de:3000';
+	// var environment = 'http://localhost:3000';
+	
 	return{
 		getExperiments: getExperiments,
 		getExperiment: getExperiment,
 		postExperiment: postExperiment,
-		putExperiment: putExperiment
+		putExperiment: putExperiment,
+		getEnvironment: getEnvironment
 	};
+
+
+	// var environment = 'http://localhost:3000';
+
+	function getEnvironment(){
+		return environment;
+	}
 
 // -------------------------------------- GET ALL --------------------------------------
 

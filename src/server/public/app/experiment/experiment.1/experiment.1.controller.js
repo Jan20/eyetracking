@@ -5,6 +5,7 @@ angular
 Experiment1Controller.$inject = ['$http', '$scope', '$location', '$timeout', 'experimentDataservice', 'userDataservice', 'productDataservice'];
 
 function Experiment1Controller($http, $scope, $location, $timeout, experimentDataservice, userDataservice, productDataservice){
+    var environment = experimentDataservice.getEnvironment();
 
     /**
     *
@@ -78,8 +79,8 @@ function Experiment1Controller($http, $scope, $location, $timeout, experimentDat
                 $scope.experimentId = data.experimentId;
                 $scope.description = data.description;
                 $scope.buttonActive = data.buttonActive;
-                $scope.currentActionUrl = 'http://iwm-devsrv1.iwmnetwork.de:3000/api/experiment/'+data.experimentId;
-                $scope.currentActionUrl1 = 'http://iwm-devsrv1.iwmnetwork.de:3000/api/experiment1/'+data.experimentId;
+                $scope.currentActionUrl = environment+data.experimentId;
+                $scope.currentActionUrl1 = environment+data.experimentId;
 
                 $( "#description" ).append($.parseHTML($scope.description));
                 $( "#buttonActive" ).append($.parseHTML($scope.buttonActive));           

@@ -5,6 +5,8 @@ angular
 Experiment6Controller.$inject = ['$scope', '$location', 'experimentDataservice', 'userDataservice', 'productDataservice'];
 
 function Experiment6Controller($scope, $location, experimentDataservice, userDataservice, productDataservice){
+    
+    var environment = experimentDataservice.getEnvironment();
 
 	/**
 	*
@@ -184,7 +186,7 @@ function Experiment6Controller($scope, $location, experimentDataservice, userDat
 		$scope.currentName = $scope.products[productId].name;
 		$scope.currentImage = $scope.products[productId].image;
 		$scope.currentUrl = $scope.products[productId].url;
-		$scope.currentActionUrl = 'http://iwm-devsrv1.iwmnetwork.de:3000/api/product/'+$scope.products[productId].productId;
+		$scope.currentActionUrl = environment+$scope.products[productId].productId;
 	}
 
 	function Product(productId, name, image, url){

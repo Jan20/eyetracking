@@ -2,11 +2,11 @@ angular
 	.module('app.core')
 	.factory('userDataservice', userDataservice);
 
-userDataservice.$inject = ['$http'];
+userDataservice.$inject = ['$http', 'experimentDataservice'];
 
-function userDataservice($http){
-	// var environment = 'http://localhost:3000';
-	var environment = 'http://iwm-devsrv1.iwmnetwork.de:3000';
+function userDataservice($http, experimentDataservice){
+
+	var environment = experimentDataservice.getEnvironment();
 	var currentUser = '';
 
 	return {
