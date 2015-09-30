@@ -9,8 +9,6 @@ var http = require('http');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
 
-var mongoose = require('mongoose');
-
 var experimentSchema = mongoose.Schema({
 	experimentId: Number,
 	description: String,
@@ -37,20 +35,20 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-var userRoute = require('./api/userRoute');
-app.use('/api', userRoute);
+// var userRoute = require('./api/userRoute');
+// app.use('/api', userRoute);
 
-var productRoute = require('./api/productRoute');
-app.use('/api', productRoute);
+// var productRoute = require('./api/productRoute');
+// app.use('/api', productRoute);
 
-var experimentRoute = require('./api/experimentRoute');
-app.use('/api', experimentRoute);
+// var experimentRoute = require('./api/experimentRoute');
+// app.use('/api', experimentRoute);
 
-var questionRoute = require('./api/questionRoute');
-app.use('/api', questionRoute);
+// var questionRoute = require('./api/questionRoute');
+// app.use('/api', questionRoute);
 
-var quizRoute = require('./api/quizRoute');
-app.use('/api', quizRoute);
+// var quizRoute = require('./api/quizRoute');
+// app.use('/api', quizRoute);
 
     app.use(express.static(__dirname + '/public'));
     app.get('/', function(req, res) {
