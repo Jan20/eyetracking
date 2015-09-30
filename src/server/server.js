@@ -7,26 +7,26 @@ var http = require('http');
 
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
+// mongoose.connect('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
 console.log(mongoose.connect('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf'));
 
-var experimentSchema = mongoose.Schema({
-	experimentId: Number,
-	description: String,
-	buttonActive: String,
-	buttonInactive: String
-});
+// var experimentSchema = mongoose.Schema({
+// 	experimentId: Number,
+// 	description: String,
+// 	buttonActive: String,
+// 	buttonInactive: String
+// });
 
-var Experiment = mongoose.model('Experiment', experimentSchema);
+// var Experiment = mongoose.model('Experiment', experimentSchema);
 
-app.get('/experiments', function(req, res){
-	Experiment.find({}, function(err, experiments){
-		if(err)
-			res.send('Bei der Abfrage aller Experimente ist ein Fehler aufgetreten: ' + err);
-		res.json(experiments);
+// app.get('/experiments', function(req, res){
+// 	Experiment.find({}, function(err, experiments){
+// 		if(err)
+// 			res.send('Bei der Abfrage aller Experimente ist ein Fehler aufgetreten: ' + err);
+// 		res.json(experiments);
 		
-	});
-});
+// 	});
+// });
 
 app.set('port', process.env.PORT || 3000);
 
