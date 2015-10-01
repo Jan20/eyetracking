@@ -15,10 +15,7 @@ function experimentDataservice($http){
 		putExperiment: putExperiment,
 		getEnvironment: getEnvironment
 	};
-
-
-	// var environment = 'http://localhost:3000';
-
+	
 	function getEnvironment(){
 		return environment;
 	}

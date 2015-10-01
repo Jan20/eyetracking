@@ -4,8 +4,6 @@ angular
 
 productDataservice.$inject = ['$http', 'experimentDataservice'];
 
-// var environment = 'http://localhost:3000';
-
 function productDataservice($http, experimentDataservice){
 	
 	var environment = experimentDataservice.getEnvironment();
