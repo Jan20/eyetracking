@@ -243,7 +243,7 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
         $scope.currentQuestionId = questionId;
         console.log($scope.currentQuestionId);
         $scope.currentName = $scope.questions[questionId].name;
-        $scope.currentActionUrl = environment+questionId;
+        $scope.currentActionUrl = environment+'/question/'+questionId;
     }
 
     function Question(questionId, name){

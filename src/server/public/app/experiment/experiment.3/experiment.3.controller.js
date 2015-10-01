@@ -159,7 +159,7 @@ function Experiment3Controller($scope, $location, experimentDataservice, userDat
 		$scope.currentName = $scope.products[productId].name;
 		$scope.currentImage = $scope.products[productId].image;
 		$scope.currentUrl = $scope.products[productId].url;
-		$scope.currentActionUrl = environment+$scope.products[productId].productId;
+		$scope.currentActionUrl = environment+'/api/product/'+$scope.products[productId].productId;
 	}
 
 	function Product(productId, name, image, url){
@@ -244,7 +244,10 @@ function Experiment3Controller($scope, $location, experimentDataservice, userDat
             	$( "#description" ).empty();
                 $( "#buttonActive" ).empty();
                 $( "#buttonInactive" ).empty();
+                $scope.products = [];
                 getExperiment(3);
+                getProducts();
+                $scope.productPicture = '';
         });       
     }
 

@@ -79,8 +79,8 @@ function Experiment1Controller($http, $scope, $location, $timeout, experimentDat
                 $scope.experimentId = data.experimentId;
                 $scope.description = data.description;
                 $scope.buttonActive = data.buttonActive;
-                $scope.currentActionUrl = environment+data.experimentId;
-                $scope.currentActionUrl1 = environment+data.experimentId;
+                $scope.currentActionUrl = environment+'/api/experiment/'+data.experimentId;
+                $scope.currentActionUrl1 = environment+'/api/experiment1/'+data.experimentId;
 
                 $( "#description" ).append($.parseHTML($scope.description));
                 $( "#buttonActive" ).append($.parseHTML($scope.buttonActive));           

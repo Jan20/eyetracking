@@ -124,7 +124,8 @@ function Experiment0Controller($scope, $location, $timeout, experimentDataservic
                 $scope.description = data.description;
                 $scope.buttonActive = data.buttonActive;
                 $scope.buttonInactive = data.buttonInactive;
-                $scope.currentActionUrl = environment+data.experimentId;
+                $scope.currentActionUrl = environment+'/api/experiment/'+data.experimentId;
+                console.log('CurrentActionUrl: ' + $scope.currentActionUrl);
                 $scope.logo = 'images/experiments/logo'+data.experimentId+'.jpg';
                 $( "#description" ).append($.parseHTML($scope.description));
                 $( "#buttonInactive" ).append($.parseHTML($scope.buttonInactive));            

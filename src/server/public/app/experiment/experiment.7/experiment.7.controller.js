@@ -62,7 +62,7 @@ function Experiment7Controller($scope, $location, experimentDataservice, userDat
                 $scope.description = data.description;
                 $scope.buttonActive = data.buttonActive;
                 $scope.buttonInactive = data.buttonInactive;
-                $scope.currentActionUrl = environment+data.experimentId;
+                $scope.currentActionUrl = environment+'/api/experiment/'+data.experimentId;
 
                 $( "#description" ).append($.parseHTML($scope.description));
                 $( "#buttonInactive" ).append($.parseHTML($scope.buttonInactive));            

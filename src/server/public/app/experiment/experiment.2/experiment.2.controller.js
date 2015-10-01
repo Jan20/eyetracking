@@ -180,7 +180,7 @@ function Experiment2Controller($scope, $location, $timeout, experimentDataservic
 		$scope.currentName = $scope.products[productId].name;
 		$scope.currentImage = $scope.products[productId].image;
         $scope.currentUrl = $scope.products[productId].url;
-		$scope.currentActionUrl = environment+$scope.products[productId].productId;
+		$scope.currentActionUrl = environment+'/api/product/'+$scope.products[productId].productId;
 	}
 
 	/**
