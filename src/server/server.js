@@ -33,7 +33,7 @@ mongoose.connect('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf'
 // 	});
 // });
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 80);
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -62,7 +62,7 @@ app.use('/api', quizRoute);
             res.send(text);
         });
     });
-    app.listen(3000);
+    app.listen(80);
 
         
    console.log('The app is listening at port:' + app.get('port') + '. Tap Ctrl+C to terminate.');
