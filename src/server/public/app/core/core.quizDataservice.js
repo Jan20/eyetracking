@@ -4,7 +4,6 @@ angular
 
 quizDataservice.$inject = ['$http', 'experimentDataservice'];
 
-// var environment = 'http://localhost:3000';
 
 function quizDataservice($http, experimentDataservice){
 	

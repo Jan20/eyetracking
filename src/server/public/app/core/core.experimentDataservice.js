@@ -5,7 +5,7 @@ angular
 experimentDataservice.$inject = ['$http'];
 
 function experimentDataservice($http){
-	var environment = 'http://iwm-devsrv1.iwmnetwork.de:80';
+	var environment = 'http://iwm-devsrv1.iwmnetwork.de:3000';
 	// var environment = 'http://localhost:3000';
 	
 	return{
@@ -15,7 +15,7 @@ function experimentDataservice($http){
 		putExperiment: putExperiment,
 		getEnvironment: getEnvironment
 	};
-	
+
 	function getEnvironment(){
 		return environment;
 	}
