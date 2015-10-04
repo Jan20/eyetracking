@@ -267,10 +267,6 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', '$interval',
         }
         
     }
-    startTimer();
-
-
-
 
     // ----------------------------------- View 5a -----------------------------------
 
