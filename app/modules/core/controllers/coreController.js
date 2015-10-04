@@ -1,9 +1,12 @@
-eyetrackingApp.controller("coreController", ['$location', '$scope', function($location, $scope, $apply) {
+eyetrackingApp.controller("coreController", ['$location', '$scope', '$interval', '$timeout', function($location, $scope, $interval, $timeout) {
 
     // ----------------------------------- Model -----------------------------------
 
+
+
     $scope.products = [{
-        id: 1,
+        productId: 0,
+        name: 'Canon IXUS 170',
         image: 'app/modules/core/assets/products/product0.jpg',
         url: 'http://www.amazon.de/Canon-Digitalkamera-Megapixel-Bildstabilisator-LCD-Display/dp/B00RYV9R20/ref=sr_1_1?&s=photo&ie=UTF8&qid=1436878022&sr=1-1&keywords=digitalkamera',
         visitedIn2: false,
@@ -12,7 +15,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         choosedIn6: false,
         randomValue: null
     }, {
-        id: 2,
+        productId: 1,
+        name: 'Fujifilm FinePix S8600',
         image: 'app/modules/core/assets/products/product1.jpg',
         url: 'http://www.amazon.de/Fujifilm-Kompaktkamera-Megapixel-Kompakte-Bauweise/dp/B00HXBROJY/ref=sr_1_3?s=photo&ie=UTF8&qid=1443701645&sr=1-3&keywords=digitalkamera',
         visitedIn2: false,
@@ -22,7 +26,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         randomValue: null
 
     }, {
-        id: 3,
+        productId: 2,
+        name: 'Nikon Coolpix S3700',
         image: 'app/modules/core/assets/products/product2.jpg',
         url: 'http://www.amazon.de/Nikon-Coolpix-Digitalkamera-Megapixel-Panorama-Assistent/dp/B00S85LULM/ref=sr_1_14?&s=photo&ie=UTF8&qid=1436878022&sr=1-14&keywords=digitalkamera',
         visitedIn2: false,
@@ -32,7 +37,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         randomValue: null
 
     }, {
-        id: 4,
+        productId: 3,
+        name: 'Olympus SZ-14',
         image: 'app/modules/core/assets/products/product3.jpg',
         url: ' http://www.amazon.de/Olympus-Digitalkamera-Megapixel-24-fach-bildstabilisiert/dp/B006Q9J438/ref=sr_1_1?ie=UTF8&qid=1437901399&sr=8-1&keywords=Olympus+SZ-14+Digitalkamera',
         visitedIn2: false,
@@ -42,7 +48,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         randomValue: null
 
     }, {
-        id: 5,
+        productId: 4,
+        name: 'Panasonic DMC-TZ56EG-W',
         image: 'app/modules/core/assets/products/product4.jpg',
         url: 'http://www.amazon.de/Panasonic-DMC-TZ56EG-W-Travellerzoom-Kompaktkamera-LCD-Display/dp/B00I3BTGT4/ref=sr_1_2?s=photo&ie=UTF8&qid=1437829309&sr=1-2&keywords=panasonic',
         visitedIn2: false,
@@ -52,7 +59,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         randomValue: null
 
     }, {
-        id: 6,
+        productId: 5,
+        name: 'Samsung WB35F',
         image: 'app/modules/core/assets/products/product5.jpg',
         url: 'http://www.amazon.de/Samsung-Smart-Digitalkamera-Megapixel-12-fach-Display/dp/B00I0MR16G/ref=sr_1_7?s=photo&ie=UTF8&qid=1443701944&sr=1-7&keywords=digitalkamera',
         visitedIn2: false,
@@ -62,7 +70,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         randomValue: null
 
     }, {
-        id: 7,
+        productId: 6,
+        name: 'Sony DSC-W830',
         image: 'app/modules/core/assets/products/product6.jpg',
         url: 'http://www.amazon.de/Sony-Digitalkamera-LC-Display-Weitwinkelobjektiv-SteadyShot/dp/B00HH8A5RQ/ref=sr_1_2?s=photo&ie=UTF8&qid=1437830150&sr=1-2&keywords=sony+digitalkamera',
         visitedIn2: false,
@@ -72,7 +81,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         randomValue: null
 
     }, {
-        id: 8,
+        productId: 7,
+        name: 'Sony DSC-WX220',
         image: 'app/modules/core/assets/products/product7.jpg',
         url: 'http://www.amazon.de/Sony-DSC-WX220-Digitalkamera-Megapixel-LCD-Display/dp/B00I9X2GYS/ref=sr_1_9?&s=photo&ie=UTF8&qid=1436878022&sr=1-9&keywords=digitalkamera',
         visitedIn2: false,
@@ -83,91 +93,85 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     }];
 
-    // ----------------------------------- GoTo Function -----------------------------------
+    $scope.mainFunction0 = mainFunction0;
+    $scope.mainFunction1 = mainFunction1;
+    $scope.mainFunction2 = mainFunction2;
+    $scope.mainFunction3 = mainFunction3;
+    $scope.mainFunction4 = mainFunction4;
+    $scope.mainFunction5 = mainFunction5;
+    $scope.mainFunction6 = mainFunction6;
 
-    var goTo = function(path){
-        $scope.$apply(function(){
-            $location.path(path);
-        });        
-    };
+    $scope.setVisitedIn2 = setVisitedIn2;
+    $scope.setChoosedIn3 = setChoosedIn3;
+    $scope.setVisitedIn5 = setVisitedIn5;
+    $scope.setChoosedIn6 = setChoosedIn6;
 
-
+    $scope.showResults = showResults;
+    $scope.exportData = exportData;
     // ----------------------------------- View start -----------------------------------
 
-    $scope.mainFunction0 = function(userNumber){
-        $scope.saveUserNumber(userNumber);
-        setTimeout(function(){
-            goTo('/1a');
-        }, 200);
-    };
+    function mainFunction0(userId){
+        setUserId(userId);
+        $location.path('/1a');
+    }
 
-    $scope.saveUserNumber = function(userNumber) {
-        $scope.userNumber = userNumber;
-    };
+    function setUserId(userId) {
+        $scope.userId = userId;
+    }
 
 
     // ----------------------------------- View 1a -----------------------------------
     
-    $scope.mainFunction1 = function(){
-        $scope.setRandomOrder();
-        setTimeout(function(){
-            goTo('/2a');
-        }, 200);
-    };
+    function mainFunction1(){
+        setRandomOrder();
+        $location.path('/2a');
+    }
 
-    $scope.setRandomOrder = function() {
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
+    function setRandomOrder() {
+        for (var i = 0; i < $scope.products.length; i++) {
             $scope.products[i].randomValue = Math.random();
         }
-    };
+    }
 
     
     // ----------------------------------- View 2a -----------------------------------
 
-    $scope.mainFunction2 = function(){
-        $scope.setVisitedIn2();
-        setTimeout(function(){
-            goTo('/3a');
-        }, 200);
-    };
+    function mainFunction2(){
+        $location.path('/3a');
+    }
 
-    $scope.setVisitedIn2 = function(id) {
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].id == id) {
+    function setVisitedIn2(productId) {
+        for (var i = 0; i < $scope.products.length; i++) {
+            if ($scope.products[i].productId == productId) {
                 $scope.products[i].visitedIn2 = true;
             }
         }
-    };
-
+    }
 
     // ----------------------------------- View 3a -----------------------------------
 
-    $scope.mainFunction3 = function(){
-        setTimeout(function(){
-            goTo('/4a');        
-        }, 200);
-    };
+    function mainFunction3(){
+        $location.path('/4a');
+    }
 
     $scope.countChoosedIn3 = 0;
     
-    $scope.setChoosedIn3 = function(id) {
-        if ($scope.products[id - 1].choosedIn3 === false) {
-            $scope.products[id - 1].choosedIn3 = true;
+    function setChoosedIn3(productId) {
+        if ($scope.products[productId].choosedIn3 === false) {
+            $scope.products[productId].choosedIn3 = true;
             $scope.countChoosedIn3 += 1;
         } else {
-            $scope.products[id - 1].choosedIn3 = false;
+            $scope.products[productId].choosedIn3 = false;
             $scope.countChoosedIn3 -= 1;
         }
-    };
+    }
 
 
     // ----------------------------------- View 4a -----------------------------------
     
-    $scope.mainFunction4 = function(){
-        setTimeout(function(){
-            goTo('/5a');        
-        }, 200);
-    };
+    function mainFunction4(){
+        $location.path('/5a');
+    }
 
     // $scope.quizImages = [
     //     'app/modules/core/assets/quiz/question1.jpg',
@@ -199,11 +203,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         'app/modules/core/assets/quizBayern/question12.jpg'
     ];
 
-
-
-    $scope.QuizImageCount = $scope.quizImages.length - 1;
-    console.log($scope.QuizImageCount);
-    console.log($scope.quizImages[$scope.QuizImageCount]);
+    $scope.QuizImageCount = 0;
     $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
 
     $scope.answer1 = false;
@@ -211,7 +211,9 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     $scope.blockToken = false;
 
-    $scope.startDelay = function(answer) {
+    $scope.startDelay = startDelay;
+
+    function startDelay(answer) {
         $scope.blockToken = true;
         $scope.visible = false;
 
@@ -225,128 +227,135 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
             $scope.answer2 = true;
         }
 
-        setTimeout(function(){ 
-            $scope.startTimer();
+        $timeout(function(){ 
+            startTimer();
         }, 2000);
 
-        setTimeout(function() {
+        $timeout(function() {
             $scope.blockToken = false;
             $scope.visible = true;
             setNewImage();
         }, 2000);
-    };
+    }
 
     var setNewImage = function() {
-            $scope.QuizImageCount -= 1;
-            $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
-            $scope.answer1 = false;
-            $scope.answer2 = false;
+        $scope.QuizImageCount += 1;
+        $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
+        $scope.answer1 = false;
+        $scope.answer2 = false;
     };
 
-    $scope.startTimer = function() {
-        $scope.timerDuration = 5;
-        $scope.currentSecond = 5;
+    function startTimer() {
+        $scope.timer = 5000;
 
-        var current = moment.duration($scope.timerDuration * 1000, 'milliseconds');
+        var timerInterval = $interval(function($interval){
+            setTimer();
 
-        setInterval(function() {
-            $scope.visible = false;
-            setCurrentTime();
+            if($scope.timer === 0){
+                stopTimer();
+            }
         }, 1000);
 
-        var setCurrentTime = function() {
-            $scope.$apply(function() {
+        function stopTimer(){
+            $interval.cancel(timerInterval);
+        }
 
-                if (current === 0) {
-                    return null;
-                }
+        function setTimer(){
+            if ($scope.timer === 0)
+                stopTimer();            
+            $scope.timer -= 1000;            
+        }
+        
+    }
+    startTimer();
 
-                current = moment.duration(current - 1000, 'milliseconds');
-                $scope.currentSecond = current.get('seconds');
 
-            });
-        };
-
-    };
 
 
     // ----------------------------------- View 5a -----------------------------------
 
-    $scope.mainFunction5 = function(){
-        setTimeout(function(){
-            goTo('6a');
-        }, 200);
-    };
+    function mainFunction5(){
+        $location.path('/6a');
+    }
 
-    $scope.setVisitedIn5 = function(id) {
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].id == id) {
+    function setVisitedIn5(productId) {
+        for (var i = 0; i < $scope.products.length; i++) {
+            if ($scope.products[i].productId == productId) {
                 $scope.products[i].visitedIn5 = true;
             }
         }
-    };
+    }
 
 
     // ----------------------------------- View 6a -----------------------------------
 
-    $scope.mainFunction6 = function(){
-        $scope.createObject();
-        setTimeout(function(){
-            goTo('7a');
-        }, 200);
-    };
+    function mainFunction6(){
+        createObject();
+        $location.path('/7a');
+    }
     
     $scope.countChoosedIn6 = 0;
 
-    $scope.setChoosedIn6 = function(id) {
-        if ($scope.products[id - 1].choosedIn6 === false) {
-            for (var i = $scope.products.length - 1; i >= 0; i--) {
+    function setChoosedIn6(productId) {
+        if ($scope.products[productId].choosedIn6 === false) {
+            for (var i = 0; i < $scope.products.length; i++) {
                 $scope.products[i].choosedIn6 = false;
             }
-            $scope.products[id - 1].choosedIn6 = true;
+            $scope.products[productId].choosedIn6 = true;
             $scope.countChoosedIn6 = 1;
         } else {
-            $scope.products[id - 1].choosedIn6 = false;
+            $scope.products[productId].choosedIn6 = false;
             $scope.countChoosedIn6 = 0;
         }
-    };
+    }
 
-    $scope.createObject = function() {
+    function Dataset(userId, visitedIn2, choosedIn3, visitedIn5, choosedIn6){
+        this.userId = userId;
+        this.visitedIn2 = visitedIn2;
+        this.choosedIn3 = choosedIn3;
+        this.visitedIn5 = visitedIn5;
+        this.choosedIn6 = choosedIn6;
+    }
+    console.log($scope.products[0]);
+    function createObject() {
         var visitedIn2Array = [];
         var choosedIn3Array = [];
         var visitedIn5Array = [];
         var choosedIn6Array = [];
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
+        for (var i = 0; i < $scope.products.length; i++) {
+            console.log($scope.products[i]);
             if ($scope.products[i].visitedIn2 === true) {
-                visitedIn2Array.push($scope.products[i].id);
+                visitedIn2Array.push($scope.products[i].name);
+            }else{
             }
         }
-        for (i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].choosedIn3 === true) {
-                choosedIn3Array.push($scope.products[i].id);
+        for (var j = 0; j < $scope.products.length; j++) {
+            if ($scope.products[j].choosedIn3 === true) {
+                choosedIn3Array.push($scope.products[j].name);
             }
         }
-        for (i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].visitedIn5 === true) {
-                visitedIn5Array.push($scope.products[i].id);
+        for (var k = 0; k < $scope.products.length; k++) {
+            if ($scope.products[k].visitedIn5 === true) {
+                visitedIn5Array.push($scope.products[k].name);
             }
         }
-        for (i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].choosedIn6 === true) {
-                choosedIn6Array.push($scope.products[i].id);
+        for (var l = 0; l < $scope.products.length; l++) {
+            if ($scope.products[l].choosedIn6 === true) {
+               choosedIn6Array.push($scope.products[l].name);
             }
         }
-        var newDataSet = {
-            ExperimentNr: $scope.userNumber,
-            visitedIn2: visitedIn2Array,
-            choosedIn3: choosedIn3Array,
-            visitedIn5: visitedIn5Array,
-            choosedIn6: choosedIn6Array
-        };
+        console.log(visitedIn2Array);
+        console.log(choosedIn3Array);
+        console.log(visitedIn5Array);
+        console.log(choosedIn6Array);
+
+        var newDataSet = new Dataset($scope.userId, visitedIn2Array, choosedIn3Array, visitedIn5Array, choosedIn6Array);
+
         // console.log(JSON.parse(localStorage.getItem('eyetrackingData')));
         console.log(newDataSet);
+
         var eyetrackingData = [];
-        if (localStorage.getItem('eyetrackingData') !== undefined) {
+        if (localStorage.getItem('eyetrackingData') != undefined) {
             eyetrackingData = localStorage.getItem('eyetrackingData');
             eyetrackingData = JSON.parse(eyetrackingData);
         }
@@ -354,7 +363,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         eyetrackingData.push(newDataSet);
         eyetrackingData = JSON.stringify(eyetrackingData);
         localStorage.setItem('eyetrackingData', eyetrackingData);
-    };
+    }
 
 
 
@@ -362,24 +371,23 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     // ----------------------------------- View Admin -----------------------------------
 
 
-    $scope.showResults = function() {
+    function showResults() {
         var eyetrackingData = localStorage.getItem('eyetrackingData');
         $scope.eyetrackingData = JSON.parse(eyetrackingData);
-    };
+    }
 
     /** 
     *
-    *   Simples Array, das die Spaltenüberschriften der ges 
+    *   Simples Array, das die Spaltenüberschriften der gespeicherten Informationen darstellt
     *
     */
-    $scope.csvHeader = ['ExperimentNr', 'visitedIn2', 'choosedIn3', 'visitedIn5', 'choosedIn6'];
-    $scope.export = function exportData() {
+    $scope.csvHeader = ['userId', 'visitedIn2', 'choosedIn3', 'visitedIn5', 'choosedIn6'];
+    function exportData() {
             console.log('eytrackingData: ' + $scope.csvHeader);
             console.log('eytrackingData: ' + JSON.stringify($scope.eyetrackingData));
             // $scope.eyetrackingData = JSON.stringify($scope.eyetrackingData);
         alasql("SELECT * INTO CSV('eyetracking.csv',{headers:true, separator:';'}) FROM ?", [$scope.eyetrackingData]);
-    };
-
+    }
 
 
 }]);

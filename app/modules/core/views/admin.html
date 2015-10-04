@@ -11,7 +11,7 @@ CSV Datei herunter zu laden.  -->
 				<table class="table table-hover" >
 					<thead>
 						<tr>
-							<th>ExperimentNr</th>
+							<th>userId</th>
 							<th>visitedIn2</th>
 							<th>choosedIn3</th>
 							<th>visitedIn5</th>
@@ -20,7 +20,7 @@ CSV Datei herunter zu laden.  -->
 					</thead>
 					<tbody>
 						<tr ng-repeat='eyetrackingData in eyetrackingData track by $index'>
-							<td>{{eyetrackingData.ExperimentNr}}</td>
+							<td>{{eyetrackingData.userId}}</td>
 							<td>{{eyetrackingData.visitedIn2}}</td>
 							<td>{{eyetrackingData.choosedIn3}}</td>
 							<td>{{eyetrackingData.visitedIn5}}</td>
@@ -36,7 +36,7 @@ CSV Datei herunter zu laden.  -->
     </div>
 </div>
 
-<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-click='export()'>
+<a class='iwm-intro-area-view2 col-md-6 btn btn-default' ng-click='exportData()'>
     <div class='col-md-10'>
         <p class='link-description'>Klicken Sie hier, um die Ergebnisse als CSV-Datei herunter zu laden.</p>
     </div>
