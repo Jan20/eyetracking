@@ -4,7 +4,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     $scope.products = [{
         id: 1,
-        image: 'app/modules/core/assets/cameras/Canon_IXUS_170.jpg',
+        image: 'app/modules/core/assets/products/product0.jpg',
         url: 'http://www.amazon.de/Canon-Digitalkamera-Megapixel-Bildstabilisator-LCD-Display/dp/B00RYV9R20/ref=sr_1_1?&s=photo&ie=UTF8&qid=1436878022&sr=1-1&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -13,8 +13,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         randomValue: null
     }, {
         id: 2,
-        image: 'app/modules/core/assets/cameras/Fujifilm_FinePix_T500.jpg',
-        url: 'http://www.amazon.de/Fujifilm-FinePix-Digitalkamera-Megapixel-bildstabilisiert/dp/B00BBZTHS4/ref=sr_1_42?&s=photo&ie=UTF8&qid=1436878131&sr=1-42&keywords=digitalkamera',
+        image: 'app/modules/core/assets/products/product1.jpg',
+        url: 'http://www.amazon.de/Fujifilm-Kompaktkamera-Megapixel-Kompakte-Bauweise/dp/B00HXBROJY/ref=sr_1_3?s=photo&ie=UTF8&qid=1443701645&sr=1-3&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn5: false,
@@ -23,7 +23,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     }, {
         id: 3,
-        image: 'app/modules/core/assets/cameras/Nikon_Coolpix_S3700.jpg',
+        image: 'app/modules/core/assets/products/product2.jpg',
         url: 'http://www.amazon.de/Nikon-Coolpix-Digitalkamera-Megapixel-Panorama-Assistent/dp/B00S85LULM/ref=sr_1_14?&s=photo&ie=UTF8&qid=1436878022&sr=1-14&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -33,7 +33,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     }, {
         id: 4,
-        image: 'app/modules/core/assets/cameras/Olympus_SZ-14.jpg',
+        image: 'app/modules/core/assets/products/product3.jpg',
         url: ' http://www.amazon.de/Olympus-Digitalkamera-Megapixel-24-fach-bildstabilisiert/dp/B006Q9J438/ref=sr_1_1?ie=UTF8&qid=1437901399&sr=8-1&keywords=Olympus+SZ-14+Digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -43,8 +43,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     }, {
         id: 5,
-        image: 'app/modules/core/assets/cameras/Panasonic_DMC-TZ56EG-W.jpg',
-        url: 'http://www.amazon.de/Panasonic-Lumix-DMC-SZ3-Megapixel-Display/dp/B00BB3FWBW/ref=sr_1_10?s=photo&ie=UTF8&qid=1439291686&sr=1-10&keywords=digitalkamera',
+        image: 'app/modules/core/assets/products/product4.jpg',
+        url: 'http://www.amazon.de/Panasonic-DMC-TZ56EG-W-Travellerzoom-Kompaktkamera-LCD-Display/dp/B00I3BTGT4/ref=sr_1_2?s=photo&ie=UTF8&qid=1437829309&sr=1-2&keywords=panasonic',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn5: false,
@@ -53,8 +53,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     }, {
         id: 6,
-        image: 'app/modules/core/assets/cameras/Samsung DV150F.jpg',
-        url: 'http://www.amazon.de/Samsung-Smart-Digitalkamera-Megapixel-LCD-Display-bildstabilisiert/dp/B00B1OXLJG/ref=sr_1_6?s=photo&ie=UTF8&qid=1438697567&sr=1-6&keywords=digitalkamera',
+        image: 'app/modules/core/assets/products/product5.jpg',
+        url: 'http://www.amazon.de/Samsung-Smart-Digitalkamera-Megapixel-12-fach-Display/dp/B00I0MR16G/ref=sr_1_7?s=photo&ie=UTF8&qid=1443701944&sr=1-7&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
         visitedIn5: false,
@@ -63,7 +63,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     }, {
         id: 7,
-        image: 'app/modules/core/assets/cameras/Sony_DSC-W830.jpg',
+        image: 'app/modules/core/assets/products/product6.jpg',
         url: 'http://www.amazon.de/Sony-Digitalkamera-LC-Display-Weitwinkelobjektiv-SteadyShot/dp/B00HH8A5RQ/ref=sr_1_2?s=photo&ie=UTF8&qid=1437830150&sr=1-2&keywords=sony+digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -73,7 +73,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
 
     }, {
         id: 8,
-        image: 'app/modules/core/assets/cameras/Sony_DSC-WX220.jpg',
+        image: 'app/modules/core/assets/products/product7.jpg',
         url: 'http://www.amazon.de/Sony-DSC-WX220-Digitalkamera-Megapixel-LCD-Display/dp/B00I9X2GYS/ref=sr_1_9?&s=photo&ie=UTF8&qid=1436878022&sr=1-9&keywords=digitalkamera',
         visitedIn2: false,
         choosedIn3: false,
@@ -118,7 +118,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.setRandomOrder = function() {
         for (var i = $scope.products.length - 1; i >= 0; i--) {
             $scope.products[i].randomValue = Math.random();
-        };
+        }
     };
 
     
@@ -151,7 +151,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.countChoosedIn3 = 0;
     
     $scope.setChoosedIn3 = function(id) {
-        if ($scope.products[id - 1].choosedIn3 == false) {
+        if ($scope.products[id - 1].choosedIn3 === false) {
             $scope.products[id - 1].choosedIn3 = true;
             $scope.countChoosedIn3 += 1;
         } else {
@@ -169,41 +169,41 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         }, 200);
     };
 
-    $scope.quizImages = [
-        'app/modules/core/assets/quiz/question1.jpg',
-        'app/modules/core/assets/quiz/question2.jpg',
-        'app/modules/core/assets/quiz/question3.jpg',
-        'app/modules/core/assets/quiz/question4.jpg',
-        'app/modules/core/assets/quiz/question5.jpg',
-        'app/modules/core/assets/quiz/question6.jpg',
-        'app/modules/core/assets/quiz/question7.jpg',
-        'app/modules/core/assets/quiz/question8.jpg',
-        'app/modules/core/assets/quiz/question9.jpg',
-        'app/modules/core/assets/quiz/question10.jpg',
-        'app/modules/core/assets/quiz/question11.jpg',
-        'app/modules/core/assets/quiz/question12.jpg'
-    ];
-
     // $scope.quizImages = [
-    //     'app/modules/core/assets/quizBayern/question1.jpg',
-    //     'app/modules/core/assets/quizBayern/question2.jpg',
-    //     'app/modules/core/assets/quizBayern/question3.jpg',
-    //     'app/modules/core/assets/quizBayern/question4.jpg',
-    //     'app/modules/core/assets/quizBayern/question5.jpg',
-    //     'app/modules/core/assets/quizBayern/question6.jpg',
-    //     'app/modules/core/assets/quizBayern/question7.jpg',
-    //     'app/modules/core/assets/quizBayern/question8.jpg',
-    //     'app/modules/core/assets/quizBayern/question9.jpg',
-    //     'app/modules/core/assets/quizBayern/question10.jpg',
-    //     'app/modules/core/assets/quizBayern/question11.jpg',
-    //     'app/modules/core/assets/quizBayern/question12.jpg'
+    //     'app/modules/core/assets/quiz/question1.jpg',
+    //     'app/modules/core/assets/quiz/question2.jpg',
+    //     'app/modules/core/assets/quiz/question3.jpg',
+    //     'app/modules/core/assets/quiz/question4.jpg',
+    //     'app/modules/core/assets/quiz/question5.jpg',
+    //     'app/modules/core/assets/quiz/question6.jpg',
+    //     'app/modules/core/assets/quiz/question7.jpg',
+    //     'app/modules/core/assets/quiz/question8.jpg',
+    //     'app/modules/core/assets/quiz/question9.jpg',
+    //     'app/modules/core/assets/quiz/question10.jpg',
+    //     'app/modules/core/assets/quiz/question11.jpg',
+    //     'app/modules/core/assets/quiz/question12.jpg'
     // ];
+
+    $scope.quizImages = [
+        'app/modules/core/assets/quizBayern/question1.jpg',
+        'app/modules/core/assets/quizBayern/question2.jpg',
+        'app/modules/core/assets/quizBayern/question3.jpg',
+        'app/modules/core/assets/quizBayern/question4.jpg',
+        'app/modules/core/assets/quizBayern/question5.jpg',
+        'app/modules/core/assets/quizBayern/question6.jpg',
+        'app/modules/core/assets/quizBayern/question7.jpg',
+        'app/modules/core/assets/quizBayern/question8.jpg',
+        'app/modules/core/assets/quizBayern/question9.jpg',
+        'app/modules/core/assets/quizBayern/question10.jpg',
+        'app/modules/core/assets/quizBayern/question11.jpg',
+        'app/modules/core/assets/quizBayern/question12.jpg'
+    ];
 
 
 
     $scope.QuizImageCount = $scope.quizImages.length - 1;
     console.log($scope.QuizImageCount);
-    console.log($scope.quizImages[$scope.QuizImageCount])
+    console.log($scope.quizImages[$scope.QuizImageCount]);
     $scope.currentQuizImage = $scope.quizImages[$scope.QuizImageCount];
 
     $scope.answer1 = false;
@@ -257,14 +257,14 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         var setCurrentTime = function() {
             $scope.$apply(function() {
 
-                if (current == 0) {
+                if (current === 0) {
                     return null;
                 }
 
                 current = moment.duration(current - 1000, 'milliseconds');
                 $scope.currentSecond = current.get('seconds');
 
-            })
+            });
         };
 
     };
@@ -299,10 +299,10 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.countChoosedIn6 = 0;
 
     $scope.setChoosedIn6 = function(id) {
-        if ($scope.products[id - 1].choosedIn6 == false) {
+        if ($scope.products[id - 1].choosedIn6 === false) {
             for (var i = $scope.products.length - 1; i >= 0; i--) {
                 $scope.products[i].choosedIn6 = false;
-            };
+            }
             $scope.products[id - 1].choosedIn6 = true;
             $scope.countChoosedIn6 = 1;
         } else {
@@ -317,38 +317,38 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
         var visitedIn5Array = [];
         var choosedIn6Array = [];
         for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].visitedIn2 == true) {
+            if ($scope.products[i].visitedIn2 === true) {
                 visitedIn2Array.push($scope.products[i].id);
             }
-        };
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].choosedIn3 == true) {
+        }
+        for (i = $scope.products.length - 1; i >= 0; i--) {
+            if ($scope.products[i].choosedIn3 === true) {
                 choosedIn3Array.push($scope.products[i].id);
             }
-        };
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].visitedIn5 == true) {
+        }
+        for (i = $scope.products.length - 1; i >= 0; i--) {
+            if ($scope.products[i].visitedIn5 === true) {
                 visitedIn5Array.push($scope.products[i].id);
             }
-        };
-        for (var i = $scope.products.length - 1; i >= 0; i--) {
-            if ($scope.products[i].choosedIn6 == true) {
+        }
+        for (i = $scope.products.length - 1; i >= 0; i--) {
+            if ($scope.products[i].choosedIn6 === true) {
                 choosedIn6Array.push($scope.products[i].id);
             }
-        };
+        }
         var newDataSet = {
             ExperimentNr: $scope.userNumber,
             visitedIn2: visitedIn2Array,
             choosedIn3: choosedIn3Array,
             visitedIn5: visitedIn5Array,
             choosedIn6: choosedIn6Array
-        }
+        };
         // console.log(JSON.parse(localStorage.getItem('eyetrackingData')));
         console.log(newDataSet);
         var eyetrackingData = [];
-        if (localStorage.getItem('eyetrackingData') != undefined) {
-            var eyetrackingData = localStorage.getItem('eyetrackingData');
-            var eyetrackingData = JSON.parse(eyetrackingData);
+        if (localStorage.getItem('eyetrackingData') !== undefined) {
+            eyetrackingData = localStorage.getItem('eyetrackingData');
+            eyetrackingData = JSON.parse(eyetrackingData);
         }
 
         eyetrackingData.push(newDataSet);
@@ -365,7 +365,7 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', function($lo
     $scope.showResults = function() {
         var eyetrackingData = localStorage.getItem('eyetrackingData');
         $scope.eyetrackingData = JSON.parse(eyetrackingData);
-    }
+    };
 
     /** 
     *
