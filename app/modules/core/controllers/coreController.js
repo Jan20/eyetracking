@@ -106,6 +106,8 @@ eyetrackingApp.controller("coreController", ['$location', '$scope', '$interval',
     $scope.setVisitedIn5 = setVisitedIn5;
     $scope.setChoosedIn6 = setChoosedIn6;
 
+    $scope.startTimer = startTimer;
+
     $scope.showResults = showResults;
     $scope.exportData = exportData;
     // ----------------------------------- View start -----------------------------------
