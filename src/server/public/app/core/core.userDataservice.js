@@ -15,6 +15,7 @@ function userDataservice($http, experimentDataservice){
 		postUser: postUser,
 		putUser: putUser,
 		getCurrentUser: getCurrentUser,
+		setCurrentUser: setCurrentUser,
 		deleteUser: deleteUser
 	};
 
@@ -28,7 +29,12 @@ function userDataservice($http, experimentDataservice){
 	*
 	*/
 	function getCurrentUser(){
-		return currentUser;
+		console.log(localStorage.getItem('currentUser'));
+		return localStorage.getItem('currentUser');
+	}
+
+	function setCurrentUser(userId){
+		localStorage.setItem('currentUser', userId);
 	}
 
 	/**

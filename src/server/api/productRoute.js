@@ -30,7 +30,7 @@ productRoute
 */
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/images/products');
+    cb(null, '/Users/Jan/Code/eyetracking/src/server/public/images/products');
   },
   filename: function (req, file, cb) {
     cb(null, 'product' + req.params.productId + '.jpg');

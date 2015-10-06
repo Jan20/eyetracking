@@ -17,7 +17,6 @@ function Experiment6Controller($scope, $location, experimentDataservice, userDat
 	*
 	*/
 	$scope.userId = getCurrentUser();
-	console.log($scope.userId);
 	// $scope.userId = 'admin';
 
 	/**
@@ -94,11 +93,12 @@ function Experiment6Controller($scope, $location, experimentDataservice, userDat
 	function getUser(userId){
 		return userDataservice.getUser(userId)
 			.then(function(data){
-				console.log('User data: ');
-				console.log(data);
+				console.log('User data:');
 				$scope.visitedIn2 = data.visitedIn2;
 				$scope.choosedIn3 = data.choosedIn3;
 				$scope.visitedIn5 = data.visitedIn5;
+				console.log($scope.visitedIn2);
+				console.log($scope.choosedIn3);
 			});
 	}
 	getUser($scope.userId);

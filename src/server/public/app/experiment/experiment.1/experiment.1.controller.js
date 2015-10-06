@@ -15,7 +15,7 @@ function Experiment1Controller($http, $scope, $location, $timeout, experimentDat
     *   hinterliegende Datenhaltung vorzunehmen.
     *
     */
-    $scope.userId = getCurrentUser();
+    $scope.userId = userDataservice.getCurrentUser();
     // $scope.userId = 'admin';
        
 
@@ -48,21 +48,6 @@ function Experiment1Controller($http, $scope, $location, $timeout, experimentDat
         }
     }
 
-
-    /**************************** Nutzer Bereich **************************************/
-    
-    /**
-    *
-    *   Die getCurrentUser Funktion stellt eine Helper-Function dar, mit der es möglich ist
-    *   den aktuellen Nutzer abzurufen. Hierzu wrid der userDatenservice genutzt, der direkt
-    *   nach der Initialisierung eines neuen Nutzers, diesen als aktuellen Nutzer festlegt,
-    *   was im Regelfall geschieht, nachdem der Experiment-Teilnehmer seine Teilnehmer-Id
-    *   im View0 eingegeben hat.
-    *
-    */
-    function getCurrentUser(){
-        return userDataservice.getCurrentUser();
-    }
 
     /**************************** Experiment Bereich **************************************/
 

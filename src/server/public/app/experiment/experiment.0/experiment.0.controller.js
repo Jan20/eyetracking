@@ -2,10 +2,19 @@ angular
     .module('app.experiment')
 	.controller('Experiment0Controller', Experiment0Controller);
 
-Experiment0Controller.$inject = ['$scope', '$location', '$timeout', 'experimentDataservice', 'userDataservice'];
+Experiment0Controller.$inject = ['$scope', '$location', '$timeout', 'experimentDataservice', 'productDataservice', 'userDataservice'];
 
-function Experiment0Controller($scope, $location, $timeout, experimentDataservice, userDataservice){
+function Experiment0Controller($scope, $location, $timeout, experimentDataservice, productDataservice, userDataservice){
     var environment = experimentDataservice.getEnvironment();
+
+    /**
+    *
+    *   Im folgenden wird die Methode setRandomOrder des productDataservices aufgerufen.
+    *   Diese set eine zufällige Ordnung der Produkte, die in den Views 2,3,5 und 6 zur Anwendung
+    *   kommen.
+    *
+    */
+    productDataservice.setRandomOrder();
 
     /**
     *
@@ -43,7 +52,7 @@ function Experiment0Controller($scope, $location, $timeout, experimentDataservic
     function switchToView1() {
         deleteUser('admin');
         createUser();
-        $timeout(direct, 200);
+        $timeout(direct, 300);
         function direct(){
             $location.path('/1');
         }
@@ -89,6 +98,7 @@ function Experiment0Controller($scope, $location, $timeout, experimentDataservic
         var user = new User($scope.userId, null, null, null, null);
         return userDataservice.postUser(user)
             .then(function(user){
+                userDataservice.setCurrentUser($scope.userId);
                 console.log('Neuer User erfogreich hinzugefügt: ' + user.userId);
             });
     }

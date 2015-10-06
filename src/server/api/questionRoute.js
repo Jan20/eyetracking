@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var Question = require('.././models/question');
 var multer = require('multer');
 
-
 mongoose.createConnection('mongodb://Jan20:0staticVoid0@ds041992.mongolab.com:41992/leaf');
 
 var questionRoute = express.Router();
@@ -20,7 +19,6 @@ questionRoute
 		.put(putQuestion)
 		.delete(deleteQuestion);
 
-
 /**
 *
 *	Datenupload
@@ -28,7 +26,7 @@ questionRoute
 */
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/images/questions');
+    cb(null, '/Users/Jan/Code/eyetracking/src/server/public/images/questions');
   },
   filename: function (req, file, cb) {
     cb(null, 'question' + req.params.questionId + '.jpg');

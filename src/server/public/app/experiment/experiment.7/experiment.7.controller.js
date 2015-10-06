@@ -17,7 +17,6 @@ function Experiment7Controller($scope, $location, experimentDataservice, userDat
 	*
 	*/
 	$scope.userId = getCurrentUser();
-	// $scope.userId = 'admin';
 
 	/**
 	*

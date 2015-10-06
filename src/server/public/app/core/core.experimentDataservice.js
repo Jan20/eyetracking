@@ -13,12 +13,14 @@ function experimentDataservice($http){
 		getExperiment: getExperiment,
 		postExperiment: postExperiment,
 		putExperiment: putExperiment,
-		getEnvironment: getEnvironment
+		getEnvironment: getEnvironment,
 	};
 
 	function getEnvironment(){
 		return environment;
 	}
+
+
 
 // -------------------------------------- GET ALL --------------------------------------
 

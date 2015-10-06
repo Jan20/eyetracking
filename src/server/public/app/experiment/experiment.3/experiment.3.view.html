@@ -48,19 +48,19 @@
                 <input type='text' class="form-control input-lg" value="" required="required" pattern="" title="" ng-model='currentName'></textarea>
                 <h4>Bild</h4>
                 <form role='form' action='{{currentActionUrl}}' method="POST" enctype="multipart/form-data">
-                    <div class='col-xs-9'>
-                        <input class="form-control input-lg col-xs-12 row" type="file" name='image'></h1>
+                    <div class='col-xs-8'>
+                        <input class="form-control input col-xs-12 row" type="file" name='image'></h1>
                     </div>
-                    <input type="submit" class="btn btn-lg btn-default col-xs-3"></input>
+                    <input type="submit" class="btn btn btn-default col-xs-4"></input>
                     <br>
                     <br>
                 </form>
                 <h4>URL</h4>
-                <input type='text' class="form-control input-lg" value="" required="required" pattern="" title="" ng-model='currentUrl'>
+                <input type='text' class="form-control input" value="" required="required" pattern="" title="" ng-model='currentUrl'>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-lg btn-success" ng-click='updateProduct(currentProductId)' data-dismiss='modal'>Save changes</button>
+                <button type="button" class="btn btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn btn-success" ng-click='updateProduct(currentProductId)' data-dismiss='modal'>Save changes</button>
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">1: Übersicht</h2>
+                <h2 class="modal-title">Ansicht 3: Produktauswahl</h2>
             </div>
             <div class="modal-body">
                 <h4>Beschreibung</h4>
@@ -82,8 +82,8 @@
                 <textarea ui-tinymce='tinymceOptions' ng-model='buttonInactive' class="form-control input-lg" value="" required="required" pattern="" title=""></textarea>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-lg btn-success" ng-click='updateExperiment(experimentId)' data-dismiss='modal'>Save changes</button>
+                <button type="button" class="btn btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn btn-success" ng-click='updateExperiment(experimentId)' data-dismiss='modal'>Save changes</button>
             </div>
         </div>
     </div>

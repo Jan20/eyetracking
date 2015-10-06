@@ -13,11 +13,10 @@ function Experiment2Controller($scope, $location, $timeout, experimentDataservic
 	*	Die Variable $scope.userId behinhaltet die aktuelle userId. Sie dient zur Prüfung,	
 	*	ob der momentane Nutzer die Kennung "admin" aufweist. Ist dies der Fall, so 
 	*	geben die ng-if beziehungsweise ng-show Directives true zurück und erlauben 
-    *   sowohl Änderungen am View als auch der hinterliegende Datenhaltung vorzunehmen.
-	*
+         *         sowohl Änderungen am View als auch der hinterliegende Datenhaltung vorzunehmen.
+         *
 	*/
 	$scope.userId = getCurrentUser();
-	// $scope.userId = 'admin';
 	
 	/**
 	*

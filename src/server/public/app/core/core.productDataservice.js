@@ -7,12 +7,22 @@ productDataservice.$inject = ['$http', 'experimentDataservice'];
 function productDataservice($http, experimentDataservice){
 	
 	var environment = experimentDataservice.getEnvironment();
+	var randomOrder = [];
 
 	return {
 		getProducts: getProducts,
 		postProduct: postProduct,
-		putProduct: putProduct
+		putProduct: putProduct,
+		setRandomOrder: setRandomOrder
 	};
+
+	function setRandomOrder(){
+		for(var i = 0; i < 8; i++){
+			randomOrder.push(Math.random());
+		}
+		console.log('RandomOrder:');
+		console.log(randomOrder);
+	}
 
 	/**
 	*
@@ -27,6 +37,9 @@ function productDataservice($http, experimentDataservice){
 			.catch(getProductsFailed);
 
 		function getProductsCompleted(response){
+			for(var i = 0; i < response.data.length; i++){
+				console.log(response.data[i].randomValue = randomOrder[i]);
+			}
 			return response.data;
 		}
 

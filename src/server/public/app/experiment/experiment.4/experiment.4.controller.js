@@ -6,7 +6,6 @@ Experiment4Controller.$inject = ['$scope', '$location', '$timeout', '$interval',
 
 function Experiment4Controller($scope, $location, $timeout, $interval, experimentDataservice, userDataservice, productDataservice, questionDataservice, quizDataservice){
     var environment = experimentDataservice.getEnvironment();
-
     getQuestions();
 
 
@@ -19,7 +18,6 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
     *
     */
     $scope.userId = getCurrentUser();
-    // $scope.userId = 'admin';
 
     /**
     *
@@ -243,7 +241,8 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
         $scope.currentQuestionId = questionId;
         console.log($scope.currentQuestionId);
         $scope.currentName = $scope.questions[questionId].name;
-        $scope.currentActionUrl = environment+'/question/'+questionId;
+        $scope.currentActionUrl = environment+'/api/question/'+questionId;
+        // console.log('CurrentActionUrl: '+ $scope.currentActionUrl);
     }
 
     function Question(questionId, name){
@@ -408,7 +407,7 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
         plugins : 'advlist autolink link image lists charmap print preview',
         skin: 'lightgray',
         theme : 'modern',
-            fontsize_formats: 40,
+        fontsize_formats: 40,
         statusbar: false,
         toolbar: "undo redo | bold italic underline | link jbimages | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent  |formatselect",
         relative_urls: false,

@@ -31,7 +31,7 @@ experimentRoute
 */
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/images/experiments');
+    cb(null, '/Users/Jan/Code/eyetracking/src/server/public/images/experiments/');
   },
   filename: function (req, file, cb) {
     cb(null, 'logo' + req.params.experimentId + '.jpg');
@@ -59,7 +59,7 @@ experimentRoute
 */
 var storage1 = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/images/experiments');
+    cb(null, '/Users/Jan/Code/eyetracking/src/server/public/images/experiments');
   },
   filename: function (req, file, cb) {
     cb(null, 'picture' + req.params.experimentId + '.jpg');
