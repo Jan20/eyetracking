@@ -50,8 +50,6 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
     $scope.blockToken = false;
 
     function startDelay(answer) {
-        var delay0 = $scope.quiz.delay0;
-        console.log('final:'+ delay0);
         $scope.blockToken = true;
         $scope.visible = false;
 
@@ -187,12 +185,21 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
     }
     /**************************** Quiz Bereich **************************************/
 
-    
+    function getQuiz(quizId){
+        return quizDataservice.getQuiz(quizId)
+            .then(function(data){
+                console.log('Quiz data');
+                console.log(data);
+                $scope.textRight = data[0].textRight;
+                $scope.textLeft = data[0].textLeft;
+            });
+    }
+    getQuiz(0);
 
-    function Quiz(quizId, delay0, delay1){
+    function Quiz(quizId, textRight, textLeft){
         this.quizId = quizId;
-        this.delay0 = delay0;
-        this.delay1 = delay1;
+        this.textRight = textRight;
+        this.textLeft = textLeft;
     }
 
     function postQuiz(){
@@ -206,7 +213,7 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
     // postQuiz();
 
     function updateQuiz(quizId){
-        var quiz = new Quiz(quizId, $scope.quiz.delay0, $scope.quiz.delay1);
+        var quiz = new Quiz(quizId, $scope.textRight, $scope.textLeft);
 
         return quizDataservice.putQuiz(quizId, quiz)
             .then(function(){
@@ -231,7 +238,7 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
             .then(function(data){
                 $scope.questions = data;
                 $scope.questionCount = $scope.questions.length - 1;
-                $scope.currentQuizQuestion = $scope.questions[0];
+                $scope.currentQuizQuestion = $scope.questions[11];
                 console.log('currentQuizQuestion');
                 console.log($scope.currentQuizQuestion);
             });
@@ -366,6 +373,7 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
                 $( "#buttonActive" ).empty();
                 $( "#buttonActiveAdmin" ).empty();
                 $( "#buttonInactive" ).empty();
+                updateQuiz(0);
                 getExperiment(4);
         });       
     }
@@ -417,14 +425,5 @@ function Experiment4Controller($scope, $location, $timeout, $interval, experimen
         force_p_newlines : false,
     };
 
-    function getQuiz(quizId){
-        return quizDataservice.getQuiz(quizId)
-            .then(function(data){
-                console.log('data:');
-                console.log(data);
-                $scope.quiz = data;
-            });
-    }
-    getQuiz(0);
 
 }    

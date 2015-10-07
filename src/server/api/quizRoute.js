@@ -26,13 +26,13 @@ quizRoute
 *
 */
 function getQuiz(req, res){
-	Quiz.findOne({quizId: req.params.quizId}, function(err, quiz){
+	Quiz.find({quizId: req.params.quizId}, function(err, quiz){
 		if(err)
 			res.send('Bei der Abfrage eines einzelnen Quizzes ist ein Fehler aufgetreten: ' + err);
-		console.log(quiz);
 		res.json(quiz);
 	});
 }
+
 
 /**
 *
@@ -42,8 +42,8 @@ function getQuiz(req, res){
 function postQuiz(req, res){
 	var quiz = new Quiz({
 		quizId: req.body.quizId,
-		delay0: req.body.delay0,
-		delay1: req.body.delay1,
+		textRight: req.body.textRight,
+		textLeft: req.body.textLeft,
 	});
 
 	quiz.save(function(err){
@@ -61,11 +61,11 @@ function postQuiz(req, res){
 function putQuiz(req, res){
 	Quiz.findOne({quizId: req.params.quizId}, function(err, quiz){
 		quiz.quizId = req.body.quizId;
-		quiz.delay0 = req.body.delay0;
-		quiz.delay1 = req.body.delay1;
+		quiz.textRight = req.body.textRight;
+		quiz.textLeft = req.body.textLeft;
 		quiz.save(function(err){
 			if(err){
-				return res.send('Bei dem Update eines Quizzes ist es zu einem Fehler gekommen: ' + err);
+				res.send('Bei dem Update eines Quizzes ist es zu einem Fehler gekommen: ' + err);
 			}
 			res.json({'message': 'Quiz wurde erfolgreich geändert.'});
 		});

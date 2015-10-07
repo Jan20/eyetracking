@@ -8,22 +8,22 @@
         <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-click='startDelay("answer1")' ng-if='timer == 0 && blockToken == false && questionCount >= 0'>
             <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer1 == false'></span>
             <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer1 == true'></span>
-            <h5 class='col-md-12'>Kenne ich namentlich</h5>
+            <h5 class='col-md-12'>{{textLeft}}</h5>
         </div>
         <div class='btn btn-lg btn-default col-md-6' ng-click='startDelay("answer2")' ng-if='timer == 0 && blockToken == false && questionCount >= 0'>
             <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer2 == false'></span>
             <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer2 == true'></span>
-            <h5 class="col-md-12">Kenne ich nicht namentlich</h5>
+            <h5 class="col-md-12">{{textRight}}</h5>
         </div>        
         <div class='btn btn-lg btn-default col-md-6 col-md-offset-2' ng-if='timer == 0 && blockToken == true && questionCount >= 0'>
             <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer1 == false'></span>
             <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer1 == true'></span>
-            <h5 class='col-md-12'>Kenne ich namentlich</h5>
+            <h5 class='col-md-12'>{{textLeft}}</h5>
         </div>
         <div class='btn btn-lg btn-default col-md-6' ng-if='timer == 0 && blockToken == true && questionCount >= 0'>
             <span class='fa fa-square-o col-md-2 col-md-offset-5' ng-if='answer2 == false'></span>
             <span class='fa fa-check-square-o col-md-2 col-md-offset-5' ng-if='answer2 == true'></span>
-            <h5 class="col-md-12">Kenne ich nicht namentlich</h5>
+            <h5 class="col-md-12">{{textRight}}</h5>
         </div>
     </div>
 </div>
@@ -98,6 +98,10 @@
             <div class="modal-body">
                 <h4>Beschreibung</h4>
                 <textarea ui-tinymce='tinymceOptions' ng-model="description" class="form-control input-lg" rows="8" value="" required="required" pattern="" title=""></textarea>
+                <h4>Text der Auswahl links</h4>
+                <input type='text' class="form-control input-lg" value="" required="required" pattern="" title="" ng-model='textLeft'></textarea>                
+                <h4>Text der Auswahl rechts</h4>
+                <input type='text' class="form-control input-lg" value="" required="required" pattern="" title="" ng-model='textRight'></textarea>                
                 <h4>Text des Buttons</h4>
                 <textarea ui-tinymce='tinymceOptions' class="form-control input-lg" value="" required="required" pattern="" title="" ng-model='buttonActive'></textarea>
             </div>

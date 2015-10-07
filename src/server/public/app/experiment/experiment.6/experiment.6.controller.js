@@ -271,7 +271,7 @@ function Experiment6Controller($scope, $location, experimentDataservice, userDat
             	$( "#description" ).empty();
                 $( "#buttonActive" ).empty();
                 $( "#buttonInactive" ).empty();
-                getExperiment(3);
+                getExperiment(6);
         });       
     }
 
